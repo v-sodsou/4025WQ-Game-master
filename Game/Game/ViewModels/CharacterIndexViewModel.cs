@@ -1,5 +1,7 @@
 ﻿using Game.Models;
+using Game.Views;
 using System;
+using Xamarin.Forms;
 
 namespace Game.ViewModels
 {
@@ -44,6 +46,16 @@ namespace Game.ViewModels
         public CharacterIndexViewModel()
         {
             Title = "Characters";
+
+            #region Messages
+
+            // Register the Create Message
+            MessagingCenter.Subscribe<CharacterCreatePage, Character>(this, "Create", async (obj, data) =>
+            {
+                await CreateAsync(data as Character);
+            });
+
+            #endregion Messages
         }
 
         #endregion Constructor
