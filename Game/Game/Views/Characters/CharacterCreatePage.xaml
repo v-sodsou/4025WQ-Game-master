@@ -12,7 +12,7 @@
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Save"  IconImageSource="icon_save.png"/>
+        <ToolbarItem Text="Save"  Clicked="SaveCharacter_Clicked" IconImageSource="icon_save.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>

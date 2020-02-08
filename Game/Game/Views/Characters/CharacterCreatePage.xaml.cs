@@ -30,6 +30,23 @@ namespace Game.Views
 
         }
 
+        /// <summary>
+        /// Save by calling for Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void SaveCharacter_Clicked(object sender, EventArgs e)
+        {
+            // If the image in the data box is empty, use the default one..
+            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            {
+                ViewModel.Data.ImageURI = Services.CharacterService.DefaultImageURI;
+            }
+
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
+            await Navigation.PopModalAsync();
+        }
+
 
         /// <summary>
         /// Cancel the Create
