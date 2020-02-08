@@ -28,7 +28,12 @@ namespace Game.Views
             BindingContext = ViewModel = CharacterIndexViewModel.Instance;
         }
 
-      
+        async void AddCharacter_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<Character>())));
+        }
+
+
         /// <summary>
         /// Refresh the list on page appearing
         /// </summary>
