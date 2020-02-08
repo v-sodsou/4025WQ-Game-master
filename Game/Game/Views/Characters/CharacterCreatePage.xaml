@@ -9,8 +9,12 @@
              xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.CharacterCreatePage"
              Title="{Binding Title}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Save"  IconImageSource="icon_save.png"/>
+    </ContentPage.ToolbarItems>
 
- 
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
