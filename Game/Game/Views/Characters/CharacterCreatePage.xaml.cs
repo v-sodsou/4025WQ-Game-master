@@ -30,9 +30,17 @@ namespace Game.Views
 
         }
 
-  
 
-  
-      
+        /// <summary>
+        /// Cancel the Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+
     }
 }
