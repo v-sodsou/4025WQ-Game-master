@@ -6,6 +6,12 @@
              mc:Ignorable="d"
              x:Class="Game.Views.Characters.CharacterDeletePage">
 
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="CharacterCancel_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Delete" Clicked="CharacterDelete_Clicked" IconImageSource="icon_delete.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"

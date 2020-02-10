@@ -1,5 +1,6 @@
 ﻿using Game.Models;
 using Game.Views;
+using Game.Views.Characters;
 using System;
 using Xamarin.Forms;
 
@@ -53,6 +54,12 @@ namespace Game.ViewModels
             MessagingCenter.Subscribe<CharacterCreatePage, Character>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as Character);
+            });
+
+            // Register the Delete Message
+            MessagingCenter.Subscribe<CharacterDeletePage, Character>(this, "Delete", async (obj, data) =>
+            {
+                await DeleteAsync(data as Character);
             });
 
             #endregion Messages

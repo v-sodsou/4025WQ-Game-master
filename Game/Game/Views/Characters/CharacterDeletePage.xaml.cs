@@ -24,13 +24,13 @@ namespace Game.Views.Characters
             this.viewModel.Title = "Delete " + data.Title;
         }
 
-        async void Delete_Clicked(object sender, EventArgs e)
+        async void CharacterDelete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", viewModel.Data);
             await Navigation.PopModalAsync();
         }
 
-        async void Cancel_Clicked(object sender, EventArgs e)
+        async void CharacterCancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
