@@ -13,5 +13,15 @@ namespace Game.Views.Characters
             InitializeComponent();
             BindingContext = this.ViewModel = data;
         }
+
+        private void EditCharacter_Clicked(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void DeleteCharacter_Clicked(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
