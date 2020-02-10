@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Game.Models;
 using Game.ViewModels;
+using Game.Views.Characters;
 
 namespace Game.Views
 {
@@ -15,6 +16,22 @@ namespace Game.Views
     {
         // The view model, used for data binding
         readonly CharacterIndexViewModel ViewModel;
+
+
+        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            Character data = args.SelectedItem as Character;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Open the Read Page
+            await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<Character>(data)));
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
+        }
 
         /// <summary>
         /// Constructor for  Index Page
