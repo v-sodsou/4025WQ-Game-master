@@ -14,9 +14,10 @@ namespace Game.Views.Characters
             BindingContext = this.ViewModel = data;
         }
 
-        private void EditCharacter_Clicked(object sender, System.EventArgs e)
+        async void EditCharacter_Clicked(object sender, System.EventArgs e)
         {
-
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<Character>(ViewModel.Data))));
+            await Navigation.PopAsync();
         }
 
         async void DeleteCharacter_Clicked(object sender, System.EventArgs e)
