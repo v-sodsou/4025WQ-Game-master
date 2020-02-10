@@ -213,4 +213,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\home_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DarthVader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\starwars_heroes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\yoda.png" />
+  </ItemGroup>
 </Project>

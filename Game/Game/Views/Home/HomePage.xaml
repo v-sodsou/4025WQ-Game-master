@@ -14,11 +14,11 @@
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
-                         Source="knight.png"
+                         Source="yoda.png"
                          Style="{StaticResource ImageLargeStyle}"/>
 
                     <Image
-                         Source="troll.png"
+                         Source="DarthVader.png"
                          Style="{StaticResource ImageLargeStyle}"/>
                 
                 </StackLayout>
@@ -26,14 +26,14 @@
                 <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
                
                     <Label 
-                        Text="In a far away land there was a tribe of warrior elves."
+                        Text="A long time ago in a galaxy far, far away..."
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
                         />
 
                     <Label 
-                        Text="The elves entered the woods to eraticate the monsters that threatened their villages."
+                        Text="The heroes are fighting against the evil empire to restore freedom to the galaxy."
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"

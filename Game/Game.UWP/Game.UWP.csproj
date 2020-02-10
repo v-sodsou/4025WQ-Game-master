@@ -107,6 +107,7 @@
     <Content Include="battleboard.jpg" />
     <Content Include="cauldren.png" />
     <Content Include="d12.png" />
+    <Content Include="DarthVader.png" />
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
     <Content Include="dungeon_door.png" />
@@ -152,6 +153,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="score.png" />
     <Content Include="splashscreen.jpg" />
+    <Content Include="starwars_heroes.jpg" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
@@ -159,6 +161,7 @@
     <Content Include="add.png" />
     <Content Include="save.png" />
     <Content Include="cancel.png" />
+    <Content Include="yoda.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
