@@ -37,7 +37,6 @@ namespace Game.Views.Characters
 
         protected override bool OnBackButtonPressed()
         {
-            // Add your code here...
             return true;
         }
     }

@@ -19,9 +19,10 @@ namespace Game.Views.Characters
 
         }
 
-        private void DeleteCharacter_Clicked(object sender, System.EventArgs e)
+        async void DeleteCharacter_Clicked(object sender, System.EventArgs e)
         {
-
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<Character>(ViewModel.Data))));
+            await Navigation.PopAsync();
         }
     }
 }
