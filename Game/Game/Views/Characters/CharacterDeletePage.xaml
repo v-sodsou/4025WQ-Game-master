@@ -12,11 +12,23 @@
         <ToolbarItem Text="Delete" Clicked="CharacterDelete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout 
+            HorizontalOptions="Center" 
+            Padding="20">
+
+            <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
+
+            <Button 
+                Text="Yes" 
+                Clicked="CharacterDelete_Clicked" 
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                BorderWidth="1" 
+                BorderColor="black">
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
