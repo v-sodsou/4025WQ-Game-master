@@ -1,5 +1,6 @@
 ﻿using Game.Models;
 using Game.ViewModels;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -21,6 +22,23 @@ namespace Game.Views.Characters
             BindingContext = this.viewModel = data;
 
             this.viewModel.Title = "Delete " + data.Title;
+        }
+
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "Delete", viewModel.Data);
+            await Navigation.PopModalAsync();
+        }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            // Add your code here...
+            return true;
         }
     }
 }
