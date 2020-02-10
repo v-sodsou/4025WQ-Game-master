@@ -4,11 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.Characters.CharacterReadPage">
+             x:Class="Game.Views.Characters.CharacterReadPage"
+             Title="Character Details">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Name}"/>
-            <Label Text="{Binding Description}"/>
+            <Label Text="{Binding Data.Name}"/>
+            <Label Text="{Binding Data.Description}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
