@@ -23,11 +23,11 @@
                 -->
 
             <Color x:Key="PageBackgroundColor">#b6c779</Color>
-            <Color x:Key="ViewBackgroundColor">#BF895A</Color>
+            <Color x:Key="ViewBackgroundColor">#D7C078</Color>
             <Color x:Key="NavigationBarColor">#D9C6B0</Color>
 
             <Color x:Key="PrimaryBackgroundColor">#D9C6B0</Color>
-            <Color x:Key="SecondaryBackgroundColor">#BF895A</Color>
+            <Color x:Key="SecondaryBackgroundColor">#D7C078</Color>
             <Color x:Key="TriciaryBackgroundColor">#733612</Color>
             <Color x:Key="LightBackgroundColor">Bisque</Color>
 
