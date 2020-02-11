@@ -12,12 +12,4 @@
         <ToolbarItem Text="Update" Clicked="EditCharacter_Clicked" IconImageSource="icon_edit.png"/>
         <ToolbarItem Text="Delete"  Clicked="DeleteCharacter_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
-    
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Data.Name}"/>
-            <Label Text="{Binding Data.Description}"/>
-        </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

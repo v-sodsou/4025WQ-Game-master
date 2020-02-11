@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.Characters.CharacterDeletePage">
+             x:Class="Game.Views.Characters.CharacterDeletePage"
+             Title="Delete Character">
 
 
     <ContentPage.ToolbarItems>
@@ -12,17 +13,21 @@
         <ToolbarItem Text="Delete" Clicked="CharacterDelete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
-
-
     <ContentPage.Content>
         <StackLayout 
-            HorizontalOptions="Center" 
-            Padding="20">
-
-            <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
-
+            HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Do you Really Want to Delete"/>
+                <Label Text="{Binding Data.Name}"/>
+                <Label Text="?"/>
+            </StackLayout>
+            <Image
+                Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                Source="{Binding Data.ImageURI}"
+                Style="{StaticResource ImageLargeStyle}"
+                VerticalOptions="CenterAndExpand"/>
             <Button 
-                Text="Yes" 
+                Text="Delete" 
                 Clicked="CharacterDelete_Clicked" 
                 HorizontalOptions="Center"
                 FontSize="Medium"
