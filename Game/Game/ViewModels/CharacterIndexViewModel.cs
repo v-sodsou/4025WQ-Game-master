@@ -1,7 +1,9 @@
 ﻿using Game.Models;
+using Game.Services;
 using Game.Views;
 using Game.Views.Characters;
 using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace Game.ViewModels
@@ -63,6 +65,11 @@ namespace Game.ViewModels
             });
 
             #endregion Messages
+        }
+
+        public override List<Character> GetDefaultData()
+        {
+            return DefaultData.LoadData(new Character());
         }
 
         #endregion Constructor
