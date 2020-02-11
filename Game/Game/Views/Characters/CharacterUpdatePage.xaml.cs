@@ -66,5 +66,10 @@ namespace Game.Views.Characters
             ValueSpeed.Text = string.Format("{0}", e.NewValue);
         }
 
+        void OnToggled(object sender, ToggledEventArgs e)
+        {
+            this.ViewModel.Data.HasForce = e.Value;
+        }
+
     }
 }

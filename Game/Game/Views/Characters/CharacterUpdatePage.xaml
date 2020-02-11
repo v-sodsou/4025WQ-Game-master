@@ -90,7 +90,9 @@
                     <Label x:Name = "ValueSpeed" Text = "{Binding Data.Value}"
 		                    FontSize = "Medium"/>
                 </StackLayout   >
-
+                
+                <Label Text="Force"  Grid.Row="3" Grid.Column="0"></Label>
+                <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1"/>
             </StackLayout>
             
             
