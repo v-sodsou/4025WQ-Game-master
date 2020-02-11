@@ -16,24 +16,26 @@
     <ContentPage.Content>
         <StackLayout 
             HorizontalOptions="Center">
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Padding="0, 20, 0, 0" Orientation="Horizontal">
                 <Label Text="Do you Really Want to Delete"/>
                 <Label Text="{Binding Data.Name}"/>
                 <Label Text="?"/>
             </StackLayout>
-            <Image
-                Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                Source="{Binding Data.ImageURI}"
-                Style="{StaticResource ImageLargeStyle}"
-                VerticalOptions="CenterAndExpand"/>
-            <Button 
-                Text="Delete" 
-                Clicked="CharacterDelete_Clicked" 
-                HorizontalOptions="Center"
-                FontSize="Medium"
-                BorderWidth="1" 
-                BorderColor="black">
-            </Button>
+            <StackLayout Padding="0, 50, 0, 0" Orientation="Horizontal">
+                <Image  WidthRequest="300" HeightRequest="300"
+                    Source="{Binding Data.ImageURI}"
+                    HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout Padding="0, 50, 0, 0" HorizontalOptions="Center" Orientation="Horizontal">
+                <Button 
+                    Text="Delete" 
+                    Clicked="CharacterDelete_Clicked" 
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1" 
+                    BorderColor="black">
+                </Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
