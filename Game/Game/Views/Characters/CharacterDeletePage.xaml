@@ -7,8 +7,13 @@
              x:Class="Game.Views.Characters.CharacterDeletePage"
              Title="Delete Character">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="CharacterCancel_Clicked" IconImageSource="icon_cancel.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout 
+        <ScrollView HorizontalOptions="Center">
+            <StackLayout 
             HorizontalOptions="Center">
             <StackLayout Padding="0, 20, 0, 0" Orientation="Horizontal">
                 <Label Text="Do you Really Want to Delete"/>
@@ -16,7 +21,7 @@
                 <Label Text="?"/>
             </StackLayout>
             <StackLayout Padding="0, 50, 0, 0" Orientation="Horizontal">
-                <Image  WidthRequest="300" HeightRequest="300"
+                <Image  WidthRequest="100" HeightRequest="100"
                     Source="{Binding Data.ImageURI}"
                     HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
@@ -31,5 +36,6 @@
                 </Button>
             </StackLayout>
         </StackLayout>
+      </ScrollView>
     </ContentPage.Content>
 </ContentPage>
