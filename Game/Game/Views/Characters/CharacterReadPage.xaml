@@ -29,32 +29,32 @@
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Level"/>
-                    <Label Text="Bla Bla Bla"/>
+                    <Label Text="2"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Experience"/>
-                    <Label Text="Bla Bla Bla"/>
+                    <Label Text="3"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Health"/>
-                    <Label Text="Bla Bla Bla"/>
+                    <Label Text="4"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Attack"/>
-                    <Label Text="Bla Bla Bla"/>
+                    <Label Text="3"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Defense"/>
-                    <Label Text="Bla Bla Bla"/>
+                    <Label Text="5"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Speed"/>
-                    <Label Text="Bla Bla Bla"/>
+                    <Label Text="1"/>
                 </StackLayout>
 
                 <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
