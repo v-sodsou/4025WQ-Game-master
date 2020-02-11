@@ -8,12 +8,15 @@ namespace Game.Models
         public Character()
         {
             ImageURI = CharacterService.DefaultImageURI;
+            HasForce = false;
         }
 
         public Character(Character data)
         {
             Update(data);
         }
+
+        public bool HasForce { get; set; }
 
         public override void Update(Character newData)
         {
@@ -28,6 +31,7 @@ namespace Game.Models
             Name = newData.Name;
             Description = newData.Description;
             ImageURI = newData.ImageURI;
+            HasForce = newData.HasForce;
         }
     }
 }
