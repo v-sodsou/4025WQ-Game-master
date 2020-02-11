@@ -56,5 +56,10 @@ namespace Game.Views.Characters
             ValueAttack.Text = string.Format("{0}", e.NewValue);
         }
 
+        void ValueStepperDefense(object sender, ValueChangedEventArgs e)
+        {
+            ValueDefense.Text = string.Format("{0}", e.NewValue);
+        }
+
     }
 }

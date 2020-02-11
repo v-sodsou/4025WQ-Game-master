@@ -67,7 +67,17 @@
                           Increment="1"/>
                     <Label x:Name = "ValueAttack" Text = "{Binding Data.Value}"
 		                    FontSize = "Medium"/>
+                </StackLayout   >
 
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Defense"></Label>
+                    <Stepper Value = "{Binding Data.Value, Mode=TwoWay}"
+                          Minimum="0"
+                          Maximum="10"
+                          ValueChanged = "ValueStepperDefense"
+                          Increment="1"/>
+                    <Label x:Name = "ValueDefense" Text = "{Binding Data.Value}"
+		                    FontSize = "Medium"/>
                 </StackLayout   >
 
             </StackLayout>
