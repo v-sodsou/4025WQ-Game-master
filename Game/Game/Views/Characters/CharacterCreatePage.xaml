@@ -10,11 +10,7 @@
              x:Class="Game.Views.CharacterCreatePage"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Save"  Clicked="SaveCharacter_Clicked" IconImageSource="icon_save.png"/>
-    </ContentPage.ToolbarItems>
-
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
