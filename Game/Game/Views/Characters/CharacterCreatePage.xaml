@@ -58,6 +58,10 @@
                     <Entry Grid.Row="2" Grid.Column="1"
                         Text="{Binding Data.ImageURI}" 
                         Style="{StaticResource EntryStyle}"/>
+
+                    <Label Text="Force"  Grid.Row="3" Grid.Column="0"></Label>
+                    <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1"/>
+               
                 </Grid>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Button 

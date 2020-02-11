@@ -47,6 +47,11 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        void OnToggled(object sender, ToggledEventArgs e)
+        {
+            this.ViewModel.Data.HasForce = e.Value;
+        }
+
 
         /// <summary>
         /// Cancel the Create
