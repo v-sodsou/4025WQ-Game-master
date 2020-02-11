@@ -5,10 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.Characters.CharacterUpdatePage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
-    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
 
         <ScrollView>
@@ -61,7 +58,7 @@
                 <Grid
                     RowSpacing="1"
                     ColumnSpacing="1"
-                    VerticalOptions="Center">
+                    VerticalOptions="Start">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -108,6 +105,26 @@
 
                 <Label Text="Force" />
                 <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button 
+                       Text="Save" 
+                       Clicked="Save_Clicked"
+                       FontSize="Medium"
+                       BorderWidth="1" 
+                       BorderColor="black">
+                    </Button>
+
+                    <Button 
+                       Text="Cancel" 
+                       Clicked="Cancel_Clicked"
+                       FontSize="Medium"
+                       BorderWidth="1" 
+                       BorderColor="black">
+                    </Button>
+
+                </StackLayout>
+
             </StackLayout>
             
             
