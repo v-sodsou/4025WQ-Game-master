@@ -17,55 +17,59 @@
        
         <StackLayout HorizontalOptions="Center">
             <Image
-                Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                WidthRequest="300" HeightRequest="300"
                 Source="{Binding Data.ImageURI}"
-                Style="{StaticResource ImageMediumStyle}"
-                VerticalOptions="CenterAndExpand"/>
-            <StackLayout Orientation="Horizontal">
+                HorizontalOptions="CenterAndExpand"/>
+
+            <StackLayout HorizontalOptions="Start" Padding="0, 20, 0, 0" Orientation="Horizontal">
                 <Label Text="Name"/>
                 <Label Text="{Binding Data.Name}"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                 <Label Text="Description"/>
                 <Label Text="{Binding Data.Description}"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                 <Label Text="Level"/>
                 <Label Text="Bla Bla Bla"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                 <Label Text="Experience"/>
                 <Label Text="Bla Bla Bla"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                 <Label Text="Health"/>
                 <Label Text="Bla Bla Bla"/>
             </StackLayout>
-            
-            <StackLayout Orientation="Horizontal">
+
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                 <Label Text="Attack"/>
                 <Label Text="Bla Bla Bla"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                 <Label Text="Defense"/>
                 <Label Text="Bla Bla Bla"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                 <Label Text="Speed"/>
                 <Label Text="Bla Bla Bla"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Button
+            <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="Center" Orientation="Horizontal">
+                <Button FontSize="Medium"
+                        BorderWidth="1" 
+                        BorderColor="black"
                         Clicked="EditCharacter_Clicked"
                         Text="Update" />
-                <Button
+                <Button FontSize="Medium"
+                        BorderWidth="1" 
+                        BorderColor="black"
                         Clicked="DeleteCharacter_Clicked"
                         Text="Delete" />
             </StackLayout>
