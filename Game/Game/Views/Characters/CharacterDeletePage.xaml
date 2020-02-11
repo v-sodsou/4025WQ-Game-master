@@ -15,11 +15,9 @@
         <ScrollView HorizontalOptions="Center">
             <StackLayout 
             HorizontalOptions="Center">
-            <StackLayout Padding="0, 20, 0, 0" Orientation="Horizontal">
-                <Label Text="Do you Really Want to Delete"/>
-                <Label Text="{Binding Data.Name}"/>
-                <Label Text="?"/>
-            </StackLayout>
+                <StackLayout Padding="0, 20, 0, 0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Do you Really Want to Delete ?"/>
+                </StackLayout>
             <StackLayout Padding="0, 50, 0, 0" Orientation="Horizontal">
                 <Image  WidthRequest="100" HeightRequest="100"
                     Source="{Binding Data.ImageURI}"
