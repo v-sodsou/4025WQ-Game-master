@@ -80,6 +80,17 @@
 		                    FontSize = "Medium"/>
                 </StackLayout   >
 
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Speed"></Label>
+                    <Stepper Value = "{Binding Data.Value, Mode=TwoWay}"
+                          Minimum="0"
+                          Maximum="10"
+                          ValueChanged = "ValueStepperSpeed"
+                          Increment="1"/>
+                    <Label x:Name = "ValueSpeed" Text = "{Binding Data.Value}"
+		                    FontSize = "Medium"/>
+                </StackLayout   >
+
             </StackLayout>
             
             

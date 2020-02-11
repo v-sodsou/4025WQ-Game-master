@@ -61,5 +61,10 @@ namespace Game.Views.Characters
             ValueDefense.Text = string.Format("{0}", e.NewValue);
         }
 
+        void ValueStepperSpeed(object sender, ValueChangedEventArgs e)
+        {
+            ValueSpeed.Text = string.Format("{0}", e.NewValue);
+        }
+
     }
 }
