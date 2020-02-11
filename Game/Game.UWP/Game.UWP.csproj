@@ -154,9 +154,12 @@
     <Content Include="score.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="starwars_heroes.jpg" />
+    <Content Include="star_wars_village.png" />
     <Content Include="troll.png" />
+    <Content Include="trooper.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
+    <Content Include="watto.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />

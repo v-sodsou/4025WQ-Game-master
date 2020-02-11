@@ -222,4 +222,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\yoda.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star_wars_village.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\trooper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\watto.png" />
+  </ItemGroup>
 </Project>
