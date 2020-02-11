@@ -9,7 +9,7 @@
              xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.CharacterCreatePage"
              Title="{Binding Title}">
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Save"  Clicked="SaveCharacter_Clicked" IconImageSource="icon_save.png"/>
@@ -62,9 +62,25 @@
                     <Entry Grid.Row="2" Grid.Column="1"
                         Text="{Binding Data.ImageURI}" 
                         Style="{StaticResource EntryStyle}"/>
-
                 </Grid>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button 
+                       Text="Save" 
+                       Clicked="SaveCharacter_Clicked"
+                       FontSize="Medium"
+                       BorderWidth="1" 
+                       BorderColor="black">
+                    </Button>
 
+                    <Button 
+                       Text="Cancel" 
+                       Clicked="Cancel_Clicked"
+                       FontSize="Medium"
+                       BorderWidth="1" 
+                       BorderColor="black">
+                    </Button>
+                    
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
