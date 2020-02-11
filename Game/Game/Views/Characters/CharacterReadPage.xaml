@@ -7,73 +7,70 @@
              x:Class="Game.Views.Characters.CharacterReadPage"
              Title="Character Details">
 
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update" Clicked="EditCharacter_Clicked" IconImageSource="icon_edit.png"/>
-        <ToolbarItem Text="Delete"  Clicked="DeleteCharacter_Clicked" IconImageSource="icon_delete.png"/>
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
-       
-        <StackLayout HorizontalOptions="Center">
-            <Image
-                WidthRequest="300" HeightRequest="300"
-                Source="{Binding Data.ImageURI}"
-                HorizontalOptions="CenterAndExpand"/>
+        <ScrollView HorizontalOptions="Center">
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+                         Spacing="10"
+                         HorizontalOptions="CenterAndExpand">
+                <Image
+                    WidthRequest="100" HeightRequest="100"
+                    Source="{Binding Data.ImageURI}"
+                    HorizontalOptions="CenterAndExpand"/>
 
-            <StackLayout HorizontalOptions="Start" Padding="0, 20, 0, 0" Orientation="Horizontal">
-                <Label Text="Name"/>
-                <Label Text="{Binding Data.Name}"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Padding="0, 20, 0, 0" Orientation="Horizontal">
+                    <Label Text="Name"/>
+                    <Label Text="{Binding Data.Name}"/>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                <Label Text="Description"/>
-                <Label Text="{Binding Data.Description}"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Description"/>
+                    <Label Text="{Binding Data.Description}"/>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                <Label Text="Level"/>
-                <Label Text="Bla Bla Bla"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Level"/>
+                    <Label Text="Bla Bla Bla"/>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                <Label Text="Experience"/>
-                <Label Text="Bla Bla Bla"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Experience"/>
+                    <Label Text="Bla Bla Bla"/>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                <Label Text="Health"/>
-                <Label Text="Bla Bla Bla"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Health"/>
+                    <Label Text="Bla Bla Bla"/>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                <Label Text="Attack"/>
-                <Label Text="Bla Bla Bla"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Attack"/>
+                    <Label Text="Bla Bla Bla"/>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                <Label Text="Defense"/>
-                <Label Text="Bla Bla Bla"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Defense"/>
+                    <Label Text="Bla Bla Bla"/>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                <Label Text="Speed"/>
-                <Label Text="Bla Bla Bla"/>
-            </StackLayout>
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Speed"/>
+                    <Label Text="Bla Bla Bla"/>
+                </StackLayout>
 
-            <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="Center" Orientation="Horizontal">
-                <Button FontSize="Medium"
-                        BorderWidth="1" 
-                        BorderColor="black"
-                        Clicked="EditCharacter_Clicked"
-                        Text="Update" />
-                <Button FontSize="Medium"
-                        BorderWidth="1" 
-                        BorderColor="black"
-                        Clicked="DeleteCharacter_Clicked"
-                        Text="Delete" />
+                <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button FontSize="Medium"
+                            BorderWidth="1" 
+                            BorderColor="black"
+                            Clicked="EditCharacter_Clicked"
+                            Text="Update" />
+                    <Button FontSize="Medium"
+                            BorderWidth="1" 
+                            BorderColor="black"
+                            Clicked="DeleteCharacter_Clicked"
+                            Text="Delete" />
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 
 </ContentPage>
