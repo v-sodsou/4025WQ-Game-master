@@ -15,6 +15,11 @@
             <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
 
+                <Image
+                    WidthRequest="100" HeightRequest="100"
+                    Source="{Binding Data.ImageURI}"
+                    HorizontalOptions="CenterAndExpand"/>
+                
                 <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
@@ -53,7 +58,21 @@
 
                 </Grid>
 
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Attack"></Label>
+                    <Stepper Value = "{Binding Data.Value, Mode=TwoWay}"
+                          Minimum="0"
+                          Maximum="10"
+                          ValueChanged = "ValueStepperAttack"
+                          Increment="1"/>
+                    <Label x:Name = "ValueAttack" Text = "{Binding Data.Value}"
+		                    FontSize = "Medium"/>
+
+                </StackLayout   >
+
             </StackLayout>
+            
+            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
