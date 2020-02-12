@@ -23,13 +23,13 @@ namespace Game.Views.Monsters
 
         async void EditMonster_Clicked(object sender, System.EventArgs e)
         {
-            // await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
 
         async void DeleteMonster_Clicked(object sender, System.EventArgs e)
         {
-            // await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
 

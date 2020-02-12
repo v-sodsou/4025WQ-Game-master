@@ -14,7 +14,7 @@ namespace Game.Views.Characters
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
-        // View Model for Item
+        // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
 
         public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
@@ -24,6 +24,11 @@ namespace Game.Views.Characters
             BindingContext = this.ViewModel = data;
         }
 
+        /// <summary>
+        /// Save Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Update", ViewModel.Data);
