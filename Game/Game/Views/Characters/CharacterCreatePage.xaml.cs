@@ -47,6 +47,12 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+
+        /// <summary>
+        /// Toggle HasForce attribute of the character
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnToggled(object sender, ToggledEventArgs e)
         {
             this.ViewModel.Data.HasForce = e.Value;
