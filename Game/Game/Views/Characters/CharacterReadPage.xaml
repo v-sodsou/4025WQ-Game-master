@@ -57,6 +57,11 @@
                     <Label Text="1"/>
                 </StackLayout>
 
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Force"/>
+                    <Label Text="{Binding Data.HasForce}"/>
+                </StackLayout>
+
                 <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button FontSize="Medium"
                             BorderWidth="1" 
