@@ -77,14 +77,13 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+                        <Entry 
+                            Text="{Binding Data.ImageURI}" 
+                            Style="{StaticResource EntryStyle}"/>
 
                         <Image 
                             Source="{Binding Data.ImageURI}"
                             Style="{StaticResource ImageSmallStyle}"/>
-
-                        <Entry 
-                            Text="{Binding Data.ImageURI}" 
-                            Style="{StaticResource EntryStyle}"/>
 
                     </StackLayout>
                 </Grid>
