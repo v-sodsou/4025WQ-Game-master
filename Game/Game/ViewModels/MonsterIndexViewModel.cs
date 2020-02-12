@@ -50,7 +50,13 @@ namespace Game.ViewModels
         {
             Title = "Monsters";
 
-         
+            // Register the Create Message
+            MessagingCenter.Subscribe<MonsterCreatePage, Monster>(this, "Create", async (obj, data) =>
+            {
+                await CreateAsync(data as Monster);
+            });
+
+
         }
 
         #endregion Constructor
