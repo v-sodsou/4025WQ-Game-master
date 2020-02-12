@@ -16,14 +16,18 @@
             <StackLayout 
             HorizontalOptions="Center">
                 <StackLayout Padding="0, 20, 0, 0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Label Text="Do you Really Want to Delete ?"/>
+                    <Label Text="Do you Really Want to Delete this character?"/>
                 </StackLayout>
             <StackLayout Padding="0, 50, 0, 0" Orientation="Horizontal">
                 <Image  WidthRequest="100" HeightRequest="100"
                     Source="{Binding Data.ImageURI}"
                     HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
-            <StackLayout Padding="0, 50, 0, 0" HorizontalOptions="Center" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="{Binding Data.Name}"/>
+                </StackLayout>    
+                
+                <StackLayout Padding="0, 50, 0, 0" HorizontalOptions="Center" Orientation="Horizontal">
                 <Button 
                     Text="Delete" 
                     Clicked="CharacterDelete_Clicked" 

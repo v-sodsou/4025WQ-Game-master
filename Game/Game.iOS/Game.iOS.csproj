@@ -231,4 +231,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\watto.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chewbacca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\finn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\luke.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\obiwan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rey.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tano.jpg" />
+  </ItemGroup>
 </Project>

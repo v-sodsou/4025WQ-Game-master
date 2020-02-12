@@ -50,5 +50,26 @@ namespace Game.Views.Characters
         {
             return true;
         }
+
+        void ValueStepperAttack(object sender, ValueChangedEventArgs e)
+        {
+            ValueAttack.Text = string.Format("{0}", e.NewValue);
+        }
+
+        void ValueStepperDefense(object sender, ValueChangedEventArgs e)
+        {
+            ValueDefense.Text = string.Format("{0}", e.NewValue);
+        }
+
+        void ValueStepperSpeed(object sender, ValueChangedEventArgs e)
+        {
+            ValueSpeed.Text = string.Format("{0}", e.NewValue);
+        }
+
+        void OnToggled(object sender, ToggledEventArgs e)
+        {
+            this.ViewModel.Data.HasForce = e.Value;
+        }
+
     }
 }
