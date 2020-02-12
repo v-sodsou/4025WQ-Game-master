@@ -45,6 +45,11 @@ namespace Game.Views
             BindingContext = ViewModel = CharacterIndexViewModel.Instance;
         }
 
+        /// <summary>
+        /// Call to Add a new record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
