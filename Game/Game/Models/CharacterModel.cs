@@ -3,22 +3,22 @@
 namespace Game.Models
 {
    
-    public class Character : BaseModel<Character>
+    public class CharacterModel : BaseModel<CharacterModel>
     {
-        public Character()
+        public CharacterModel()
         {
             ImageURI = CharacterService.DefaultImageURI;
             HasForce = false;
         }
 
-        public Character(Character data)
+        public CharacterModel(CharacterModel data)
         {
             Update(data);
         }
 
         public bool HasForce { get; set; }
 
-        public override void Update(Character newData)
+        public override void Update(CharacterModel newData)
         {
             if (newData == null)
             {

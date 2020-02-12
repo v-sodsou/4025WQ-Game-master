@@ -15,9 +15,9 @@ namespace Game.Views.Characters
     public partial class CharacterUpdatePage : ContentPage
     {
         // View Model for Item
-        readonly GenericViewModel<Character> ViewModel;
+        readonly GenericViewModel<CharacterModel> ViewModel;
 
-        public CharacterUpdatePage(GenericViewModel<Character> data)
+        public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
 

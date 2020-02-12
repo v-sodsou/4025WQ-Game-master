@@ -105,41 +105,41 @@ namespace Game.Services
             return datalist;
         }
 
-        public static List<Character> LoadData(Character temp)
+        public static List<CharacterModel> LoadData(CharacterModel temp)
         {
-            var datalist = new List<Character>()
+            var datalist = new List<CharacterModel>()
             {
-                new Character {
+                new CharacterModel {
                     Name = "Princess Leia",
                     Description = "Member of the Imperial Senate",
                     ImageURI = "rey.jpg"
                 },
 
-                new Character {
+                new CharacterModel {
                     Name = "Luke",
                     Description = "An incredible Jedi",
                     ImageURI = "luke.jpg"
                 },
 
-                new Character {
+                new CharacterModel {
                     Name = "Finn",
                     Description = "Force sensitive stormtrooper",
                     ImageURI = "finn.jpg"
                 },
 
-                new Character {
+                new CharacterModel {
                     Name = "Ahsoka Tano",
                     Description = "A Togruta Jedi Padawan",
                     ImageURI = "tano.jpg"
                 },
 
-                new Character {
+                new CharacterModel {
                     Name = "Chewbacca",
                     Description = "A tall, hirsute, and intelligent species",
                     ImageURI = "chewbacca.jpg"
                 },
 
-                new Character {
+                new CharacterModel {
                     Name = "Obi-Wan Kenobi",
                     Description = "A legendary Jedi Master",
                     ImageURI = "obiwan.png"

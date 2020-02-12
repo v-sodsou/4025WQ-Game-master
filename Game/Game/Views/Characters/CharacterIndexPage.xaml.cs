@@ -20,14 +20,14 @@ namespace Game.Views
 
         async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            Character data = args.SelectedItem as Character;
+            CharacterModel data = args.SelectedItem as CharacterModel;
             if (data == null)
             {
                 return;
             }
 
             // Open the Read Page
-            await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<Character>(data)));
+            await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<CharacterModel>(data)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
@@ -47,7 +47,7 @@ namespace Game.Views
 
         async void AddCharacter_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<Character>())));
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
         }
 
 

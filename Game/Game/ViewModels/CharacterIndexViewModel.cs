@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Game.ViewModels
 {
-    public class CharacterIndexViewModel : BaseViewModel<Character>
+    public class CharacterIndexViewModel : BaseViewModel<CharacterModel>
     {
         #region Singleton
 
@@ -53,23 +53,23 @@ namespace Game.ViewModels
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<CharacterCreatePage, Character>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
             {
-                await CreateAsync(data as Character);
+                await CreateAsync(data as CharacterModel);
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<CharacterDeletePage, Character>(this, "Delete", async (obj, data) =>
+            MessagingCenter.Subscribe<CharacterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
             {
-                await DeleteAsync(data as Character);
+                await DeleteAsync(data as CharacterModel);
             });
 
             #endregion Messages
         }
 
-        public override List<Character> GetDefaultData()
+        public override List<CharacterModel> GetDefaultData()
         {
-            return DefaultData.LoadData(new Character());
+            return DefaultData.LoadData(new CharacterModel());
         }
 
         #endregion Constructor

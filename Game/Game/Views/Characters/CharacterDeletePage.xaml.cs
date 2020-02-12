@@ -9,13 +9,13 @@ namespace Game.Views.Characters
     [DesignTimeVisible(false)]
     public partial class CharacterDeletePage : ContentPage
     {
-        readonly GenericViewModel<Character> viewModel;
+        readonly GenericViewModel<CharacterModel> viewModel;
         public CharacterDeletePage()
         {
             InitializeComponent();
         }
 
-        public CharacterDeletePage(GenericViewModel<Character> data)
+        public CharacterDeletePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
 
