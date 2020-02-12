@@ -60,7 +60,7 @@
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Text="Force"  Grid.Row="3" Grid.Column="0"></Label>
-                    <Switch x:Name="Force"  Grid.Row="3" Grid.Column="1"/>
+                    <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1"/>
                
                 </Grid>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

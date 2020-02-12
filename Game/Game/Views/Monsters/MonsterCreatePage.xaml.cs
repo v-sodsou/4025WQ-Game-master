@@ -30,7 +30,10 @@ namespace Game.Views
 
         }
 
-       
+        void OnToggled(object sender, ToggledEventArgs e)
+        {
+            this.ViewModel.Data.HasForce = e.Value;
+        }
 
 
     }
