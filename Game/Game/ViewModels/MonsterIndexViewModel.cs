@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Game.ViewModels
 {
-    public class MonsterIndexViewModel : BaseViewModel<Monster>
+    public class MonsterIndexViewModel : BaseViewModel<MonsterModel>
     {
         #region Singleton
 
@@ -51,9 +51,9 @@ namespace Game.ViewModels
             Title = "Monsters";
 
             // Register the Create Message
-            MessagingCenter.Subscribe<MonsterCreatePage, Monster>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<MonsterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
             {
-                await CreateAsync(data as Monster);
+                await CreateAsync(data as MonsterModel);
             });
 
 
@@ -61,9 +61,9 @@ namespace Game.ViewModels
 
         #endregion Constructor
 
-        public override List<Monster> GetDefaultData()
+        public override List<MonsterModel> GetDefaultData()
         {
-            return DefaultData.LoadData(new Monster());
+            return DefaultData.LoadData(new MonsterModel());
         }
     }
 

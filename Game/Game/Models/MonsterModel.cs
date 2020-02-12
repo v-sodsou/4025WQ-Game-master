@@ -3,22 +3,22 @@
 namespace Game.Models
 {
    
-    public class Monster : BaseModel<Monster>
+    public class MonsterModel : BaseModel<MonsterModel>
     {
-        public Monster()
+        public MonsterModel()
         {
             ImageURI = MonsterService.DefaultImageURI;
             HasForce = false;
         }
 
-        public Monster(Monster data)
+        public MonsterModel(MonsterModel data)
         {
             Update(data);
         }
 
         public bool HasForce { get; set; }
 
-        public override void Update(Monster newData)
+        public override void Update(MonsterModel newData)
         {
             if (newData == null)
             {

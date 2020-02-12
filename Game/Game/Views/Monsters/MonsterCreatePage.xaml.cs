@@ -13,16 +13,16 @@ namespace Game.Views
     public partial class MonsterCreatePage : ContentPage
     {
         // The character to create
-        GenericViewModel<Monster> ViewModel { get; set; }
+        GenericViewModel<MonsterModel> ViewModel { get; set; }
 
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
-        public MonsterCreatePage(GenericViewModel<Monster> data)
+        public MonsterCreatePage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();
 
-            data.Data = new Monster();
+            data.Data = new MonsterModel();
 
             BindingContext = this.ViewModel = data;
 

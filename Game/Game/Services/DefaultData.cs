@@ -149,41 +149,41 @@ namespace Game.Services
             return datalist;
         }
 
-        public static List<Monster> LoadData(Monster temp)
+        public static List<MonsterModel> LoadData(MonsterModel temp)
         {
-            var datalist = new List<Monster>()
+            var datalist = new List<MonsterModel>()
             {
-                new Monster {
+                new MonsterModel {
                     Name = "Darth Vader",
                     Description = "A Sith Lord",
                     ImageURI = "https://asset.swarovski.com/images/$size_500/t_swa101/t_swa103/b_rgb:fafafa%2Cc_scale%2Cdpr_auto%2Cf_auto%2Cw_auto/5379499_png/star-wars---darth-vader-swarovski-5379499.png"
                 },
 
-                new Monster {
+                new MonsterModel {
                     Name = "Palpatine",
                     Description = "Dark architect of the Galactic Empire",
                     ImageURI = "https://vignette.wikia.nocookie.net/legostarwars/images/3/3a/Palpatine-2010.jpg/revision/latest?cb=20130508042046"
                 },
 
-                new Monster {
+                new MonsterModel {
                     Name = "Darth Maul",
                     Description = "A dangerous combatant",
                     ImageURI = "https://cdn11.bigcommerce.com/s-0kvv9/images/stencil/1280x1280/products/267953/373898/legomaulsilverneckclasp__32262.1533582731.jpg?c=2&imbypass=on"
                 },
 
-                new Monster {
+                new MonsterModel {
                     Name = "Count Dooku",
                     Description = "Possesses a brilliance and charisma",
                     ImageURI = "https://vignette.wikia.nocookie.net/lego/images/b/b6/COUNT_DOOKU.jpg/revision/latest/scale-to-width-down/340?cb=20121209122119"
                 },
 
-                new Monster {
+                new MonsterModel {
                     Name = "Asajj Ventress",
                     Description = "Slave, Nightsister, Jedi apprentice",
                     ImageURI = "https://i5.walmartimages.com/asr/ac68cc88-27f4-45d5-8c2e-80c1bca1eaea_1.1b21820c39305147ce46939cac56a37b.jpeg?odnWidth=450&odnHeight=450&odnBg=ffffff"
                 },
 
-                new Monster {
+                new MonsterModel {
                     Name = "Kylo Ren",
                     Description = "The leader of the mysterious Knights of Ren",
                     ImageURI = "https://i5.walmartimages.com/asr/c04b2f2d-8c50-4389-9171-6c4430168b0f_1.355f2607f02a8a7138583db341ddfd5a.jpeg?odnWidth=450&odnHeight=450&odnBg=ffffff"
