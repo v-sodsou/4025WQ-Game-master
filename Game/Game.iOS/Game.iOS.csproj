@@ -249,4 +249,25 @@
   <ItemGroup>
     <BundleResource Include="Resources\tano.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\black_blaster.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lightblue_lightsaber.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\personal_shield.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\power_shield.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thermal_detonator.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\umbrella.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wookie_bowcaster.jpg" />
+  </ItemGroup>
 </Project>

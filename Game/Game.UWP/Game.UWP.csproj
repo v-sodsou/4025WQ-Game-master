@@ -105,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="battleboard.jpg" />
+    <Content Include="black_blaster.jpg" />
+    <Content Include="brown_lightsaber.jpg" />
     <Content Include="cauldren.png" />
     <Content Include="chewbacca.jpg" />
     <Content Include="d12.png" />
@@ -114,6 +116,7 @@
     <Content Include="dungeon_door.png" />
     <Content Include="finn.jpg" />
     <Content Include="gameover.png" />
+    <Content Include="green_lightsaber.jpg" />
     <Content Include="grey_door.png" />
     <Content Include="home_background.png" />
     <Content Include="icon_add.png" />
@@ -125,8 +128,11 @@
     <Content Include="items.png" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
+    <Content Include="lightblue_lightsaber.jpg" />
     <Content Include="luke.jpg" />
     <Content Include="obiwan.png" />
+    <Content Include="personal_shield.jpg" />
+    <Content Include="power_shield.jpeg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -155,21 +161,27 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="red_blaster.jpg" />
+    <Content Include="red_bowcaster.jpg" />
     <Content Include="rey.jpg" />
     <Content Include="score.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="starwars_heroes.jpg" />
     <Content Include="star_wars_village.png" />
     <Content Include="tano.jpg" />
+    <Content Include="thermal_detonator.jpg" />
     <Content Include="troll.png" />
     <Content Include="trooper.png" />
+    <Content Include="umbrella.jpg" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
     <Content Include="watto.png" />
+    <Content Include="wookie_bowcaster.jpg" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />
     <Content Include="cancel.png" />
+    <Content Include="yellow_lightsaber.jpeg" />
     <Content Include="yoda.png" />
   </ItemGroup>
   <ItemGroup>

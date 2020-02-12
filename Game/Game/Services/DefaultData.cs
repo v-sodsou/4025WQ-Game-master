@@ -14,19 +14,49 @@ namespace Game.Services
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
-                    Name = "Gold Sword",
-                    Description = "Sword made of Gold, really expensive looking",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
-                    Range = 0,
+                    Name = "Blue Lightsaber",
+                    Description = "Jedi weapon, only Jedi's can use it.",
+                    ImageURI = "lightblue_lightsaber.jpg",
+                    Range = 9,
                     Damage = 9,
                     Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "black Blaster",
+                    Description = "Shoots Powerful blasts of Proton energy!",
+                    ImageURI = "black_blaster.jpg",
+                    Range = 6,
+                    Damage = 5,
+                    Value = 7,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Personal Shield",
+                    Description = "Personal Shield Generator - Protects against attacks.",
+                    ImageURI = "personal_shield.jpg",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 8,
+                    Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
-                    Name = "Strong Shield",
-                    Description = "Enough to hide behind",
-                    ImageURI = "http://www.clipartbest.com/cliparts/4T9/LaR/4T9LaReTE.png",
+                    Name = "Umbrella",
+                    Description = "Provides Supersonic Speed",
+                    ImageURI = "umbrella.jpg",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 7,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Power Shield",
+                    Description = "Increases Defense by Absorbing all Types of Blasts.",
+                    ImageURI = "power_shield.jpeg",
                     Range = 0,
                     Damage = 0,
                     Value = 9,
@@ -34,14 +64,24 @@ namespace Game.Services
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
-                    Name = "Bunny Hat",
-                    Description = "Pink hat with fluffy ears",
-                    ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
+                    Name = "Thermal Detonator",
+                    Description = "BLows up anything on its radio of blast.",
+                    ImageURI = "thermal_detonator.jpg",
+                    Range = 8,
+                    Damage = 6,
+                    Value = 8,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Bowcaster",
+                    Description = "Shoots Special Energy Beam Arrows",
+                    ImageURI = "wookie_bowcaster.jpg",
+                    Range = 6,
+                    Damage = 4,
+                    Value = 7,
                     Location = ItemLocationEnum.Head,
-                    Attribute = AttributeEnum.Speed},
+                    Attribute = AttributeEnum.Attack},
             };
 
             return datalist;
