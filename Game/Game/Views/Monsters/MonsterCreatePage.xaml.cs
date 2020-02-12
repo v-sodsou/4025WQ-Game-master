@@ -30,16 +30,33 @@ namespace Game.Views
 
         }
 
+
+        /// <summary>
+        /// Toggle HasForce attribute of the character
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnToggled(object sender, ToggledEventArgs e)
         {
             this.ViewModel.Data.HasForce = e.Value;
         }
 
+        /// <summary>
+        /// Cancel the Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
 
+
+        /// <summary>
+        /// Save by calling for Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void SaveMonster_Clicked(object sender, EventArgs e)
         {
             // If the image in the data box is empty, use the default one..
