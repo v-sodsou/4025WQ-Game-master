@@ -66,13 +66,19 @@ namespace Game.ViewModels
 
             #endregion Messages
         }
+        #endregion Constructor
 
+
+        /// <summary>
+        /// Load the Default Data
+        /// </summary>
+        /// <returns></returns>
         public override List<CharacterModel> GetDefaultData()
         {
             return DefaultData.LoadData(new CharacterModel());
         }
 
-        #endregion Constructor
+      
     }
 
 
