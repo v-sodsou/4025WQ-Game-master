@@ -75,7 +75,9 @@
                        Text="Cancel" 
                        FontSize="Medium"
                        BorderWidth="1" 
-                       BorderColor="black">
+                       BorderColor="black"
+                       Clicked="Cancel_Clicked">
+                      
                     </Button>
                     
                 </StackLayout>
