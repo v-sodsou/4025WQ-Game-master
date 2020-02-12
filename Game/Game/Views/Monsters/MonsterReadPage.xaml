@@ -6,11 +6,66 @@
              mc:Ignorable="d"
              x:Class="Game.Views.Monsters.MonsterReadPage"
              Title="Monster Details">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView HorizontalOptions="Center">
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+                         Spacing="10"
+                         HorizontalOptions="CenterAndExpand">
+                <Image
+                    WidthRequest="100" HeightRequest="100"
+                    Source="{Binding Data.ImageURI}"
+                    HorizontalOptions="CenterAndExpand"/>
+
+                <StackLayout HorizontalOptions="Start" Padding="0, 20, 0, 0" Orientation="Horizontal">
+                    <Label Text="Name"/>
+                    <Label Text="{Binding Data.Name}"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Description"/>
+                    <Label Text="{Binding Data.Description}"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Health"/>
+                    <Label Text="4"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Attack"/>
+                    <Label Text="3"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Defense"/>
+                    <Label Text="5"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Speed"/>
+                    <Label Text="1"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Force"/>
+                    <Label Text="{Binding Data.HasForce}"/>
+                </StackLayout>
+
+                <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button FontSize="Medium"
+                            BorderWidth="1" 
+                            BorderColor="black"
+                            Clicked="EditMonster_Clicked"
+                            Text="Update" />
+                    <Button FontSize="Medium"
+                            BorderWidth="1" 
+                            BorderColor="black"
+                            Clicked="DeleteMonster_Clicked"
+                            Text="Delete" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
+
 </ContentPage>

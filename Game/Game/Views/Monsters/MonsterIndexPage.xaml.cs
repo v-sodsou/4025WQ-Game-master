@@ -3,7 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Game.Models;
 using Game.ViewModels;
-using Game.Views.Characters;
+using Game.Views.Monsters;
 
 namespace Game.Views
 {
@@ -17,7 +17,9 @@ namespace Game.Views
         // The view model, used for data binding
         readonly MonsterIndexViewModel ViewModel;
 
-       
+       /// <summary>
+       /// Constructor for Monster Index Page
+       /// </summary>
         public MonsterIndexPage()
         {
             InitializeComponent();
@@ -25,6 +27,32 @@ namespace Game.Views
             BindingContext = ViewModel = MonsterIndexViewModel.Instance;
         }
 
+        /// <summary>
+        /// Allows for a monster to be selected in the Index Page.
+        /// Takes user to Details Page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            MonsterModel data = args.SelectedItem as MonsterModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Open the Read Page
+            await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<MonsterModel>(data)));
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
+        }
+
+        /// <summary>
+        /// Event for Add Monster button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void AddMonster_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<MonsterModel>())));
