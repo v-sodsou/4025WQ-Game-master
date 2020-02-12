@@ -5,19 +5,23 @@ namespace Game.Models
    
     public class CharacterModel : BaseModel<CharacterModel>
     {
+        // Special Attribute
+        public bool HasForce { get; set; }
+
+        // Parameterless constructor
         public CharacterModel()
         {
             ImageURI = CharacterService.DefaultImageURI;
             HasForce = false;
         }
 
+        // Constructor
         public CharacterModel(CharacterModel data)
         {
             Update(data);
         }
 
-        public bool HasForce { get; set; }
-
+        // Update all the fields in the Data, except for the Id and guid
         public override void Update(CharacterModel newData)
         {
             if (newData == null)
@@ -25,9 +29,6 @@ namespace Game.Models
                 return;
             }
 
-            // Update all the fields in the Data, except for the Id and guid
-            Name = newData.Name;
-            Description = newData.Description;
             Name = newData.Name;
             Description = newData.Description;
             ImageURI = newData.ImageURI;
