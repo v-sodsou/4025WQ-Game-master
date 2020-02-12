@@ -40,6 +40,18 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        async void SaveMonster_Clicked(object sender, EventArgs e)
+        {
+            // If the image in the data box is empty, use the default one..
+            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            {
+                ViewModel.Data.ImageURI = Services.MonsterService.DefaultImageURI;
+            }
+
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
+            await Navigation.PopModalAsync();
+        }
+
 
     }
 }

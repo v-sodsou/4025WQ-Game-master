@@ -66,6 +66,7 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Button 
                        Text="Save" 
+                       Clicked="SaveMonster_Clicked"
                        FontSize="Medium"
                        BorderWidth="1" 
                        BorderColor="black">
