@@ -25,7 +25,11 @@ namespace Game.Views
             BindingContext = ViewModel = MonsterIndexViewModel.Instance;
         }
 
-        
+        async void AddMonster_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<Monster>())));
+        }
+
         /// <summary>
         /// Refresh the list on page appearing
         /// </summary>
