@@ -53,9 +53,12 @@ namespace Game.ViewModels
          
         }
 
-       
-
         #endregion Constructor
+
+        public override List<Monster> GetDefaultData()
+        {
+            return DefaultData.LoadData(new Monster());
+        }
     }
 
 
