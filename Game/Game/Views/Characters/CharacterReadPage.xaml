@@ -38,8 +38,8 @@
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                    <Label Text="Health"/>
-                    <Label Text="4"/>
+                    <Label Text="Current Health"/>
+                    <Label Text="{Binding Data.CurrentHealth}"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">

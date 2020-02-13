@@ -112,37 +112,73 @@ namespace Game.Services
                 new CharacterModel {
                     Name = "Princess Leia",
                     Description = "Member of the Imperial Senate",
-                    ImageURI = "rey.jpg"
-                },
+                    ImageURI = "rey.jpg",
+                    HasForce = false,
+                    Attack = 3,
+                    Defense = 5,
+                    Speed = 4,
+                    CurrentHealth = 8,
+                    MaxHealth = 9
+        },
 
                 new CharacterModel {
                     Name = "Luke",
                     Description = "An incredible Jedi",
-                    ImageURI = "luke.jpg"
+                    ImageURI = "luke.jpg",
+                    HasForce = true,
+                    Attack = 6,
+                    Defense = 6,
+                    Speed = 8,
+                    CurrentHealth = 7,
+                    MaxHealth = 9
                 },
 
                 new CharacterModel {
                     Name = "Finn",
                     Description = "Force sensitive stormtrooper",
-                    ImageURI = "finn.jpg"
+                    ImageURI = "finn.jpg",
+                    HasForce = false,
+                    Attack = 3,
+                    Defense = 3,
+                    Speed = 4,
+                    CurrentHealth = 6,
+                    MaxHealth = 7
                 },
 
                 new CharacterModel {
                     Name = "Ahsoka Tano",
                     Description = "A Togruta Jedi Padawan",
-                    ImageURI = "tano.jpg"
+                    ImageURI = "tano.jpg",
+                    HasForce = false,
+                    Attack = 3,
+                    Defense = 5,
+                    Speed = 4,
+                    CurrentHealth = 7,
+                    MaxHealth = 9
                 },
 
                 new CharacterModel {
                     Name = "Chewbacca",
                     Description = "A tall, hirsute, and intelligent species",
-                    ImageURI = "chewbacca.jpg"
+                    ImageURI = "chewbacca.jpg",
+                    HasForce = false,
+                    Attack = 8,
+                    Defense = 8,
+                    Speed = 2,
+                    CurrentHealth = 8,
+                    MaxHealth = 9
                 },
 
                 new CharacterModel {
                     Name = "Obi-Wan Kenobi",
                     Description = "A legendary Jedi Master",
-                    ImageURI = "obiwan.png"
+                    ImageURI = "obiwan.png",
+                    HasForce = true,
+                    Attack = 8,
+                    Defense = 5,
+                    Speed = 4,
+                    CurrentHealth = 8,
+                    MaxHealth = 9
                 }
             };
 

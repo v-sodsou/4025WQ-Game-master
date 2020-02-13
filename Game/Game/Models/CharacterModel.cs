@@ -8,6 +8,13 @@ namespace Game.Models
         // Special Attribute
         public bool HasForce { get; set; }
 
+        //Attributes
+        public int Attack { get; set; }
+        public int Defense { get; set; }
+        public int Speed { get; set; }
+        public int CurrentHealth { get; set; }
+        public int MaxHealth { get; set; }
+
         // Parameterless constructor
         public CharacterModel()
         {
@@ -33,6 +40,12 @@ namespace Game.Models
             Description = newData.Description;
             ImageURI = newData.ImageURI;
             HasForce = newData.HasForce;
-        }
+            Attack = newData.Attack;
+            Defense = newData.Defense;
+            Speed = newData.Speed;
+            CurrentHealth = newData.CurrentHealth;
+            MaxHealth = newData.MaxHealth;
+
+    }
     }
 }
