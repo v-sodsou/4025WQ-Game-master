@@ -70,7 +70,11 @@ namespace Game.ViewModels
         #endregion Constructor
 
         #region DataOperations_CRUDi
-
+        /// <summary>
+        /// Check if the monster item exist
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public MonsterModel CheckIfItemExists(MonsterModel data)
         {
             // This will walk the items and find if there is one that is the same.
@@ -98,7 +102,11 @@ namespace Game.ViewModels
             return DefaultData.LoadData(new MonsterModel());
         }
 
-
+        /// <summary>
+        /// Sort the monster data
+        /// </summary>
+        /// <param name="dataset"></param>
+        /// <returns></returns>
         #region SortDataSet
         public override List<MonsterModel> SortDataset(List<MonsterModel> dataset)
         {
