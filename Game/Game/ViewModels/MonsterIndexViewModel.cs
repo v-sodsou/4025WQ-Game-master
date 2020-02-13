@@ -64,6 +64,11 @@ namespace Game.ViewModels
                 await DeleteAsync(data as MonsterModel);
             });
 
+            // Register the Wipe Data List Message
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
+            {
+                await WipeDataListAsync();
+            });
 
         }
 
