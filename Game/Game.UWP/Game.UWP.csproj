@@ -108,6 +108,7 @@
     <Content Include="battleboard.jpg" />
     <Content Include="black_blaster.jpg" />
     <Content Include="brown_lightsaber.jpg" />
+    <Content Include="c3po.png" />
     <Content Include="cauldren.png" />
     <Content Include="chewbacca.jpg" />
     <Content Include="count_dooku.png" />
@@ -133,6 +134,7 @@
     <Content Include="icon_new.png" />
     <Content Include="kyloren.png" />
     <Content Include="lightblue_lightsaber.jpg" />
+    <Content Include="lightsaber.png" />
     <Content Include="luke.jpg" />
     <Content Include="obiwan.png" />
     <Content Include="palpatine.png" />
@@ -166,6 +168,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="r2d2.png" />
     <Content Include="red_blaster.jpg" />
     <Content Include="red_bowcaster.jpg" />
     <Content Include="rey.jpg" />
