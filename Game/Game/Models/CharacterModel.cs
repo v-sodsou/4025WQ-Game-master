@@ -20,6 +20,7 @@ namespace Game.Models
         {
             ImageURI = CharacterService.DefaultImageURI;
             HasForce = false;
+            Attack = 100;
         }
 
         // Constructor
