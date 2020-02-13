@@ -104,12 +104,15 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asajjventress.png" />
     <Content Include="battleboard.jpg" />
     <Content Include="black_blaster.jpg" />
     <Content Include="brown_lightsaber.jpg" />
     <Content Include="cauldren.png" />
     <Content Include="chewbacca.jpg" />
+    <Content Include="count_dooku.png" />
     <Content Include="d12.png" />
+    <Content Include="darthmaul.png" />
     <Content Include="DarthVader.png" />
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
@@ -128,9 +131,11 @@
     <Content Include="items.png" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
+    <Content Include="kyloren.png" />
     <Content Include="lightblue_lightsaber.jpg" />
     <Content Include="luke.jpg" />
     <Content Include="obiwan.png" />
+    <Content Include="palpatine.png" />
     <Content Include="personal_shield.jpg" />
     <Content Include="power_shield.jpeg" />
     <Content Include="Properties\Default.rd.xml" />

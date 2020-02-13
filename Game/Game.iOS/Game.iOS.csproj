@@ -270,4 +270,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\wookie_bowcaster.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Asajjventress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\count_dooku.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\darthmaul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kyloren.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\palpatine.png" />
+  </ItemGroup>
 </Project>
