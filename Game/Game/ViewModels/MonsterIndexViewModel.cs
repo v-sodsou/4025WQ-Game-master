@@ -109,7 +109,6 @@ namespace Game.ViewModels
         }
 
         #endregion SortDataSet
+        #endregion DataOperations_CRUDi
     }
-
-
 }
