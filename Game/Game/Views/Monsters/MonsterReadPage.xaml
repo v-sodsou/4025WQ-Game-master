@@ -29,22 +29,22 @@
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Health"/>
-                    <Label Text="4"/>
+                    <Label Text="{Binding Data.Health}"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Attack"/>
-                    <Label Text="3"/>
+                    <Label Text="{Binding Data.Attack}"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Defense"/>
-                    <Label Text="5"/>
+                    <Label Text="{Binding Data.Defense}"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Speed"/>
-                    <Label Text="1"/>
+                    <Label Text="{Binding Data.Speed}"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
