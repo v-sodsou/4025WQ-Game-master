@@ -71,39 +71,39 @@
 
                     <Label Text="Attack" Grid.Row="0" Grid.Column="0"/>
                     <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                        <Stepper Value = "{Binding Data.Value, Mode=TwoWay}"
+                        <Stepper Value = "{Binding Data.Attack, Mode=TwoWay}"
                           Minimum="0"
                           Maximum="10"
                           ValueChanged = "ValueStepperAttack"
                           Increment="1"/>
-                        <Label x:Name = "ValueAttack" Text = "{Binding Data.Value}"
+                        <Label x:Name = "ValueAttack" Text = "{Binding Data.Attack}"
 		                    FontSize = "Medium"/>
                     </StackLayout>
 
                     <Label Text="Defense" Grid.Row="1" Grid.Column="0"/>
                     <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                        <Stepper Value = "{Binding Data.Value, Mode=TwoWay}"
+                        <Stepper Value = "{Binding Data.Defense, Mode=TwoWay}"
                             Minimum="0"
                             Maximum="10"
                             ValueChanged = "ValueStepperDefense"
                             Increment="1"/>
-                        <Label x:Name = "ValueDefense" Text = "{Binding Data.Value}"
+                        <Label x:Name = "ValueDefense" Text = "{Binding Data.Defense}"
 		                    FontSize = "Medium"/>
                     </StackLayout>
 
                     <Label Text="Speed" Grid.Row="2" Grid.Column="0"/>
                     <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                        <Stepper Value = "{Binding Data.Value, Mode=TwoWay}"
+                        <Stepper Value = "{Binding Data.Speed, Mode=TwoWay}"
                         Minimum="0"
                         Maximum="10"
                         ValueChanged = "ValueStepperSpeed"
                         Increment="1"/>
-                        <Label x:Name = "ValueSpeed" Text = "{Binding Data.Value}"
+                        <Label x:Name = "ValueSpeed" Text = "{Binding Data.Speed}"
 		                FontSize = "Medium"/>
                     </StackLayout>
 
-                    <Label Text="Force"  Grid.Row="3" Grid.Column="0"/>
-                    <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1"/>
+                    <Label Text="Force"  Grid.Row="3" Grid.Column="0" />
+                    <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1" IsToggled = "{Binding Data.HasForce, Mode=TwoWay}"/>
 
                 </Grid>
 

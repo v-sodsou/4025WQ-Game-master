@@ -2,6 +2,7 @@
 using Game.Services;
 using Game.Views;
 using Game.Views.Characters;
+using Game.Views.Monsters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,12 @@ namespace Game.ViewModels
             MessagingCenter.Subscribe<MonsterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as MonsterModel);
+            });
+
+            // Register the Delete Message
+            MessagingCenter.Subscribe<MonsterDeletePage, MonsterModel>(this, "Delete", async (obj, data) =>
+            {
+                await DeleteAsync(data as MonsterModel);
             });
 
 
