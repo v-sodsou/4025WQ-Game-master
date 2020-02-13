@@ -5,6 +5,7 @@ using Game.Views.Characters;
 using Game.Views.Monsters;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace Game.ViewModels
@@ -68,6 +69,25 @@ namespace Game.ViewModels
 
         #endregion Constructor
 
+        #region DataOperations_CRUDi
+
+        public MonsterModel CheckIfItemExists(MonsterModel data)
+        {
+            // This will walk the items and find if there is one that is the same.
+            // If so, it returns the item...
+
+            var myList = Dataset.Where(a =>
+                                        a.Name == data.Name)
+                                        .FirstOrDefault();
+
+            if (myList == null)
+            {
+                // it's not a match, return false;
+                return null;
+            }
+
+            return myList;
+        }
 
         /// <summary>
         /// Load the Default Data
@@ -77,7 +97,18 @@ namespace Game.ViewModels
         {
             return DefaultData.LoadData(new MonsterModel());
         }
+
+
+        #region SortDataSet
+        public override List<MonsterModel> SortDataset(List<MonsterModel> dataset)
+        {
+            return dataset
+                    .OrderBy(a => a.Name)
+                    .ThenBy(a => a.Description)
+                    .ToList();
+        }
+
+        #endregion SortDataSet
+        #endregion DataOperations_CRUDi
     }
-
-
 }
