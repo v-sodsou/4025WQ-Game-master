@@ -72,6 +72,15 @@ namespace Game.ViewModels
                 await WipeDataListAsync();
             });
 
+            // Register the Update Message
+            MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
+            {
+                // Have the item update itself
+                data.Update(data);
+
+                await UpdateAsync(data as CharacterModel);
+            });
+
 
             #endregion Messages
         }
