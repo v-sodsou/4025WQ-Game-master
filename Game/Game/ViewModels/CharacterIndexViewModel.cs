@@ -65,6 +65,14 @@ namespace Game.ViewModels
                 await DeleteAsync(data as CharacterModel);
             });
 
+            MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
+            {
+                // Have the item update itself
+                data.Update(data);
+
+                await UpdateAsync(data as CharacterModel);
+            });
+
             #endregion Messages
         }
         #endregion Constructor
