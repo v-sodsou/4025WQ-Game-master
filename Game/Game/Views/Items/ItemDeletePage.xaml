@@ -9,10 +9,9 @@
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
-    <ScrollView>
+    <ScrollView HorizontalOptions="Center">
         <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
 
@@ -46,7 +45,7 @@
                 <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
 
                 <Button 
-                Text="Yes" 
+                Text="Delete" 
                 Clicked="Delete_Clicked" 
                 HorizontalOptions="Center"
                 FontSize="Medium"
