@@ -16,7 +16,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Blue Lightsaber",
                     Description = "Jedi weapon, only Jedi's can use it.",
-                    ImageURI = "lightblue_lightsaber.jpg",
+                    ImageURI = "Saber.png",
                     Range = 9,
                     Damage = 9,
                     Value = 9,
@@ -26,7 +26,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "black Blaster",
                     Description = "Shoots Powerful blasts of Proton energy!",
-                    ImageURI = "black_blaster.jpg",
+                    ImageURI = "Gun.png",
                     Range = 6,
                     Damage = 5,
                     Value = 7,
@@ -66,7 +66,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Thermal Detonator",
                     Description = "BLows up anything on its radio of blast.",
-                    ImageURI = "thermal_detonator.jpg",
+                    ImageURI = "Detonator1.png",
                     Range = 8,
                     Damage = 6,
                     Value = 8,

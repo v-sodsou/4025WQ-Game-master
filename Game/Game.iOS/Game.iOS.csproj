@@ -294,4 +294,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\r2d2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Detonator1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Gun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Saber.png" />
+  </ItemGroup>
 </Project>

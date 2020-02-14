@@ -107,6 +107,7 @@
     <Content Include="Asajjventress.png" />
     <Content Include="battleboard.jpg" />
     <Content Include="black_blaster.jpg" />
+    <Content Include="Bowcaster.png" />
     <Content Include="brown_lightsaber.jpg" />
     <Content Include="c3po.png" />
     <Content Include="cauldren.png" />
@@ -115,6 +116,7 @@
     <Content Include="d12.png" />
     <Content Include="darthmaul.png" />
     <Content Include="DarthVader.png" />
+    <Content Include="Detonator1.png" />
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
     <Content Include="dungeon_door.png" />
@@ -122,6 +124,7 @@
     <Content Include="gameover.png" />
     <Content Include="green_lightsaber.jpg" />
     <Content Include="grey_door.png" />
+    <Content Include="Gun.png" />
     <Content Include="home_background.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
@@ -172,6 +175,7 @@
     <Content Include="red_blaster.jpg" />
     <Content Include="red_bowcaster.jpg" />
     <Content Include="rey.jpg" />
+    <Content Include="Saber.png" />
     <Content Include="score.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="starwars_heroes.jpg" />
