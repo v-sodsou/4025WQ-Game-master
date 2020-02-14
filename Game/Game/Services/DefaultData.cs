@@ -36,7 +36,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Personal Shield",
                     Description = "Personal Shield Generator - Protects against attacks.",
-                    ImageURI = "personal_shield.jpg",
+                    ImageURI = "Shield.png",
                     Range = 0,
                     Damage = 0,
                     Value = 8,
@@ -74,9 +74,9 @@ namespace Game.Services
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
-                    Name = "Bowcaster",
-                    Description = "Shoots Special Energy Beam Arrows",
-                    ImageURI = "wookie_bowcaster.jpg",
+                    Name = "Red Saber",
+                    Description = "Special Energy Red Saber",
+                    ImageURI = "RedSaber.png",
                     Range = 6,
                     Damage = 4,
                     Value = 7,

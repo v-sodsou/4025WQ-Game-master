@@ -173,11 +173,13 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="r2d2.png" />
+    <Content Include="RedSaber.png" />
     <Content Include="red_blaster.jpg" />
     <Content Include="red_bowcaster.jpg" />
     <Content Include="rey.jpg" />
     <Content Include="Saber.png" />
     <Content Include="score.png" />
+    <Content Include="Shield.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="starwars_heroes.jpg" />
     <Content Include="star_wars_village.png" />
