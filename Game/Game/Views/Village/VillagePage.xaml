@@ -16,7 +16,7 @@
                 <StackLayout Style="{StaticResource CardImageTextBox}">
 
                     <ImageButton
-                                Source="yoda.png"
+                                Source="r2d2.png"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="CharactersButton_Clicked"/>
 
@@ -29,7 +29,7 @@
                 <StackLayout Style="{StaticResource CardImageTextBox}">
 
                     <ImageButton
-                                Source="DarthVader.png"
+                                Source="darthvader.png"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="MonstersButton_Clicked"/>
 
@@ -43,7 +43,7 @@
                 <StackLayout Style="{StaticResource CardImageTextBox}">
 
                     <ImageButton
-                                Source="items.png"
+                                Source="lightsaber.png"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="ItemsButton_Clicked"/>
 
@@ -56,7 +56,7 @@
                 <StackLayout Style="{StaticResource CardImageTextBox}">
 
                     <ImageButton
-                                Source="score.png"
+                                Source="c3po.png"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="ScoresButton_Clicked"/>
 

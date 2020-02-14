@@ -45,7 +45,7 @@ namespace Game.Views
                         MenuPages.Add(id, new NavigationPage(new ItemIndexPage()));
                         break;
 
-                    case (int)MenuItemEnum.Village:
+                    case (int)MenuItemEnum.Galaxy:
                         MenuPages.Add(id, new NavigationPage(new VillagePage()));
                         break;
 

@@ -65,6 +65,14 @@ namespace Game.ViewModels
                 await DeleteAsync(data as CharacterModel);
             });
 
+         
+            // Register the Wipe Data List Message
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
+            {
+                await WipeDataListAsync();
+            });
+
+
             #endregion Messages
         }
         #endregion Constructor
