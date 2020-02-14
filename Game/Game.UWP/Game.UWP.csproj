@@ -143,6 +143,7 @@
     <Content Include="palpatine.png" />
     <Content Include="personal_shield.jpg" />
     <Content Include="power_shield.jpeg" />
+    <Content Include="power_shield_png.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -185,6 +186,7 @@
     <Content Include="troll.png" />
     <Content Include="trooper.png" />
     <Content Include="umbrella.jpg" />
+    <Content Include="umbrella.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
     <Content Include="watto.png" />

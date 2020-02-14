@@ -303,4 +303,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\Saber.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\power_shield_png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\umbrella.png" />
+  </ItemGroup>
 </Project>

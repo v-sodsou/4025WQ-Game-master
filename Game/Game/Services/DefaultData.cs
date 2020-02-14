@@ -46,7 +46,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Umbrella",
                     Description = "Provides Supersonic Speed",
-                    ImageURI = "umbrella.jpg",
+                    ImageURI = "umbrella.png",
                     Range = 0,
                     Damage = 0,
                     Value = 7,
@@ -56,7 +56,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Power Shield",
                     Description = "Increases Defense by Absorbing all Types of Blasts.",
-                    ImageURI = "power_shield.jpeg",
+                    ImageURI = "power_shield_png.png",
                     Range = 0,
                     Damage = 0,
                     Value = 9,
