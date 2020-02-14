@@ -70,6 +70,15 @@ namespace Game.ViewModels
                 await WipeDataListAsync();
             });
 
+            // Register the Update Message
+            MessagingCenter.Subscribe<MonsterUpdatePage, MonsterModel>(this, "Update", async (obj, data) =>
+            {
+                // Have the item update itself
+                data.Update(data);
+
+                await UpdateAsync(data as MonsterModel);
+            });
+
         }
 
         #endregion Constructor
