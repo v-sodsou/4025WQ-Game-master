@@ -71,6 +71,13 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="ListRowTitleStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="HeaderStyle"
                 BasedOn="{StaticResource Xamarin.Forms.Label}">
                 <Setter Property="BackgroundColor" Value="Transparent" />
