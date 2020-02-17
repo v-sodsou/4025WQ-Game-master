@@ -5,14 +5,24 @@ namespace Game.Models
    
     public class CharacterModel : BaseModel<CharacterModel>
     {
-        // Special Attribute
+        //Attributes 
+
+        // Flag indicating whether a Character has force special ability
         public bool HasForce { get; set; }
 
-        //Attributes
+        //Attack of the character
         public int Attack { get; set; }
+
+        //Defence of the character
         public int Defense { get; set; }
+
+        //Speed of the charcater
         public int Speed { get; set; }
+
+        //Current health of the character
         public int CurrentHealth { get; set; }
+
+        //Maximum health of the character
         public int MaxHealth { get; set; }
 
         // Parameterless constructor
