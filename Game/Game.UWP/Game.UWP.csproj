@@ -140,6 +140,7 @@
     <Content Include="lightsaber.png" />
     <Content Include="luke.jpg" />
     <Content Include="obiwan.png" />
+    <Content Include="Opening_Screen_Blue.png" />
     <Content Include="palpatine.png" />
     <Content Include="personal_shield.jpg" />
     <Content Include="power_shield.jpeg" />
@@ -216,6 +217,9 @@
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.6.292</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer">
+      <Version>1.4.0</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />

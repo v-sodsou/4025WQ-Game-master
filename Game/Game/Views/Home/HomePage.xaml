@@ -7,38 +7,44 @@
         <ScrollView
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand">
-            
+
             <StackLayout
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
-                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
-                    <Image
+
+                <Grid ColumnSpacing="5" RowSpacing="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Column="1" Grid.Row="0"
+                         Source="opening_screen_blue.png"
+                         Style="{StaticResource ImageLargeStyle}"
+                         IsVisible="True"
+                         WidthRequest="300"
+                         HeightRequest="300"
+                         />
+
+                    <Image Grid.Column="0" Grid.Row="0"
                          Source="yoda.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
-
-                    <Image
-                         Source="DarthVader.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
-                
-                </StackLayout>
-                
-                <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
-               
-                    <Label 
-                        Text="A long time ago in a galaxy far, far away..."
-                        Style="{StaticResource CenterMessageStyle}"
-                        FontSize="Micro"
-                        LineBreakMode="WordWrap"
+                         Style="{StaticResource ImageLargeStyle}"
+                         IsVisible="True"
                         />
 
-                    <Label 
-                        Text="The heroes are fighting against the evil empire to restore freedom to the galaxy."
-                        Style="{StaticResource CenterMessageStyle}"
-                        FontSize="Micro"
-                        LineBreakMode="WordWrap"
-                        />
-                </StackLayout>
+                    <Image Grid.Column="2" Grid.Row="0"
+                         Source="darthvader.png"
+                         Style="{StaticResource ImageLargeStyle}"
+                         IsVisible="True"/>
+
+                </Grid>
 
                 <Button
                     Text="Enter"
