@@ -92,12 +92,32 @@ namespace Game.Services
             var datalist = new List<ScoreModel>()
             {
                 new ScoreModel {
-                    Name = "First Score",
+                    Name = "TheBestGmr's Score",
                     Description = "Test Data",
                 },
 
                 new ScoreModel {
-                    Name = "Second Score",
+                    Name = "Sc0rpi0n's Score",
+                    Description = "Test Data",
+                },
+
+                new ScoreModel {
+                    Name = "LegoMaster's Score",
+                    Description = "Test Data",
+                },
+
+                new ScoreModel {
+                    Name = "MonstaKilla's Score",
+                    Description = "Test Data",
+                },
+                
+                new ScoreModel {
+                    Name = "Overkill's Score",
+                    Description = "Test Data",
+                },
+
+                new ScoreModel {
+                    Name = "SimplyDaBst's Score",
                     Description = "Test Data",
                 }
             };
