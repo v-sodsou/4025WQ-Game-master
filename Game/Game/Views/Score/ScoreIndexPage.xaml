@@ -15,7 +15,7 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
-            <Label Text="Score List Page" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Scores" Style="{StaticResource HeaderStyle}"/>
 
             <ListView x:Name="DataListView" 
                     ItemsSource="{Binding Dataset}"
