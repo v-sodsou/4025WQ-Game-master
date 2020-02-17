@@ -22,9 +22,6 @@ namespace Game.Models
         // Amount of experience the monster has
         public int Experience { get; set; }
 
-
-        public int id { get; set; }
-
         // Current level of the monster
         public int Level { get; set; }
 
