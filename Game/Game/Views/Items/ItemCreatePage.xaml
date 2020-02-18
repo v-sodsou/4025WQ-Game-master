@@ -8,7 +8,7 @@
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.ItemCreatePage"
-             Title="{Binding Title}">
+             Title="Create Item">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -21,8 +21,6 @@
         <ScrollView>
             <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
-
-                <Label Text="Create Page" Style="{StaticResource HeaderStyle}"/>
 
                 <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
 

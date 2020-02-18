@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Name="BrowseItemsPage"
              x:Class="Game.Views.ItemIndexPage"
-             Title="{Binding Title}">
+             Title="Items List Page">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
@@ -14,8 +14,6 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
-
-            <Label Text="Items List Page" Style="{StaticResource HeaderStyle}"/>
 
             <ListView x:Name="ItemsListView" 
                     ItemsSource="{Binding Dataset}"

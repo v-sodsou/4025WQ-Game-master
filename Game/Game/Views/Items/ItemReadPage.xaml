@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.ItemReadPage"
-             Title="{Binding Title}">
+             Title="Item Details">
 
     <ScrollView HorizontalOptions="Center">
         <StackLayout Style="{StaticResource OuterBoxStack}"
@@ -32,15 +32,6 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Location : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Location}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
                     Text="Attribute : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
@@ -50,10 +41,10 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Range : " 
+                    Text="Location : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.Range}" 
+                    Text="{Binding Data.Location}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
