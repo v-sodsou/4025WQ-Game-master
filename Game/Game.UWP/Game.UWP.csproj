@@ -105,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asajjventress.png" />
+    <Content Include="Assets\lego_starwars.scale-100.png" />
+    <Content Include="Assets\star_wars_village.scale-100.png" />
     <Content Include="battleboard.jpg" />
     <Content Include="black_blaster.jpg" />
     <Content Include="Bowcaster.png" />

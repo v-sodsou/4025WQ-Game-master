@@ -12,11 +12,9 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
-    <ScrollView>
+    <ScrollView HorizontalOptions="Center">
         <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
-
-            <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
 
             <StackLayout>
                 <StackLayout Style="{StaticResource HorizontalStack}">
@@ -73,7 +71,7 @@
                 HorizontalOptions="Center" 
                 Padding="20">
 
-                <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
+                <Label Text="Really delete this Score?" Style="{StaticResource MessageStyle}"/>
 
                 <Button 
                     Text="Yes" 
