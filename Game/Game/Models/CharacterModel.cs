@@ -93,5 +93,11 @@ namespace Game.Models
         {
             return this.Speed;
         }
+
+        // Get Defense
+        public int GetDefense()
+        {
+            return this.Defense;
+        }
     }
 }
