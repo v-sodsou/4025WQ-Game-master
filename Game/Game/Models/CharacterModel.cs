@@ -105,5 +105,11 @@ namespace Game.Models
         {
             return this.MaxHealth;
         }
+
+        // Get Current Health
+        public int GetHealthCurrent()
+        {
+            return this.CurrentHealth;
+        }
     }
 }
