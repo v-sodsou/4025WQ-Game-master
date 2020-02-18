@@ -88,6 +88,10 @@ namespace Game.Models
             return this.Attack;
         }
 
-
+        // Get Speed
+        public int GetSpeed()
+        {
+            return this.Speed;
+        }
     }
 }
