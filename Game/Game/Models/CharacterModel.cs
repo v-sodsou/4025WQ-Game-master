@@ -25,6 +25,9 @@ namespace Game.Models
         //Maximum health of the character
         public int MaxHealth { get; set; }
 
+        //Current level of the character
+        public int Level { get; set; }
+
         // Parameterless constructor
         public CharacterModel()
         {
@@ -35,6 +38,7 @@ namespace Game.Models
             Speed = 1;
             CurrentHealth = 1;
             MaxHealth = 10;
+            Level = 1;
         }
 
         // Constructor
@@ -61,6 +65,7 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
 
-    }
+         }
+
     }
 }
