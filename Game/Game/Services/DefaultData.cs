@@ -34,8 +34,8 @@ namespace Game.Services
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
-                    Name = "Personal Shield",
-                    Description = "Personal Shield Generator - Protects against attacks.",
+                    Name = "Blaster proof Helmet",
+                    Description = "Personal Helmet - Protects against attacks.",
                     ImageURI = "Shield.png",
                     Range = 0,
                     Damage = 0,
@@ -130,9 +130,9 @@ namespace Game.Services
             var datalist = new List<CharacterModel>()
             {
                 new CharacterModel {
-                    Name = "Princess Leia",
-                    Description = "Member of the Imperial Senate",
-                    ImageURI = "rey.jpg",
+                    Name = "Rey",
+                    Description = "New Jedi",
+                    ImageURI = "rey.png",
                     HasForce = false,
                     Attack = 3,
                     Defense = 5,
@@ -144,7 +144,7 @@ namespace Game.Services
                 new CharacterModel {
                     Name = "Luke",
                     Description = "An incredible Jedi",
-                    ImageURI = "luke.jpg",
+                    ImageURI = "luke.png",
                     HasForce = true,
                     Attack = 6,
                     Defense = 6,
@@ -156,7 +156,7 @@ namespace Game.Services
                 new CharacterModel {
                     Name = "Finn",
                     Description = "Force sensitive stormtrooper",
-                    ImageURI = "finn.jpg",
+                    ImageURI = "finn.png",
                     HasForce = false,
                     Attack = 3,
                     Defense = 3,
@@ -168,7 +168,7 @@ namespace Game.Services
                 new CharacterModel {
                     Name = "Ahsoka Tano",
                     Description = "A Togruta Jedi Padawan",
-                    ImageURI = "tano.jpg",
+                    ImageURI = "ahsoka.png",
                     HasForce = false,
                     Attack = 3,
                     Defense = 5,
@@ -178,9 +178,9 @@ namespace Game.Services
                 },
 
                 new CharacterModel {
-                    Name = "Chewbacca",
-                    Description = "A tall, hirsute, and intelligent species",
-                    ImageURI = "chewbacca.jpg",
+                    Name = "Chewbacca & Solo",
+                    Description = "Great duo fighter with incredible skills",
+                    ImageURI = "chewy_solo.png",
                     HasForce = false,
                     Attack = 8,
                     Defense = 8,
