@@ -99,5 +99,11 @@ namespace Game.Models
         {
             return this.Defense;
         }
+
+        // Get Max Health
+        public int GetHealthMax()
+        {
+            return this.MaxHealth;
+        }
     }
 }
