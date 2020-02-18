@@ -82,6 +82,12 @@ namespace Game.Models
         }
 
 
+        // Get Attack
+        public int GetAttack()
+        {
+            return this.Attack;
+        }
+
 
     }
 }
