@@ -10,10 +10,6 @@
              x:Class="Game.Views.ScoreCreatePage"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
-    </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -60,6 +56,26 @@
                         Style="{StaticResource LabelStyle}"/>
 
                 </Grid>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button 
+                       Text="Save" 
+                       Clicked="Save_Clicked"
+                       FontSize="Medium"
+                       BorderWidth="1" 
+                       BorderColor="black">
+                    </Button>
+
+                    <Button 
+                       Text="Cancel" 
+                       FontSize="Medium"
+                       BorderWidth="1" 
+                       BorderColor="black"
+                       Clicked="Cancel_Clicked">
+
+                    </Button>
+
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
