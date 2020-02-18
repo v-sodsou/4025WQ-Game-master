@@ -5,11 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.ItemDeletePage"
-             Title="{Binding Title}">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-    </ContentPage.ToolbarItems>
+             Title="Delete Page">
 
     <ScrollView HorizontalOptions="Center">
         <StackLayout Style="{StaticResource OuterBoxStack}"
@@ -35,12 +31,13 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Label  Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
+            </StackLayout>
 
-            <StackLayout 
-            HorizontalOptions="Center" 
-            Padding="20">
-
-                <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
+            <StackLayout    Orientation="Horizontal"
+                            HorizontalOptions="Center" 
+                            Padding="20">
 
                 <Button 
                 Text="Delete" 
@@ -50,6 +47,16 @@
                 BorderWidth="1" 
                 BorderColor="black">
                 </Button>
+
+                <Button 
+                Text="Cancel" 
+                Clicked="Cancel_Clicked" 
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                BorderWidth="1" 
+                BorderColor="black">
+                </Button>
+
             </StackLayout>
             
         </StackLayout>
