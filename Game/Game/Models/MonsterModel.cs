@@ -28,7 +28,16 @@ namespace Game.Models
         // Flag indicating whether a Monster has force special ability
         public bool HasForce { get; set; }
 
+        //Current health of the character
+        public int CurrentHealth { get; set; }
 
+        // Monster status
+        public bool Alive = true;
+
+
+        /// <summary>
+        /// Parameterless constructor
+        /// </summary>
         public MonsterModel()
         {
             ImageURI = MonsterService.DefaultImageURI;
@@ -40,11 +49,19 @@ namespace Game.Models
             Level = 1;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="data"></param>
         public MonsterModel(MonsterModel data)
         {
             Update(data);
         }
 
+        /// <summary>
+        /// Update a monster
+        /// </summary>
+        /// <param name="newData"></param>
         public override void Update(MonsterModel newData)
         {
             if (newData == null)
@@ -71,6 +88,32 @@ namespace Game.Models
                 return;
 
             this.Level = level;
+        }
+
+        /// <summary>
+        /// Calculate Monster damage
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns></returns>
+        public bool TakeDamage(int damage)
+        {
+            if (damage <= 0)
+            {
+                return false;
+            }
+
+            CurrentHealth = CurrentHealth - damage;
+            // if current health is 0 or less monster is dead
+            if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
+
+                // Set Alive to false
+                Alive = false;
+                return Alive;
+            }
+
+            return true;
         }
     }
 }
