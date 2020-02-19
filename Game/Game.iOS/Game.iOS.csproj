@@ -154,9 +154,6 @@
     <BundleResource Include="Resources\item.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\door.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\gameover.png" />
   </ItemGroup>
   <ItemGroup>
@@ -176,15 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\village.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\dungeon_door.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\cauldren.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\grey_door.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_add.png" />
@@ -214,9 +202,6 @@
     <BundleResource Include="Resources\icon_new.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\home_background.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\DarthVader.png" />
   </ItemGroup>
   <ItemGroup>
@@ -233,12 +218,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\watto.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\chewbacca.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\finn.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\luke.jpg" />
@@ -317,5 +296,20 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ahsoka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chewy_solo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\finn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\luke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rey.png" />
   </ItemGroup>
 </Project>

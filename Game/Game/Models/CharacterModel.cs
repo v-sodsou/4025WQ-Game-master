@@ -25,6 +25,9 @@ namespace Game.Models
         //Maximum health of the character
         public int MaxHealth { get; set; }
 
+        //Current level of the character
+        public int Level { get; set; }
+
         // Parameterless constructor
         public CharacterModel()
         {
@@ -35,6 +38,7 @@ namespace Game.Models
             Speed = 1;
             CurrentHealth = 1;
             MaxHealth = 10;
+            Level = 1;
         }
 
         // Constructor
@@ -61,6 +65,51 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
 
-    }
+         }
+
+        //Up the character level
+        public void LevelUp(int level)
+        {
+            // Donot update if it is the same level
+            if (level == this.Level)
+                return;
+
+            // Level must be between 1-20
+            if (level < 1 || level > 20)
+                return;
+
+            this.Level = level;
+        }
+
+
+        // Get Attack
+        public int GetAttack()
+        {
+            return this.Attack;
+        }
+
+        // Get Speed
+        public int GetSpeed()
+        {
+            return this.Speed;
+        }
+
+        // Get Defense
+        public int GetDefense()
+        {
+            return this.Defense;
+        }
+
+        // Get Max Health
+        public int GetHealthMax()
+        {
+            return this.MaxHealth;
+        }
+
+        // Get Current Health
+        public int GetHealthCurrent()
+        {
+            return this.CurrentHealth;
+        }
     }
 }

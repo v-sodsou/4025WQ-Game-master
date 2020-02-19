@@ -58,5 +58,19 @@ namespace Game.Models
             ImageURI = newData.ImageURI;
             HasForce = newData.HasForce;
         }
+
+        //Up the monster level
+        public void LevelUp(int level)
+        {
+            // Donot update if it is the same level
+            if (level == this.Level)
+                return;
+
+            // Level must be between 1-20
+            if (level < 1 || level > 20)
+                return;
+
+            this.Level = level;
+        }
     }
 }

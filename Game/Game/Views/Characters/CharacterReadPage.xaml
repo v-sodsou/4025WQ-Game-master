@@ -29,7 +29,7 @@
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Level"/>
-                    <Label Text="2"/>
+                    <Label Text="{Binding Data.Level}"/>
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
