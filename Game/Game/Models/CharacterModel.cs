@@ -185,5 +185,20 @@ namespace Game.Models
             return new List<ItemModel>();
         }
 
+        public string FormatOutput() { return ""; }
+
+        public int GetDamageRollValue() { return 10; }
+
+        public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
+        {
+            return null;
+        }
+
+
+        public int GetItemBonus(AttributeEnum attributeEnum)
+        {
+            return 0;
+        }
+
     }
 }
