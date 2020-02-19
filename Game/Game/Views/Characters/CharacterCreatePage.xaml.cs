@@ -43,7 +43,7 @@ namespace Game.Views
                 ViewModel.Data.ImageURI = Services.CharacterService.DefaultImageURI;
             }
 
-            // Add validation for Name and score
+            // Add validation for Name
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
             {
                 await DisplayAlert("Alert", "Please enter a name!", "OK");
