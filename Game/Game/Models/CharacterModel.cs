@@ -28,6 +28,9 @@ namespace Game.Models
         //Current level of the character
         public int Level { get; set; }
 
+        // Character status
+        public bool Alive = true;
+
         // Parameterless constructor
         public CharacterModel()
         {
@@ -111,5 +114,43 @@ namespace Game.Models
         {
             return this.CurrentHealth;
         }
+
+        /// <summary>
+        /// Calculate damage
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns></returns>
+        public bool TakeDamage(int damage)
+        {
+            if (damage <= 0)
+            {
+                return false;
+            }
+
+            CurrentHealth = CurrentHealth - damage;
+            // if current health is 0 or less character is dead
+            if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
+
+                // Set Alive to false
+                Alive = false;
+                return Alive;
+            }
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newExperience"></param>
+        /// <returns></returns>
+        public bool AddExperience(int newExperience)
+        { 
+            return true;
+        }
+
     }
 }
