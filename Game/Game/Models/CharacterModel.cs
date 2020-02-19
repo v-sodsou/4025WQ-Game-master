@@ -32,6 +32,27 @@ namespace Game.Models
         // Character status
         public bool Alive = true;
 
+        // Head Item Location
+        public string HeadItem { get; set; } = null;
+
+        // Body Item Location
+        public string BodyItem { get; set; } = null;
+
+        //  Feet Item Location
+        public string FeetItem { get; set; } = null;
+
+        // Primary Hand Item Location
+        public string PrimaryHandItem { get; set; } = null;
+
+        // Off Hand Item Location
+        public string OffHandItem { get; set; } = null;
+
+        // Right Finger Item Location
+        public string RightFingerItem { get; set; } = null;
+
+        // Left Finger Item Location
+        public string LeftFingerItem { get; set; } = null;
+
         // Parameterless constructor
         public CharacterModel()
         {
