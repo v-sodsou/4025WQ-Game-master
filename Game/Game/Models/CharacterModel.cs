@@ -1,4 +1,5 @@
 ﻿using Game.Services;
+using System.Collections.Generic;
 
 namespace Game.Models
 {
@@ -150,6 +151,23 @@ namespace Game.Models
         public bool AddExperience(int newExperience)
         { 
             return true;
+        }
+
+        public ItemModel RemoveItem(ItemLocationEnum itemlocation)
+        {
+            var myReturn = AddItem(itemlocation, null);
+            // Save Changes
+            return myReturn;
+        }
+
+        public ItemModel AddItem(ItemLocationEnum itemlocation, string itemID)
+        {
+            return new ItemModel();
+        }
+
+        public List<ItemModel> DropAllItems()
+        {
+            return new List<ItemModel>();
         }
 
     }
