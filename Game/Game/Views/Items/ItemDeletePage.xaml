@@ -7,58 +7,37 @@
              x:Class="Game.Views.ItemDeletePage"
              Title="Delete Page">
 
+<ContentPage.ToolbarItems>
+    <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+</ContentPage.ToolbarItems>
+
+<ContentPage.Content>
     <ScrollView HorizontalOptions="Center">
-        <StackLayout Style="{StaticResource OuterBoxStack}"
-                Spacing="10">
-
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                   Text="Name : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Name}" 
-                    Style="{StaticResource ValueStyle}"/>
+        <StackLayout 
+            HorizontalOptions="Center">
+            <StackLayout Padding="0, 20, 0, 0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Do you Really Want to Delete this Item?"/>
+            </StackLayout>
+            <StackLayout Padding="0, 50, 0, 0" Orientation="Horizontal">
+                <Image  WidthRequest="100" HeightRequest="100"
+                    Source="{Binding Data.ImageURI}"
+                    HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="{Binding Data.Name}"/>
             </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Description : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Description}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout HorizontalOptions="CenterAndExpand">
-                <Label  Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
-            </StackLayout>
-
-            <StackLayout    Orientation="Horizontal"
-                            HorizontalOptions="Center" 
-                            Padding="20">
-
+            <StackLayout Padding="0, 50, 0, 0" HorizontalOptions="Center" Orientation="Horizontal">
                 <Button 
-                Text="Delete" 
-                Clicked="Delete_Clicked" 
-                HorizontalOptions="Center"
-                FontSize="Medium"
-                BorderWidth="1" 
-                BorderColor="black">
+                    Text="Delete" 
+                    Clicked="Delete_Clicked" 
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1" 
+                    BorderColor="black">
                 </Button>
-
-                <Button 
-                Text="Cancel" 
-                Clicked="Cancel_Clicked" 
-                HorizontalOptions="Center"
-                FontSize="Medium"
-                BorderWidth="1" 
-                BorderColor="black">
-                </Button>
-
             </StackLayout>
-            
         </StackLayout>
     </ScrollView>
+</ContentPage.Content>
 </ContentPage>
