@@ -2,6 +2,7 @@
 using Game.ViewModels;
 using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Game.Views
@@ -36,14 +37,22 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
-            // If the image in the data box is empty, use the default one..
-            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
-            {
-                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
-            }
 
-            MessagingCenter.Send(this, "Create", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            // Add validation for Name and score
+            if (string.IsNullOrEmpty(ViewModel.Data.Name))
+            {
+                await DisplayAlert("Alert", "Please enter a name!", "OK");
+            }
+            else if (ViewModel.Data.ScoreTotal < 0)
+            {
+                await DisplayAlert("Alert", "Please enter a number greater than or equal than 0!", "OK");
+            }
+            else
+            {
+                MessagingCenter.Send(this, "Create", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
+            
         }
 
         /// <summary>
