@@ -185,20 +185,66 @@ namespace Game.Models
             return new List<ItemModel>();
         }
 
+        /// <summary>
+        /// Format output
+        /// </summary>
+        /// <returns></returns>
         public string FormatOutput() { return ""; }
 
+        /// <summary>
+        /// GetDamageRollValue
+        /// </summary>
+        /// <returns></returns>
         public int GetDamageRollValue() { return 10; }
 
+        /// <summary>
+        /// GetItemByLocation
+        /// </summary>
+        /// <param name="itemLocation"></param>
+        /// <returns></returns>
         public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
         {
             return null;
         }
 
-
+        /// <summary>
+        /// GetItemBonus
+        /// </summary>
+        /// <param name="attributeEnum"></param>
+        /// <returns></returns>
         public int GetItemBonus(AttributeEnum attributeEnum)
         {
             return 0;
         }
 
+        /// <summary>
+        /// ScaleLevel
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public bool ScaleLevel(int level) 
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// LevelUpToValue
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public int LevelUpToValue(int value) 
+        {
+            return 0;
+
+        }
+
+        /// <summary>
+        /// GetDamageDice
+        /// </summary>
+        /// <returns></returns>
+        public int GetDamageDice() 
+        {
+            return 0;
+        }
     }
 }
