@@ -34,6 +34,9 @@ namespace Game.Models
         // Monster status
         public bool Alive = true;
 
+        //Maximum health of the character
+        public int MaxHealth { get; set; }
+
 
         /// <summary>
         /// Parameterless constructor
@@ -56,6 +59,36 @@ namespace Game.Models
         public MonsterModel(MonsterModel data)
         {
             Update(data);
+        }
+
+        // Get Attack
+        public int GetAttack()
+        {
+            return this.Attack;
+        }
+
+        // Get Speed
+        public int GetSpeed()
+        {
+            return this.Speed;
+        }
+
+        // Get Defense
+        public int GetDefense()
+        {
+            return this.Defense;
+        }
+
+        // Get Max Health
+        public int GetHealthMax()
+        {
+            return this.MaxHealth;
+        }
+
+        // Get Current Health
+        public int GetHealthCurrent()
+        {
+            return this.CurrentHealth;
         }
 
         /// <summary>
@@ -115,5 +148,11 @@ namespace Game.Models
 
             return true;
         }
+
+        /// <summary>
+        /// Format output
+        /// </summary>
+        /// <returns></returns>
+        public string FormatOutput() { return string.Empty; }
     }
 }
