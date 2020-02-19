@@ -144,7 +144,7 @@ namespace Game.Models
 
 
         /// <summary>
-        /// 
+        /// Add experience to a character
         /// </summary>
         /// <param name="newExperience"></param>
         /// <returns></returns>
@@ -153,6 +153,11 @@ namespace Game.Models
             return true;
         }
 
+        /// <summary>
+        /// Remove an item from a character
+        /// </summary>
+        /// <param name="itemlocation"></param>
+        /// <returns></returns>
         public ItemModel RemoveItem(ItemLocationEnum itemlocation)
         {
             var myReturn = AddItem(itemlocation, null);
@@ -160,11 +165,21 @@ namespace Game.Models
             return myReturn;
         }
 
+        /// <summary>
+        /// Add an item to a character
+        /// </summary>
+        /// <param name="itemlocation"></param>
+        /// <param name="itemID"></param>
+        /// <returns></returns>
         public ItemModel AddItem(ItemLocationEnum itemlocation, string itemID)
         {
             return new ItemModel();
         }
 
+        /// <summary>
+        /// Drop all items
+        /// </summary>
+        /// <returns></returns>
         public List<ItemModel> DropAllItems()
         {
             return new List<ItemModel>();
