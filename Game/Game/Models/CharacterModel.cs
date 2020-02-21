@@ -1,4 +1,7 @@
-﻿using Game.Services;
+﻿using Game.Helpers;
+using Game.Services;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 
 namespace Game.Models
@@ -31,6 +34,11 @@ namespace Game.Models
 
         // Character status
         public bool Alive = true;
+
+
+        #region Items
+        public string PrimaryHand { get; set; } = null;
+        #endregion Items
 
         // Parameterless constructor
         public CharacterModel()
@@ -192,16 +200,35 @@ namespace Game.Models
         public string FormatOutput() { return ""; }
 
         /// <summary>
+        /// /\GetDamageLevelBonus
+        /// </summary>
+        public int GetDamageLevelBonus { get { return Convert.ToInt32(Math.Ceiling(Level * .25)); } }
+
+        /// <summary>
         /// GetDamageRollValue
         /// </summary>
         /// <returns></returns>
-        public int GetDamageRollValue() { return 10; }
+        public int GetDamageRollValue()
+        {
+            var myReturn = 0;
 
-        /// <summary>
-        /// GetItemByLocation
-        /// </summary>
-        /// <param name="itemLocation"></param>
-        /// <returns></returns>
+            var myItem = ItemIndexViewModel.Instance.GetItem(PrimaryHand);
+            if (myItem != null)
+            {
+                // Dice of the weapon.  So sword of Damage 10 is d10
+                myReturn += DiceHelper.RollDice(1, myItem.Damage);
+            }
+
+            // Add in the Level as extra damage per game rules
+            myReturn += GetDamageLevelBonus;
+
+            return myReturn;
+        }
+            /// <summary>
+            /// GetItemByLocation
+            /// </summary>
+            /// <param name="itemLocation"></param>
+            /// <returns></returns>
         public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
         {
             return null;

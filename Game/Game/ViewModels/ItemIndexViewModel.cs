@@ -143,7 +143,22 @@ namespace Game.ViewModels
                     .ThenBy(a => a.Description)
                     .ToList();
         }
+        public ItemModel GetItem(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return null;
+            }
 
+            // Item myData = DataStore.GetAsync_Item(ItemID).GetAwaiter().GetResult();
+            ItemModel myData = Dataset.Where(a => a.Id.Equals(id)).FirstOrDefault();
+            if (myData == null)
+            {
+                return null;
+            }
+
+            return myData;
+        }
         #endregion SortDataSet
     }
 }
