@@ -1,4 +1,5 @@
-﻿using Game.Services;
+﻿using Game.Helpers;
+using Game.Services;
 
 namespace Game.Models
 {
@@ -87,6 +88,25 @@ namespace Game.Models
                             "Range : " + Range;
 
             return myReturn.Trim();
+        }
+
+        /// <summary>
+        /// ScaleLevel
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public int ScaleLevel(int level)
+        {
+            if (DiceHelper.ForceRollsToNotRandom)
+            {
+                // Use the level as the value
+                Value = level;
+            }
+
+            // Roll a dice of up to the Level
+            Value = DiceHelper.RollDice(1, level);
+
+            return Value;
         }
     }
 }

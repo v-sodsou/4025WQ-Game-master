@@ -245,16 +245,6 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// ScaleLevel
-        /// </summary>
-        /// <param name="level"></param>
-        /// <returns></returns>
-        public bool ScaleLevel(int level) 
-        {
-            return false;
-        }
-
-        /// <summary>
         /// LevelUpToValue
         /// </summary>
         /// <param name="value"></param>
