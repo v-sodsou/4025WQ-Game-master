@@ -211,17 +211,12 @@ namespace Game.Models
         public int GetDamageRollValue()
         {
             var myReturn = 0;
-
             var myItem = ItemIndexViewModel.Instance.GetItem(PrimaryHand);
             if (myItem != null)
             {
-                // Dice of the weapon.  So sword of Damage 10 is d10
                 myReturn += DiceHelper.RollDice(1, myItem.Damage);
             }
-
-            // Add in the Level as extra damage per game rules
             myReturn += GetDamageLevelBonus;
-
             return myReturn;
         }
             /// <summary>
@@ -259,9 +254,15 @@ namespace Game.Models
         /// GetDamageDice
         /// </summary>
         /// <returns></returns>
-        public int GetDamageDice() 
+        public int GetDamageDice()
         {
-            return 0;
+            var myReturn = 0;
+            var myItem = ItemIndexViewModel.Instance.GetItem(PrimaryHand);
+            if (myItem != null)
+            {
+                myReturn += myItem.Damage;
+            }
+            return myReturn;
         }
     }
 }
