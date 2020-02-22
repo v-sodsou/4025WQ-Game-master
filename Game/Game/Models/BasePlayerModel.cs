@@ -32,6 +32,9 @@ namespace Game.Models
 
         #region PlayerAttributes
 
+        // The Dice to use when leveling up, default is d10
+        public int HealthDice { get; set; } = 10;
+
         // Level of character or monster
         public int Level { get; set; } = 1;
 
@@ -222,6 +225,46 @@ namespace Game.Models
         public BasePlayerModel()
         {
             Guid = Id;
+        }
+
+        /// <summary>
+        /// Sets the Level to Scale Up to
+        /// </summary>
+        /// <param name="level">The New Level</param>
+        /// <returns>True if New Level Occurs</returns>
+        public bool ScaleLevel(int level)
+        {
+            // No need of changing if level < 1
+            if (level < 1)
+            {
+                return false;
+            }
+
+            // Don't go down in level...
+            if (level < this.Level)
+            {
+                return false;
+            }
+
+            // Level > Max Level
+            if (level > 20)
+            {
+                return false;
+            }
+
+            // Calculate Experience Remaining 
+            Level = level;
+
+            ExperienceTotal = LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience;
+
+            Attack = LevelTableHelper.Instance.LevelDetailsList[Level].Attack;
+            Defense = LevelTableHelper.Instance.LevelDetailsList[Level].Defense;
+            Speed = LevelTableHelper.Instance.LevelDetailsList[Level].Speed;
+
+            MaxHealth = DiceHelper.RollDice(Level, HealthDice);
+            CurrentHealth = MaxHealth;
+
+            return true;
         }
 
         #region GetAttributeValues
