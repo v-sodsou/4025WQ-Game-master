@@ -216,13 +216,28 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<bool> UpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
             var myRead = await ReadAsync(((BaseModel<T>)(object)data).Id);
             if (myRead == null)
             {
                 return false;
             }
 
-            var result = await Database.UpdateAsync(data);
+            int result = 0;
+            try
+            {
+                GetForceExceptionCount();
+                result = await Database.UpdateAsync(data);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return await Task.FromResult(false);
+            }
 
             return (result == 1);
         }
