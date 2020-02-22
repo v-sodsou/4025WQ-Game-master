@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Game.Models;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Game.Services
 {
@@ -130,17 +131,28 @@ namespace Game.Services
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
+            await semaphoreSlim.WaitAsync();
             try
             {
-                await Database.DropTableAsync<T>().ConfigureAwait(false);
+                GetForceExceptionCount();
+                NeedsInitialization = true;
+
+                await Database.DropTableAsync<T>();
                 await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error WipeData" + e.Message);
+                Debug.WriteLine("Error WipeData" + e.Message);
+                return await Task.FromResult(false);
+            }
+            finally
+            {
+                semaphoreSlim.Release();
             }
 
+
             return await Task.FromResult(true);
+
         }
 
         /// <summary>
@@ -217,6 +229,26 @@ namespace Game.Services
         public async Task<List<T>> IndexAsync()
         {
             return await Database.Table<T>().ToListAsync();
+        }
+
+        /// <summary>
+        /// Keeps track of the Forced exception Count
+        /// </summary>
+        /// <returns></returns>
+        public int GetForceExceptionCount()
+        {
+            if (ForceExceptionOnNumber > 0)
+            {
+                if (ForceExceptionOnNumber == 1)
+                {
+                    throw new NotImplementedException();
+                }
+
+                ForceExceptionOnNumber--;
+            }
+
+            return ForceExceptionOnNumber;
+
         }
     }
 }
