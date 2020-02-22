@@ -1,6 +1,7 @@
 ﻿using System;
 using SQLite;
 
+
 namespace Game.Models
 {
     /// <summary>
@@ -13,13 +14,16 @@ namespace Game.Models
     {
         // The ID for the item
         [PrimaryKey]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; } = System.Guid.NewGuid().ToString();
 
         // The Name of the Item 
         public string Name { get; set; } = "Enter a name here...";
 
         // The Descirption of the Item
         public string Description { get; set; } = "Enter a description here...";
+
+        // Guid, passed from the server
+        public string Guid { get; set; } = "";
 
     }
 }
