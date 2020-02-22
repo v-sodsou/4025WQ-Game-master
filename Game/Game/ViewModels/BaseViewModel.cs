@@ -362,8 +362,15 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> DeleteAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
+            var BaseDataId = ((BaseModel<T>)(object)data).Id;
+
             // Check that the record exists, if it does not, then exit with false
-            var record = await ReadAsync(((BaseModel<T>)(object)data).Id);
+            var record = await ReadAsync(BaseDataId);
             if (record == null)
             {
                 return false;
@@ -379,7 +386,6 @@ namespace Game.ViewModels
 
             return result;
         }
-
         /// <summary>
         /// Having this at the ViewModel, because it has the DataStore
         /// That allows the feature to work for both SQL and the Mock datastores...
