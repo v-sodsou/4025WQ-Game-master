@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Game.Models;
 using System.Collections.Generic;
@@ -61,11 +62,17 @@ namespace Game.Services
             return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
         }
 
+        // Check if in test mode
         public static bool TestMode = false;
         public int ForceExceptionOnNumber = -1;
 
+        // Lazy connection
         static SQLiteAsyncConnection Database => lazyInitializer.Value;
+        // Track if initialized
         static bool initialized = false;
+
+        // Semaphore to track transactions
+        private readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(initialCount: 1);
 
         /// <summary>
         /// Constructor
@@ -84,11 +91,13 @@ namespace Game.Services
         {
             if (!initialized)
             {
+                initialized = true;
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(T).Name))
                 {
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(T)).ConfigureAwait(false);
-                    initialized = true;
+                    return; 
                 }
+
+                await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
             }
         }
 
