@@ -71,6 +71,9 @@ namespace Game.Services
         // Track if initialized
         static bool initialized = false;
 
+        // Set Needs Init to False, so toggles to true 
+        public bool NeedsInitialization = true;
+
         // Semaphore to track transactions
         private readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(initialCount: 1);
 
@@ -99,6 +102,26 @@ namespace Game.Services
 
                 await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
             }
+        }
+
+        /// <summary>
+
+        /// First time toggled, returns true.
+
+        /// </summary>
+
+        /// <returns></returns>
+
+        public async Task<bool> GetNeedsInitializationAsync()
+        {
+            if (NeedsInitialization == true)
+            {
+                // Toggle State
+                NeedsInitialization = false;
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(NeedsInitialization);
         }
 
         /// <summary>
