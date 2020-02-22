@@ -256,8 +256,16 @@ namespace Game.ViewModels
             LoadDatasetCommand.Execute(null);
         }
 
+        /// <summary>
+        /// Returns the needs refresh value
+        /// </summary>
+        /// <returns></returns>
+        public bool GetNeedsRefresh()
+        {
+            return _needsRefresh;
+        }
         #endregion Refresh
-        
+
         #region DataSourceManagement
 
         /// <summary>
