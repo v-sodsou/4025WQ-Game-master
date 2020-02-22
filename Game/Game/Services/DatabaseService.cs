@@ -162,8 +162,22 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<bool> CreateAsync(T data)
         {
-            var result = await Database.InsertAsync(data);
-            return (result == 1);
+            if (data == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                GetForceExceptionCount();
+                var result = await Database.InsertAsync(data);
+                return (result == 1);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return false;
+            }
         }
 
         /// <summary>
@@ -174,12 +188,21 @@ namespace Game.Services
         public async Task<T> ReadAsync(string id)
         {
             T data;
+            if (string.IsNullOrEmpty(id))
+            {
+                return default(T);
+            }
 
             try
             {
-                data = await Database.Table<T>().Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefaultAsync();
+                GetForceExceptionCount();
+                var dataList = await IndexAsync();
+
+                data = dataList.Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefault();
             }
-            catch (Exception) {
+            catch (Exception e)
+            {
+                Debug.WriteLine("Read Failed " + e.Message);
                 data = default(T);
             }
 
