@@ -13,6 +13,7 @@ namespace Game.Models
         // Parameterless constructor for Character Model
         public CharacterModel()
         {
+            PlayerType = PlayerTypeEnum.Character;
             ImageURI = CharacterService.DefaultImageURI;
             HasForce = false;
             Attack = 1;
