@@ -249,13 +249,28 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<bool> DeleteAsync(string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return false;
+            }
+
             var data = await ReadAsync(id);
             if (data == null)
             {
                 return false;
             }
 
-            var result = await Database.DeleteAsync(data);
+            int result;
+            try
+            {
+                GetForceExceptionCount();
+                result = await Database.DeleteAsync(data);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Delete Failed " + e.Message);
+                return false;
+            }
 
             return (result == 1);
         }
@@ -266,7 +281,20 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<List<T>> IndexAsync()
         {
-            return await Database.Table<T>().ToListAsync();
+            List<T> result;
+            try
+            {
+                GetForceExceptionCount();
+
+                result = await Database.Table<T>().ToListAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return null;
+            }
+
+            return result;
         }
 
         /// <summary>
