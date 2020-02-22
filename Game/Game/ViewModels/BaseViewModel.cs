@@ -304,6 +304,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> CreateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
             Dataset.Add(data);
             var result = await DataStore.CreateAsync(data);
 
@@ -311,7 +316,6 @@ namespace Game.ViewModels
 
             return result;
         }
-
         /// <summary>
         /// Get the data
         /// </summary>
@@ -330,21 +334,27 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> UpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
+            var BaseDataId = ((BaseModel<T>)(object)data).Id;
+
             // Check that the record exists, if it does not, then exit with false
-            var record = await ReadAsync(((BaseModel<T>)(object)data).Id);
+            var record = await ReadAsync(BaseDataId);
             if (record == null)
             {
                 return false;
             }
 
             // Save the change to the Data Store
-            var result = await DataStore.UpdateAsync(record);
+            var result = await DataStore.UpdateAsync(data);
 
             SetNeedsRefresh(true);
 
             return result;
         }
-
         /// <summary>
         /// Delete the data
         /// </summary>
