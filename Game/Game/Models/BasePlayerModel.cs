@@ -267,6 +267,68 @@ namespace Game.Models
             return true;
         }
 
+        // Level Up
+        public bool LevelUp()
+        {
+            // Start the Level Table in descending order
+            for (var i = LevelTableHelper.Instance.LevelDetailsList.Count - 1; i > 0; i--)
+            {
+        
+                // If the Level is > Experience for the Index, increment the Level.
+                if (LevelTableHelper.Instance.LevelDetailsList[i].Experience <= ExperienceTotal)
+                {
+                    var NewLevel = LevelTableHelper.Instance.LevelDetailsList[i].Level;
+
+                    // When leveling up, the current health is adjusted up by an offset of the MaxHealth, rather than full restore
+                    var OldCurrentHealth = CurrentHealth;
+                    var OldMaxHealth = MaxHealth;
+
+                    // Calculate max Health addition
+                    // New health, is d10 of the new level.  So leveling up 1 level is 1 d10, leveling up 2 levels is 2 d10.
+                    var MaxHealthAddition = DiceHelper.RollDice(NewLevel - Level, 10);
+
+                    // Increment Max health
+                    MaxHealth += MaxHealthAddition;
+
+                    CurrentHealth = (MaxHealth - (OldMaxHealth - OldCurrentHealth));
+
+                    // Set the new level
+                    Level = NewLevel;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        // Add experience
+        public bool AddExperience(int newExperience)
+        {
+            // newExperience cannot be lower than 0
+            if (newExperience < 0)
+            {
+                return false;
+            }
+
+            // Increment the Experience
+            ExperienceTotal += newExperience;
+
+            // Can't level UP more than max.
+            if (Level >= 20)
+            {
+                return false;
+            }
+           
+            // If experience is higher than the experience at the next level, level up.
+            if (ExperienceTotal >= LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience)
+            {
+                return LevelUp();
+            }
+            return false;
+        }
+
         #region GetAttributeValues
         /// <summary>
         /// Return the Total Attack Value
@@ -412,9 +474,6 @@ namespace Game.Models
         }
 
         public string FormatOutput() { return ""; }
-
-        public bool AddExperience(int newExperience) { return true; }
-
         public int CalculateExperienceEarned(int damage) { return 0; }
 
         #region Items
