@@ -279,14 +279,78 @@ namespace Game.Models
         }
 
 
-        /// <summary>
-        /// GetItemBonus
-        /// </summary>
-        /// <param name="attributeEnum"></param>
-        /// <returns></returns>
+        // Walk all the Items on the Character.
+        // Add together all Items that modify the Attribute Enum Passed in
+        // Return the sum
         public int GetItemBonus(AttributeEnum attributeEnum)
         {
-            return 0;
+            var myReturn = 0;
+            ItemModel myItem;
+
+            myItem = GetItem(Head);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(Necklass);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(PrimaryHand);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(OffHand);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(RightFinger);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(LeftFinger);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(Feet);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            return myReturn;
         }
 
         /// <summary>
