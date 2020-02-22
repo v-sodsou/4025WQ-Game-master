@@ -273,6 +273,8 @@ namespace Game.ViewModels
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
+            Dataset.Clear();
+
             await DataStore.WipeDataListAsync();
 
             // Load the Sample Data
