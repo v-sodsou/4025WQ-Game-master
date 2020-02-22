@@ -106,6 +106,9 @@ namespace Game.ViewModels
                 CurrentDataSource = 0;
             }
 
+            // Data changed, so make sure warmed up before trying to load
+            Helpers.DataSetsHelper.WarmUp();
+
             await LoadDefaultDataAsync();
 
             // Set Flag for Refresh
