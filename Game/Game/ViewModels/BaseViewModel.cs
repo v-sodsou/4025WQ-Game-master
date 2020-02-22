@@ -408,7 +408,7 @@ namespace Game.ViewModels
             }
 
             return myList;
-        } 
+        }
 
         /// <summary>
         /// Having this at the ViewModel, because it has the DataStore
@@ -418,12 +418,18 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> CreateUpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
+            var BaseDataId = ((BaseModel<T>)(object)data).Id;
+
             // Check to see if the data exist
-            var oldData = await ReadAsync(((BaseModel<T>)(object)data).Id);
+            var oldData = CheckIfExists(data);
             if (oldData == null)
             {
-                await CreateAsync(data);
-                return true;
+                return await CreateAsync(data);
             }
 
             // Compare it, if different update in the DB
