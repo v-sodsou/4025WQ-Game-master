@@ -106,13 +106,9 @@ namespace Game.Services
         }
 
         /// <summary>
-
         /// First time toggled, returns true.
-
         /// </summary>
-
         /// <returns></returns>
-
         public async Task<bool> GetNeedsInitializationAsync()
         {
             if (NeedsInitialization == true)
