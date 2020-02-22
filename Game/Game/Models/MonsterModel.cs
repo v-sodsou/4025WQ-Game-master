@@ -95,11 +95,11 @@ namespace Game.Models
         /// Update a monster
         /// </summary>
         /// <param name="newData"></param>
-        public override void Update(MonsterModel newData)
+        public override bool Update(MonsterModel newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
 
             // Update all the fields in the Data, except for the Id and guid
@@ -107,6 +107,7 @@ namespace Game.Models
             Description = newData.Description;
             ImageURI = newData.ImageURI;
             HasForce = newData.HasForce;
+            return true;
         }
 
         //Up the monster level

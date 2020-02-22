@@ -60,11 +60,11 @@ namespace Game.Models
         }
 
         // Update all the fields in the Data, except for the Id and guid
-        public override void Update(CharacterModel newData)
+        public override bool Update(CharacterModel newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
 
             Name = newData.Name;
@@ -76,6 +76,7 @@ namespace Game.Models
             Speed = newData.Speed;
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
+            return true;
 
          }
 
