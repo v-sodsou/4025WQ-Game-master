@@ -44,8 +44,25 @@ namespace Game.Services
         /// </summary>
         static readonly Lazy<SQLiteAsyncConnection> lazyInitializer = new Lazy<SQLiteAsyncConnection>(() =>
         {
-            return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+            return GetDataConnection();
         });
+
+        /// <summary>
+        /// Get Data Connection Method
+        /// </summary>
+        /// <returns></returns>
+        public static SQLiteAsyncConnection GetDataConnection()
+        {
+            if (TestMode)
+            {
+                return new SQLiteAsyncConnection(":memory:", Constants.Flags);
+            }
+
+            return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+        }
+
+        public static bool TestMode = false;
+        public int ForceExceptionOnNumber = -1;
 
         static SQLiteAsyncConnection Database => lazyInitializer.Value;
         static bool initialized = false;
