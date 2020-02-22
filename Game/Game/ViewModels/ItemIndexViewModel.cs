@@ -92,7 +92,7 @@ namespace Game.ViewModels
         }
 
         #endregion Constructor
-        
+
         #region DataOperations_CRUDi
 
         /// <summary>
@@ -100,13 +100,20 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public ItemModel CheckIfItemExists(ItemModel data)
+        public override ItemModel CheckIfExists(ItemModel data)
         {
             // This will walk the items and find if there is one that is the same.
             // If so, it returns the item...
 
             var myList = Dataset.Where(a =>
-                                        a.Name == data.Name)
+                                        a.Name == data.Name &&
+                                        a.Description == data.Description &&
+                                        a.Damage == data.Damage &&
+                                        a.Attribute == data.Attribute &&
+                                        a.Location == data.Location &&
+                                        a.Range == data.Range &&
+                                        a.Value == data.Value
+                                        )
                                         .FirstOrDefault();
 
             if (myList == null)
@@ -122,7 +129,7 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<ItemModel> GetDefaultData() 
+        public override List<ItemModel> GetDefaultData()
         {
             return DefaultData.LoadData(new ItemModel());
         }
@@ -143,6 +150,15 @@ namespace Game.ViewModels
                     .ThenBy(a => a.Description)
                     .ToList();
         }
+
+        #endregion SortDataSet
+
+        /// <summary>
+        /// Takes an item string ID and looks it up and returns the item
+        /// This is because the Items on a character are stores as strings of the GUID.  That way it can be saved to the DB.
+        /// </summary>
+        /// <param name="ItemID"></param>
+        /// <returns></returns>
         public ItemModel GetItem(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -159,6 +175,5 @@ namespace Game.ViewModels
 
             return myData;
         }
-        #endregion SortDataSet
     }
 }

@@ -37,7 +37,28 @@ namespace Game.Models
 
 
         #region Items
+
+        // ItemModel is a string referencing the database table
+        public string Head { get; set; } = null;
+
+        // Feet is a string referencing the database table
+        public string Feet { get; set; } = null;
+
+        // Necklasss is a string referencing the database table
+        public string Necklass { get; set; } = null;
+
+        // PrimaryHand is a string referencing the database table
         public string PrimaryHand { get; set; } = null;
+
+        // Offhand is a string referencing the database table
+        public string OffHand { get; set; } = null;
+
+        // RightFinger is a string referencing the database table
+        public string RightFinger { get; set; } = null;
+
+        // LeftFinger is a string referencing the database table
+        public string LeftFinger { get; set; } = null;
+
         #endregion Items
 
         // Parameterless constructor
@@ -220,24 +241,116 @@ namespace Game.Models
             myReturn += GetDamageLevelBonus;
             return myReturn;
         }
-            /// <summary>
-            /// GetItemByLocation
-            /// </summary>
-            /// <param name="itemLocation"></param>
-            /// <returns></returns>
+
+        // Get the ItemModel at a known string location (head, foot etc.)
         public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
         {
+            switch (itemLocation)
+            {
+                case ItemLocationEnum.Head:
+                    return GetItem(Head);
+
+                case ItemLocationEnum.Necklass:
+                    return GetItem(Necklass);
+
+                case ItemLocationEnum.PrimaryHand:
+                    return GetItem(PrimaryHand);
+
+                case ItemLocationEnum.OffHand:
+                    return GetItem(OffHand);
+
+                case ItemLocationEnum.RightFinger:
+                    return GetItem(RightFinger);
+
+                case ItemLocationEnum.LeftFinger:
+                    return GetItem(LeftFinger);
+
+                case ItemLocationEnum.Feet:
+                    return GetItem(Feet);
+            }
+
             return null;
         }
 
-        /// <summary>
-        /// GetItemBonus
-        /// </summary>
-        /// <param name="attributeEnum"></param>
-        /// <returns></returns>
+        // Get the Item at a known string location (head, foot etc.)
+        public ItemModel GetItem(string itemString)
+        {
+            return ItemIndexViewModel.Instance.GetItem(itemString);
+        }
+
+
+        // Walk all the Items on the Character.
+        // Add together all Items that modify the Attribute Enum Passed in
+        // Return the sum
         public int GetItemBonus(AttributeEnum attributeEnum)
         {
-            return 0;
+            var myReturn = 0;
+            ItemModel myItem;
+
+            myItem = GetItem(Head);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(Necklass);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(PrimaryHand);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(OffHand);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(RightFinger);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(LeftFinger);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = GetItem(Feet);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            return myReturn;
         }
 
         /// <summary>
