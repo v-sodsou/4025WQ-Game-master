@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Game.Engine
 {
-    class BattleEngine
+    class BattleEngine: RoundEngine
     {
+
+        // Track if the Battle is Running or Not
+        public bool BattleRunning = false;
+
+       
     }
 }
