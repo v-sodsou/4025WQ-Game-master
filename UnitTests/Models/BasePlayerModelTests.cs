@@ -284,5 +284,20 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void BasePlayerModel_CauseDeath_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.CauseDeath();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
