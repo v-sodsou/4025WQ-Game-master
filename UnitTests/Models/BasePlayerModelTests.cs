@@ -193,7 +193,20 @@ namespace UnitTests.Models
             Assert.AreEqual(7654321, result);
         }
 
+        [Test]
+        public void BasePlayerModel_GetDamageRollValue_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+            data.Level = 1;
 
+            // Act
+            var result = data.GetDamageRollValue();
 
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
     }
 }
