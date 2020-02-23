@@ -40,5 +40,20 @@ namespace UnitTests.Models
             Assert.AreEqual("uri", result.ImageURI);
         }
 
+        [Test]
+        public void BaseModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BaseModel<ItemModel>();
+
+            // Act
+            var result = data.Update(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
     }
 }
