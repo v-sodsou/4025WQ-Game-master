@@ -29,5 +29,21 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Enter a name here...", result.Name);
         }
+
+        [Test]
+        public void BasePlayerModel_GetItemByLocation_Head_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
     }
 }
