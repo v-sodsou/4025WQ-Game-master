@@ -105,5 +105,20 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        [Test]
+        public void BasePlayerModel_GetItemByLocation_RightFinger_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.RightFinger);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
     }
 }
