@@ -45,5 +45,20 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        [Test]
+        public void BasePlayerModel_GetItemByLocation_Feet_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.Feet);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
     }
 }
