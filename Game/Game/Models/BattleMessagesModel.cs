@@ -52,5 +52,16 @@ namespace Game.Models
             return HitStatus.ToMessage();
         }
 
+        /// <summary>
+        /// Return formatted Damage
+        /// </summary>
+        /// <returns></returns>
+        public string GetDamageMessage()
+        {
+            return string.Format(" for {0} damage ", DamageAmount);
+        }
+
+
+
     }
 }
