@@ -41,5 +41,16 @@ namespace Game.Models
 
         // Ending of the Html Block for Html formatting
         public string htmlTail = @"</p></body></html>";
+
+        /// <summary>
+        /// Return formatted string
+        /// </summary>
+        /// <param name="hitStatus"></param>
+        /// <returns></returns>
+        public string GetSwingResult()
+        {
+            return HitStatus.ToMessage();
+        }
+
     }
 }
