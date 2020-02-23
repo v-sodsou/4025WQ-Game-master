@@ -269,5 +269,20 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void BasePlayerModel_TakeDamage_InValid_Should_Fail()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.TakeDamage(0);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
