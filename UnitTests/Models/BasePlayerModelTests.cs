@@ -299,5 +299,20 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void BasePlayerModel_GetItem_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.GetItem("test");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 }
