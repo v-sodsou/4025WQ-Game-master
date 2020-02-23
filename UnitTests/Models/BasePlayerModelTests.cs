@@ -210,7 +210,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public async Task BasePlayerModel_GetDamageRollValue_Default_Speed_Should_Pass()
+        public async Task BasePlayerModel_GetDamageRollValue_Default_AddValItems_Should_Pass()
         {
             // Arrange
             // Add each model here to warm up and load it.
@@ -253,6 +253,21 @@ namespace UnitTests.Models
 
             // Assert
             Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void BasePlayerModel_TakeDamage_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.TakeDamage(1);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
         }
     }
 }
