@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Game.Services
 {
+    /// <summary>
+    /// Mock Data Store Class
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class MockDataStore<T> : IDataStore<T> where T: new()
     {
 
@@ -15,6 +19,9 @@ namespace Game.Services
         private static volatile MockDataStore<T> instance;
         private static readonly object syncRoot = new Object();
 
+        /// <summary>
+        /// Singleton Pattern
+        /// </summary>
         public static MockDataStore<T> Instance
         {
             get
