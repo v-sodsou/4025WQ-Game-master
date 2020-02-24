@@ -64,5 +64,27 @@ namespace UnitTests.ViewModels
             Assert.IsNotNull(result);
         }
 
+        [Test]
+        public void ScoreIndexViewModel_SortDataSet_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Add Scores into the list Z ordered
+            var dataList = new List<ScoreModel>();
+            dataList.Add(new ScoreModel { Name = "z" });
+            dataList.Add(new ScoreModel { Name = "m" });
+            dataList.Add(new ScoreModel { Name = "a" });
+
+            // Act
+            var result = ViewModel.SortDataset(dataList);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("a", result[0].Name);
+            Assert.AreEqual("m", result[1].Name);
+            Assert.AreEqual("z", result[2].Name);
+        }
+
     }
 }
