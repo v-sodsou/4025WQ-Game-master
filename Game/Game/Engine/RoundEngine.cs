@@ -179,5 +179,24 @@ namespace Game.Engine
             return PlayerList;
         }
 
+
+        // Call to make a new set of monsters...
+        public bool NewRound()
+        {
+            // End the existing round
+            EndRound();
+
+            // Populate New Monsters...
+            AddMonstersToRound();
+
+            // Make the PlayerList
+            MakePlayerList();
+
+            // Update Score for the RoundCount
+            BattleScore.RoundCount++;
+
+            return true;
+        }
+
     }
 }
