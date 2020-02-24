@@ -11,11 +11,19 @@ using Game.Services;
 
 namespace Game.Services
 {
+    /// <summary>
+    /// Json Helper Class
+    /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0034:Simplify 'default' expression", Justification = "<Pending>")]
     #pragma warning disable CA1031 // Do not catch general exception types
     public static class JsonHelper
     {
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static string GetJsonString(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -41,7 +49,12 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static DateTime GetJsonDateTime(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -68,7 +81,12 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static TimeSpan GetJsonTimeSpan(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -151,7 +169,12 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static bool GetJsonBool(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -182,7 +205,12 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static int GetJsonInteger(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -209,7 +237,12 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static double GetJsonDouble(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -236,6 +269,12 @@ namespace Game.Services
             }
         }
 
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static long GetJsonLong(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -262,6 +301,12 @@ namespace Game.Services
             }
         }
 
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static ulong GetJsonuLong(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -289,7 +334,13 @@ namespace Game.Services
         }
 
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static List<T> GetJsonList<T>(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -321,7 +372,13 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static T GetObject<T>(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -353,7 +410,12 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static List<string> GetJsonStringList(JObject json, string field)
         {
             var myStringList = new List<string>();
@@ -389,7 +451,12 @@ namespace Game.Services
             }
         }
 
-        // Takes a json object, and retrieves a string from it matching the field
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static JObject GetJsonObject(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -431,6 +498,12 @@ namespace Game.Services
             }
         }
 
+        /// <summary>
+        /// Get a list of JSON Objects
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static List<JObject> GetJObjectList(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
@@ -471,6 +544,13 @@ namespace Game.Services
             }
         }
 
+        /// <summary>
+        /// Takes a json object, and retrieves a List
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public static List<T> GetObjectList<T>(JObject json, string field)
         {
             if (string.IsNullOrEmpty(field))
