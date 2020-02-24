@@ -432,5 +432,20 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BasePlayerModel_AddItem_Unknown_Should_Fail()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.AddItem(ItemLocationEnum.Unknown, "bogus");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 }
