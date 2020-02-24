@@ -6,6 +6,10 @@ using System.Text;
 
 namespace Game.Engine
 {
+    /// <summary>
+    /// Round Engine Class.
+    /// Inherits from TurnEngine Class
+    /// </summary>
     class RoundEngine: TurnEngine
     {
 
