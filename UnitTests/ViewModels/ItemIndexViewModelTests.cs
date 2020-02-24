@@ -1,12 +1,14 @@
 ﻿using NUnit.Framework;
-using Game.ViewModels;
+
 using Xamarin.Forms.Mocks;
 using Xamarin.Forms;
-using Game.Services;
+
 using System.Threading.Tasks;
-using Game.Models;
 using System.Collections.Generic;
 using System.Linq;
+
+using Game.Models;
+using Game.ViewModels;
 
 namespace UnitTests.ViewModels
 {
@@ -571,6 +573,104 @@ namespace UnitTests.ViewModels
 
             // Assert
             Assert.AreEqual(false, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetDefaultItemId_Unknown_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetDefaultItemId_Head_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreNotEqual(null, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetDefaultItem_Unknown_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetDefaultItem(ItemLocationEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetDefaultItem_Head_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetDefaultItem(ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreNotEqual(null, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetLocationItems_Head_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetLocationItems(ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreNotEqual(null, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetLocationItems_RightFinger_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetLocationItems(ItemLocationEnum.RightFinger);
+
+            // Reset
+
+            // Assert
+            Assert.AreNotEqual(null, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetLocationItems_LeftFinger_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetLocationItems(ItemLocationEnum.LeftFinger);
+
+            // Reset
+
+            // Assert
+            Assert.AreNotEqual(null, result);  // Update returned Pass
         }
     }
 }
