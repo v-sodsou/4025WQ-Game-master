@@ -202,5 +202,28 @@ namespace UnitTests.ViewModels
             Assert.AreEqual("test", result.Name); // Count of 0 for the load was skipped
         }
 
+        [Test]
+        public async Task ScoreIndexViewModel_Message_SetDataSource_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Get the Score to delete
+            var data = 3000; // Non existing value
+
+            // Make the page Page
+            var myPage = new Game.Views.AboutPage(true);
+
+            // Act
+            MessagingCenter.Send(myPage, "SetDataSource", data);
+            var result = ViewModel.GetCurrentDataSource();
+
+            // Reset
+            await ViewModel.SetDataSource(0);
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(0, result); // Count of 0 for the load was skipped
+        }
+
     }
 }
