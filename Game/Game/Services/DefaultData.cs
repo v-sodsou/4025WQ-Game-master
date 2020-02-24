@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Game.Services
 {
+    /// <summary>
+    /// DefaultData
+    /// </summary>
     public static class DefaultData
     {
         /// <summary>
@@ -87,6 +90,11 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Load Data Argument ScoreModel
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
             var datalist = new List<ScoreModel>()
@@ -125,6 +133,11 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Load Data Argument CharacterModel
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<CharacterModel> LoadData(CharacterModel temp)
         {
             var datalist = new List<CharacterModel>()
@@ -205,6 +218,11 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Load Data Argument MonsterModel
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<MonsterModel> LoadData(MonsterModel temp)
         {
             var datalist = new List<MonsterModel>()
