@@ -223,5 +223,21 @@ namespace UnitTests.Models
             Assert.IsNotNull(result);
         }
 
+        [Test]
+        public void BattleMessageModel_GetHTMLFormattedTurnMessage_HitStatus_CriticalMiss_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+            message.HitStatus = HitStatusEnum.CriticalMiss;
+
+            // Act
+            var result = message.GetHTMLFormattedTurnMessage();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
     }
 }
