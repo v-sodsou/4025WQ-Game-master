@@ -155,5 +155,29 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(null, data); // Score is removed
         }
 
+        [Test]
+        public async Task ScoreIndexViewModel_Message_Create_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Make a new Score
+            var data = new ScoreModel();
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ScoreCreatePage(true);
+
+            var countBefore = ViewModel.Dataset.Count();
+
+            // Act
+            MessagingCenter.Send(myPage, "Create", data);
+            var countAfter = ViewModel.Dataset.Count();
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
+        }
+
     }
 }
