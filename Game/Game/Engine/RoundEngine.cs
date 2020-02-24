@@ -134,5 +134,50 @@ namespace Game.Engine
 
             return MonsterList.Count();
         }
+
+        /// <summary>
+        /// Who is Playing this round?
+        /// </summary>
+        public List<PlayerInfoModel> MakePlayerList()
+        {
+            // Start from a clean list of players
+            PlayerList.Clear();
+
+            // Remeber the Insert order, used for Sorting
+            var ListOrder = 0;
+
+            foreach (var data in CharacterList)
+            {
+                if (data.Alive)
+                {
+                    PlayerList.Add(
+                        new PlayerInfoModel(data)
+                        {
+                            // Remember the order
+                            ListOrder = ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            foreach (var data in MonsterList)
+            {
+                if (data.Alive)
+                {
+                    PlayerList.Add(
+                        new PlayerInfoModel(data)
+                        {
+                            // Remember the order
+                            ListOrder = ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            return PlayerList;
+        }
+
     }
 }
