@@ -109,6 +109,24 @@ namespace Game.Engine
             return Defender;
         }
 
+        /// <summary>
+        /// Decide which to attack
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public PlayerInfoModel AttackChoice(PlayerInfoModel data)
+        {
+            switch (data.PlayerType)
+            {
+                case PlayerTypeEnum.Monster:
+                    return SelectCharacterToAttack();
+
+                case PlayerTypeEnum.Character:
+                default:
+                    return SelectMonsterToAttack();
+            }
+        }
+
 
     }
 }
