@@ -20,7 +20,9 @@ namespace Game.Services
         private static volatile DatabaseService<T> instance;
         private static readonly object syncRoot = new Object();
 
-        // Singleton pattern
+        /// <summary>
+        /// Singleton pattern
+        /// </summary>
         public static DatabaseService<T> Instance
         {
             get
