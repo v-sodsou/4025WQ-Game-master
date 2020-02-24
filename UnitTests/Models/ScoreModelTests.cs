@@ -154,6 +154,62 @@ namespace UnitTests.Models
             Assert.AreEqual("items", dataNew.ItemsDroppedList);
         }
 
+        [Test]
+        public void ScoreModel_Update_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var dataOriginal = new ScoreModel();
+            dataOriginal.TurnCount = 2;
 
+            // Act
+            var result = dataOriginal.Update(null);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(2, dataOriginal.TurnCount);
+        }
+
+        [Test]
+        public void ScoreModel_AddToList_Default_Should_Pass()
+        {
+            // Arrange
+            var dataScore = new ScoreModel();
+
+            var data = new ItemModel
+            {
+                Name = "Item1",
+                Location = ItemLocationEnum.Feet,
+                Attribute = AttributeEnum.Attack,
+                Value = 1,
+                Range = 2,
+                Damage = 3
+            };
+
+            // Act
+            var result = dataScore.AddToList(data);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(true, result);
+            Assert.AreNotEqual(string.Empty, dataScore.ItemsDroppedList);
+        }
+
+        [Test]
+        public void ScoreModel_AddToList_InValid_Null_Should_Pass()
+        {
+            // Arrange
+            var dataScore = new ScoreModel();
+
+            // Act
+            var result = dataScore.AddToList(null);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
     }
 }
