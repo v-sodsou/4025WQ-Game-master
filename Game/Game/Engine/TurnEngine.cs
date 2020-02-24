@@ -299,6 +299,40 @@ namespace Game.Engine
         }
 
 
+        /// <summary>
+        /// Attack as a Turn
+        /// 
+        /// Pick who to go after
+        /// 
+        /// Determine Attack Score
+        /// Determine DefenseScore
+        /// 
+        /// Do the Attack
+        /// 
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool Attack(PlayerInfoModel Attacker)
+        {
+            // For Attack, Choose Who
+            var Target = AttackChoice(Attacker);
+
+            if (Target == null)
+            {
+                return false;
+            }
+
+            // Do Attack
+            TurnAsAttack(Attacker, Target);
+
+            CurrentAttacker = new PlayerInfoModel(Attacker);
+            CurrentDefender = new PlayerInfoModel(Target);
+
+            return true;
+        }
+
+
+
 
     }
 }
