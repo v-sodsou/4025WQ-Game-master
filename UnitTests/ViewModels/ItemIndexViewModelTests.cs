@@ -338,5 +338,54 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(false, result);  // Update returned fail
         }
+
+        [Test]
+        public async Task ItemIndexViewModel_Update_Invalid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.UpdateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public async Task ItemIndexViewModel_Create_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel
+            {
+                Name = "New Item"
+            };
+
+            // Act
+            var result = await ViewModel.CreateAsync(data);
+
+            // Reset
+
+            // Need to clear the added item, and reload the dataset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task ItemIndexViewModel_Create_InValid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.CreateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
