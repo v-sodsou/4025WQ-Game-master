@@ -215,6 +215,21 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void BasePlayerModel_FormatOutput_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.FormatOutput();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("", result);
+        }
+
+        [Test]
         public void BasePlayerModel_GetItemByLocation_Head_Default_Should_Pass()
         {
             // Arrange
