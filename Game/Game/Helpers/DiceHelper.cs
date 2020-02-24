@@ -2,6 +2,9 @@
 
 namespace Game.Helpers
 {
+    /// <summary>
+    /// Dice Helper Class
+    /// </summary>
     public static class DiceHelper
     {
         /// <summary>
