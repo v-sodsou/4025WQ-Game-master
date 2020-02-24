@@ -8,7 +8,7 @@ using Game.Views.Characters;
 namespace Game.Views
 {
     /// <summary>
-    /// Index Page
+    /// Character Index Page
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0019:Use pattern matching", Justification = "<Pending>")]
     [DesignTimeVisible(false)]
@@ -17,7 +17,7 @@ namespace Game.Views
         // The view model, used for data binding
         readonly CharacterIndexViewModel ViewModel;
 
-
+        // Character select event trapped
         async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             CharacterModel data = args.SelectedItem as CharacterModel;

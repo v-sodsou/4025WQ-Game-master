@@ -11,15 +11,22 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views.Characters
 {
+    /// <summary>
+    /// Character Update Page Class
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
-        // View Model for Character
+        // View Model for data binding
         readonly GenericViewModel<CharacterModel> ViewModel;
 
         // Empty Constructor for Tests
         public CharacterUpdatePage(bool UnitTest) { }
 
+        /// <summary>
+        /// Character Update constructor
+        /// </summary>
+        /// <param name="data"></param>
         public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
@@ -59,21 +66,41 @@ namespace Game.Views.Characters
             return true;
         }
 
+        /// <summary>
+        /// Attack stepper Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ValueStepperAttack(object sender, ValueChangedEventArgs e)
         {
             ValueAttack.Text = string.Format("{0}", e.NewValue);
         }
 
+        /// <summary>
+        /// Defense Stepper Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ValueStepperDefense(object sender, ValueChangedEventArgs e)
         {
             ValueDefense.Text = string.Format("{0}", e.NewValue);
         }
 
+        /// <summary>
+        /// Speed Stepper Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ValueStepperSpeed(object sender, ValueChangedEventArgs e)
         {
             ValueSpeed.Text = string.Format("{0}", e.NewValue);
         }
 
+        /// <summary>
+        /// Force Toggled Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnToggled(object sender, ToggledEventArgs e)
         {
             this.ViewModel.Data.HasForce = e.Value;
