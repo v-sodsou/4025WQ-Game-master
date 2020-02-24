@@ -331,7 +331,21 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// CharacterModel Attacks...
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool TakeTurn(PlayerInfoModel Attacker)
+        {
+            // Choose Action.  Such as Move, Attack etc.
 
+            var result = Attack(Attacker);
+
+            BattleScore.TurnCount++;
+
+            return result;
+        }
 
 
     }
