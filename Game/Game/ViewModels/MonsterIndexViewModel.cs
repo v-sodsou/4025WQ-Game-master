@@ -9,7 +9,10 @@ using System.Linq;
 using Xamarin.Forms;
 
 namespace Game.ViewModels
-{
+{   
+    /// <summary>
+    /// Monster Index View Model
+    /// </summary>
     public class MonsterIndexViewModel : BaseViewModel<MonsterModel>
     {
         #region Singleton
@@ -18,6 +21,9 @@ namespace Game.ViewModels
         private static volatile MonsterIndexViewModel instance;
         private static readonly object syncRoot = new Object();
 
+        /// <summary>
+        /// Monster Index View Model Singleton
+        /// </summary>
         public static MonsterIndexViewModel Instance
         {
             get
