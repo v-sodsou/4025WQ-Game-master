@@ -452,5 +452,35 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(0, count); // Count of 0 for the load was skipped
         }
 
+        [Test]
+        public async Task CharacterIndexViewModel_SetDataSource_SQL_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.SetDataSource(1);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_SetDataSource_Mock_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.SetDataSource(0);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result); // Count of 0 for the load was skipped
+        }
+
     }
 }
