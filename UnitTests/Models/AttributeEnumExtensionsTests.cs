@@ -7,6 +7,6 @@ namespace UnitTests.Models
     [TestFixture]
     public class AttributeEnumExtensionsTests
     {
-       
+        
     }
 }
