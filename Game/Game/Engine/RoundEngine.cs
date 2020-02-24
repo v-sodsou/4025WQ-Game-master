@@ -67,5 +67,136 @@ namespace Game.Engine
 
             return true;
         }
+
+        /// <summary>
+        /// Pickup Items Dropped
+        /// </summary>
+        /// <param name="character"></param>
+        public bool PickupItemsFromPool(PlayerInfoModel character)
+        {
+            // Have the character, walk the items in the pool, and decide if any are better than current one.
+
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+
+            return true;
+        }
+
+        /// <summary>
+        /// At the end of the round
+        /// Clear the ItemModel List
+        /// Clear the MonsterModel List
+        /// </summary>
+        /// <returns></returns>
+        public bool EndRound()
+        {
+            // Have each character pickup items...
+            foreach (var character in CharacterList)
+            {
+                PickupItemsFromPool(character);
+            }
+
+            // Reset Monster and Item Lists
+            ClearLists();
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Add Monsters to the Round
+        /// 
+        /// Because Monsters can be duplicated, will add 1, 2, 3 to their name
+        ///   
+        /*
+            * Hint: 
+            * I don't have crudi monsters yet so will add 6 new ones...
+            * If you have crudi monsters, then pick from the list
+
+            * Consdier how you will scale the monsters up to be appropriate for the characters to fight
+            */
+        /// </summary>
+        /// <returns></returns>
+        public int AddMonstersToRound()
+        {
+            for (var i = 0; i < MaxNumberPartyMonsters; i++)
+            {
+                var data = new MonsterModel();
+                // Help identify which Monster it is
+                data.Name += " " + MonsterList.Count() + 1;
+                MonsterList.Add(new PlayerInfoModel(data));
+            }
+
+            return MonsterList.Count();
+        }
+
+        /// <summary>
+        /// Who is Playing this round?
+        /// </summary>
+        public List<PlayerInfoModel> MakePlayerList()
+        {
+            // Start from a clean list of players
+            PlayerList.Clear();
+
+            // Remeber the Insert order, used for Sorting
+            var ListOrder = 0;
+
+            foreach (var data in CharacterList)
+            {
+                if (data.Alive)
+                {
+                    PlayerList.Add(
+                        new PlayerInfoModel(data)
+                        {
+                            // Remember the order
+                            ListOrder = ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            foreach (var data in MonsterList)
+            {
+                if (data.Alive)
+                {
+                    PlayerList.Add(
+                        new PlayerInfoModel(data)
+                        {
+                            // Remember the order
+                            ListOrder = ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            return PlayerList;
+        }
+
+
+        // Call to make a new set of monsters...
+        public bool NewRound()
+        {
+            // End the existing round
+            EndRound();
+
+            // Populate New Monsters...
+            AddMonstersToRound();
+
+            // Make the PlayerList
+            MakePlayerList();
+
+            // Update Score for the RoundCount
+            BattleScore.RoundCount++;
+
+            return true;
+        }
+
     }
 }
