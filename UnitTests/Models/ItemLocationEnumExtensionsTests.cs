@@ -104,5 +104,33 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Left Finger", result);
         }
+
+        [Test]
+        public void ItemLocationEnumExtensionsTests_Finger_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnum.Finger.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Any Finger", result);
+        }
+
+        [Test]
+        public void ItemLocationEnumExtensionsTests_Feet_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnum.Feet.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Feet", result);
+        }
     }
 }
