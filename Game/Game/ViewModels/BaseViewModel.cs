@@ -44,6 +44,10 @@ namespace Game.ViewModels
         /// Mark if the view model is busy loading or done loading
         /// </summary>
         bool isBusy = false;
+        
+        /// <summary>
+        /// IsBusy Method
+        /// </summary>
         public bool IsBusy
         {
             get { return isBusy; }
@@ -54,6 +58,10 @@ namespace Game.ViewModels
         /// The String to show on the page
         /// </summary>
         string title = string.Empty;
+        
+        /// <summary>
+        /// Title Method
+        /// </summary>
         public string Title
         {
             get { return title; }
@@ -500,6 +508,11 @@ namespace Game.ViewModels
         /// Notify when changes happen
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// On OnPropertyChanged Method
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
