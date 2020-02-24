@@ -20,5 +20,19 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Unknown", result);
         }
+
+        [Test]
+        public void AttributeEnumExtensionsTests_Attack_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnum.Attack.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Attack", result);
+        }
     }
 }
