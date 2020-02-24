@@ -49,5 +49,20 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.IsNull(result);
         }
+
+        [Test]
+        public void ScoreIndexViewModel_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
     }
 }
