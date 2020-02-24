@@ -2,6 +2,7 @@
 using Game.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Game.Engine
@@ -57,6 +58,30 @@ namespace Game.Engine
             // Hit
             BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
             return BattleMessagesModel.HitStatus;
+        }
+
+        /// <summary>
+        /// Pick the Character to Attack
+        /// </summary>
+        /// <returns></returns>
+        public PlayerInfoModel SelectCharacterToAttack()
+        {
+            if (CharacterList == null)
+            {
+                return null;
+            }
+
+            if (CharacterList.Count < 1)
+            {
+                return null;
+            }
+
+            // Select first in the list
+            var Defender = CharacterList
+                .Where(m => m.Alive)
+                .OrderBy(m => m.ListOrder).FirstOrDefault();
+
+            return Defender;
         }
     }
 }
