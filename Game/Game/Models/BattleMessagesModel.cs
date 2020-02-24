@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Models
 {
-    class BattleMessagesModel
+    public class BattleMessagesModel
     {
         // Is the player a character or a monster
         public PlayerTypeEnum PlayerType = PlayerTypeEnum.Unknown;
