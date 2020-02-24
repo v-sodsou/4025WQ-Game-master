@@ -49,5 +49,135 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.IsNull(result);
         }
+
+        [Test]
+        public void ScoreIndexViewModel_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void ScoreIndexViewModel_SortDataSet_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Add Scores into the list Z ordered
+            var dataList = new List<ScoreModel>();
+            dataList.Add(new ScoreModel { Name = "z" });
+            dataList.Add(new ScoreModel { Name = "m" });
+            dataList.Add(new ScoreModel { Name = "a" });
+
+            // Act
+            var result = ViewModel.SortDataset(dataList);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("a", result[0].Name);
+            Assert.AreEqual("m", result[1].Name);
+            Assert.AreEqual("z", result[2].Name);
+        }
+
+        [Test]
+        public async Task ScoreIndexViewModel_CheckIfScoreExists_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Add Scores into the list Z ordered
+            var dataTest = new ScoreModel { Name = "test" };
+            await ViewModel.CreateAsync(dataTest);
+
+            await ViewModel.CreateAsync(new ScoreModel { Name = "z" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "m" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "a" });
+
+            // Act
+            var result = ViewModel.CheckIfScoreExists(dataTest);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(dataTest.Id, result.Id);
+        }
+
+        [Test]
+        public async Task ScoreIndexViewModel_CheckIfScoreExists_InValid_Missing_Should_Fail()
+        {
+            // Arrange
+
+            // Add Scores into the list Z ordered
+            var dataTest = new ScoreModel { Name = "test" };
+            // Don't add it to the list await ViewModel.CreateAsync(dataTest);
+
+            await ViewModel.CreateAsync(new ScoreModel { Name = "z" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "m" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "a" });
+
+            // Act
+            var result = ViewModel.CheckIfScoreExists(dataTest);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public async Task ScoreIndexViewModel_Message_Delete_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Get the Score to delete
+            var first = ViewModel.Dataset.FirstOrDefault();
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ScoreDeletePage(true);
+
+            // Act
+            MessagingCenter.Send(myPage, "Delete", first);
+
+            var data = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(null, data); // Score is removed
+        }
+
+        [Test]
+        public async Task ScoreIndexViewModel_Message_Create_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Make a new Score
+            var data = new ScoreModel();
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ScoreCreatePage(true);
+
+            var countBefore = ViewModel.Dataset.Count();
+
+            // Act
+            MessagingCenter.Send(myPage, "Create", data);
+            var countAfter = ViewModel.Dataset.Count();
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
+        }
+
     }
 }
