@@ -20,6 +20,9 @@ namespace Game.ViewModels
         private static volatile ScoreIndexViewModel instance;
         private static readonly object syncRoot = new Object();
 
+        /// <summary>
+        /// Singleton Pattern
+        /// </summary>
         public static ScoreIndexViewModel Instance
         {
             get
