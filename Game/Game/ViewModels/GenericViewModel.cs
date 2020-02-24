@@ -2,6 +2,10 @@
 
 namespace Game.ViewModels
 {
+    /// <summary>
+    /// Generic View Model Class
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class GenericViewModel<T> : BaseViewModel<DefaultModel> where T: class
     {
         /// <summary>
@@ -24,7 +28,9 @@ namespace Game.ViewModels
             Data = data;
         }
 
-        // Generic Constructor
+        /// <summary>
+        ///  Generic Parameterless Constructor
+        /// </summary>
         public GenericViewModel()
         {
         }
