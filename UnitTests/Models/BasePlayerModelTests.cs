@@ -215,6 +215,21 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void BasePlayerModel_FormatOutput_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.FormatOutput();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("", result);
+        }
+
+        [Test]
         public void BasePlayerModel_GetItemByLocation_Head_Default_Should_Pass()
         {
             // Arrange
@@ -743,6 +758,39 @@ namespace UnitTests.Models
 
             // Assert
             Assert.AreEqual("1D 1", result);
+        }
+
+        [Test]
+        public async Task BasePlayerModel_GetDamageTotalString_Default_Speed_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
+
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            var data = new BasePlayerModel<CharacterModel>();
+            data.Level = 1;
+
+            // Add the first item
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+
+            Game.Helpers.DiceHelper.EnableRandomValues();
+            Game.Helpers.DiceHelper.SetForcedRandomValue(1);
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetDamageTotalString;
+
+            // Reset
+            Game.Helpers.DiceHelper.DisableRandomValues();
+
+            // Assert
+            Assert.AreEqual("1 + 1D 1", result);
         }
     }
 }
