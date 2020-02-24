@@ -153,5 +153,92 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.IsTrue(true);
         }
-    }
+
+        [Test]
+        public void BaseViewModel_OnPropertyChanged_Default_Name_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            OnPropertyChanged("Name");
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void BaseViewModel_SortDataset_Default_Should_Pass()
+        {
+            // Arrange
+            var dataList = new List<ItemModel>();
+            dataList.Add(new ItemModel { Name = "z" });
+            dataList.Add(new ItemModel { Name = "m" });
+            dataList.Add(new ItemModel { Name = "a" });
+
+            // Act
+            var result = ViewModel.SortDataset(dataList);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("z", result[0].Name);
+            Assert.AreEqual("m", result[1].Name);
+            Assert.AreEqual("a", result[2].Name);
+        }
+
+        [Test]
+        public void BaseViewModel_SetNeedsRefresh_Valid_True_Should_Pass()
+        {
+            // Arrange
+            var originalState = ViewModel.GetNeedsRefresh();
+
+            // Act
+            ViewModel.SetNeedsRefresh(true);
+            var newState = ViewModel.GetNeedsRefresh();
+
+            // Reset
+
+            // Turn it back to the original state
+            ViewModel.SetNeedsRefresh(originalState);
+
+            // Assert
+            Assert.AreEqual(true, newState);
+        }
+
+        [Test]
+        public void BaseViewModel_NeedsRefresh_Valid_False_Should_Pass()
+        {
+            // Arrange
+            var originalState = ViewModel.GetNeedsRefresh();
+
+            ViewModel.SetNeedsRefresh(false);
+
+            // Act
+            var result = ViewModel.NeedsRefresh();
+
+            // Reset
+
+            // Turn it back to the original state
+            ViewModel.SetNeedsRefresh(originalState);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void BaseViewModel_GetDefaultData_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.GetDefaultData();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+}
 }
