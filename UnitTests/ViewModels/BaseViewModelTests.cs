@@ -240,5 +240,25 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.IsNotNull(result);
         }
-}
+
+        [Test]
+        public void BaseViewModel_NeedsRefresh_Valid_True_Should_Pass()
+        {
+            // Arrange
+            var originalState = ViewModel.GetNeedsRefresh();
+
+            ViewModel.SetNeedsRefresh(true);
+
+            // Act
+            var result = ViewModel.NeedsRefresh();
+
+            // Reset
+
+            // Turn it back to the original state
+            ViewModel.SetNeedsRefresh(originalState);
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+    }
 }
