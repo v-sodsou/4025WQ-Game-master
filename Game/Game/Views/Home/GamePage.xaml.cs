@@ -43,12 +43,9 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void AutobattleButton_Clicked(object sender, EventArgs e)
+		public async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
-			// Run the Autobattle simulation from here
-
-			// Call to the Score Page
-			await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+			await Navigation.PushAsync(new AutoBattlePage());
 		}
 	}
 }
