@@ -11,6 +11,8 @@ namespace Game.Models
         public MonsterModel()
         {
             PlayerType = PlayerTypeEnum.Monster;
+            Name = "Kylo Ren";
+            Description = "Member of the Knights of Ren.";
             ImageURI = MonsterService.DefaultImageURI;
             Attack = 1;
             Defense = 1;

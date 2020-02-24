@@ -55,9 +55,17 @@
                         Text="Image" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Entry Grid.Row="2" Grid.Column="1"
-                        Text="{Binding Data.ImageURI}" 
-                        Style="{StaticResource EntryStyle}"/>
+                    <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+
+                        <Entry 
+                                    Text="{Binding Data.ImageURI, Mode=TwoWay}" 
+                                    Style="{StaticResource EntryStyle}"/>
+
+                        <Image 
+                                    Source="{Binding Data.ImageURI, Mode=TwoWay}"
+                                    Style="{StaticResource ImageSmallStyle}"/>
+
+                    </StackLayout>
 
                     <Label Text="Force"  Grid.Row="3" Grid.Column="0"></Label>
                     <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1"/>
