@@ -125,6 +125,21 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void BasePlayerModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.Update(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
         public void BasePlayerModel_GetItemByLocation_Head_Default_Should_Pass()
         {
             // Arrange
