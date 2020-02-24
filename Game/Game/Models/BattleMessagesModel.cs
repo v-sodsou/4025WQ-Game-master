@@ -70,6 +70,15 @@ namespace Game.Models
             return AttackerName + GetSwingResult() + TargetName;
         }
 
+        /// <summary>
+        /// Remaining Health Message
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentHealthMessage()
+        {
+            return " remaining health is " + CurrentHealth.ToString();
+        }
+
 
 
     }
