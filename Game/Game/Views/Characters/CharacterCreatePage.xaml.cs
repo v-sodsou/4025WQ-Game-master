@@ -46,7 +46,7 @@ namespace Game.Views
                 ViewModel.Data.ImageURI = Services.CharacterService.DefaultImageURI;
             }
 
-            // Add validation for Name
+            // Add validation for empty name and description fields
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
             {
                 await DisplayAlert("Alert", "Please enter a name!", "OK");
