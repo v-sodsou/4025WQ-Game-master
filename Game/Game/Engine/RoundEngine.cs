@@ -67,5 +67,24 @@ namespace Game.Engine
 
             return true;
         }
+
+        /// <summary>
+        /// Pickup Items Dropped
+        /// </summary>
+        /// <param name="character"></param>
+        public bool PickupItemsFromPool(PlayerInfoModel character)
+        {
+            // Have the character, walk the items in the pool, and decide if any are better than current one.
+
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+
+            return true;
+        }
     }
 }
