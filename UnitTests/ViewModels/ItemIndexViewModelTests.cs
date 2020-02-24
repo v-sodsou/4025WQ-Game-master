@@ -204,5 +204,75 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public async Task ItemIndexViewModel_Message_Create_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Make a new Item
+            var data = new ItemModel();
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ItemCreatePage(true);
+
+            var countBefore = ViewModel.Dataset.Count();
+
+            // Act
+            MessagingCenter.Send(myPage, "Create", data);
+            var countAfter = ViewModel.Dataset.Count();
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task ItemIndexViewModel_Message_Update_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Get the item to delete
+            var first = ViewModel.Dataset.FirstOrDefault();
+            first.Name = "test";
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ItemUpdatePage(true);
+
+            // Act
+            MessagingCenter.Send(myPage, "Update", first);
+            var result = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual("test", result.Name); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task ItemIndexViewModel_Message_SetDataSource_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Get the item to delete
+            var data = 3000; // Non existing value
+
+            // Make the page Page
+            var myPage = new Game.Views.AboutPage(true);
+
+            // Act
+            MessagingCenter.Send(myPage, "SetDataSource", data);
+            var result = ViewModel.GetCurrentDataSource();
+
+            // Reset
+            await ViewModel.SetDataSource(0);
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(0, result); // Count of 0 for the load was skipped
+        }
     }
 }

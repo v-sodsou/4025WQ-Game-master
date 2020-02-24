@@ -15,6 +15,9 @@ namespace Game.Views
         // The item to create
         GenericViewModel<ItemModel> ViewModel { get; set; }
 
+        // Empty Constructor for UTs
+        public ItemCreatePage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
