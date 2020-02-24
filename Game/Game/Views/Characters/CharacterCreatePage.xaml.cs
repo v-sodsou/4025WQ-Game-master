@@ -51,6 +51,10 @@ namespace Game.Views
             {
                 await DisplayAlert("Alert", "Please enter a name!", "OK");
             }
+            else if (string.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                await DisplayAlert("Alert", "Please enter a Description!", "OK");
+            }
             else
             {
                 MessagingCenter.Send(this, "Create", ViewModel.Data);
