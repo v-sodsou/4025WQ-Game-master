@@ -482,5 +482,100 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(true, result); // Count of 0 for the load was skipped
         }
 
+        [Test]
+        public async Task CharacterIndexViewModel_CreateUpdateAsync_Valid_Create_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel
+            {
+                Name = "New Item"
+            };
+
+            // Act
+            var result = await ViewModel.CreateUpdateAsync(data);
+
+            // Reset
+
+            // Need to clear the added item, and reload the dataset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_CreateUpdateAsync_Valid_Update_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel
+            {
+                Name = "New Item"
+            };
+
+            await ViewModel.CreateUpdateAsync(data);
+
+            data.Name = "Updated";
+
+            // Act
+            var result = await ViewModel.CreateUpdateAsync(data);
+
+            // Reset
+
+            // Need to clear the added item, and reload the dataset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_CreateUpdateAsync_InValid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.CreateUpdateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_Create_Sync_Valid_Update_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel
+            {
+                Name = "New Item"
+            };
+
+            // Act
+            var result = ViewModel.Create_Sync(data);
+
+            // Reset
+
+            // Need to clear the added item, and reload the dataset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void CharacterIndexViewModel_Create_Sync_InValid_Null_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.Create_Sync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);  // Update returned Pass
+        }
+
     }
 }
