@@ -7,6 +7,10 @@ using Game.Helpers;
 
 namespace Game.Models
 {
+    /// <summary>
+    /// Player Model Base Class from which players will inherit
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class BasePlayerModel<T>: BaseModel<T>
     {
         #region Attributes
@@ -222,6 +226,9 @@ namespace Game.Models
 
         #region Methods
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public BasePlayerModel()
         {
             Guid = Id;
@@ -496,42 +503,49 @@ namespace Game.Models
             // Drop all Items
             ItemModel myItem;
 
+            // Remove Item from Head
             myItem = RemoveItem(ItemLocationEnum.Head);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
+            // Remove Item from Neckless
             myItem = RemoveItem(ItemLocationEnum.Necklass);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
+            // Remove Item from Primary Hand
             myItem = RemoveItem(ItemLocationEnum.PrimaryHand);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
+            // Remove Item from Off Hand
             myItem = RemoveItem(ItemLocationEnum.OffHand);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
+            // Remove Item from Right Finger
             myItem = RemoveItem(ItemLocationEnum.RightFinger);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
+            // Remove item from Left Finger
             myItem = RemoveItem(ItemLocationEnum.LeftFinger);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
+            // Remove Item from feet
             myItem = RemoveItem(ItemLocationEnum.Feet);
             if (myItem != null)
             {
@@ -646,6 +660,7 @@ namespace Game.Models
             var myReturn = 0;
             ItemModel myItem;
 
+            // Get the item from the Head 
             myItem = GetItem(Head);
             if (myItem != null)
             {
@@ -655,6 +670,7 @@ namespace Game.Models
                 }
             }
 
+            // Get the item from the Neckless
             myItem = GetItem(Necklass);
             if (myItem != null)
             {
@@ -664,6 +680,7 @@ namespace Game.Models
                 }
             }
 
+            // Get the item from the Primary Hand
             myItem = GetItem(PrimaryHand);
             if (myItem != null)
             {
@@ -673,6 +690,7 @@ namespace Game.Models
                 }
             }
 
+            // Get the item from the Off Hand
             myItem = GetItem(OffHand);
             if (myItem != null)
             {
@@ -682,6 +700,7 @@ namespace Game.Models
                 }
             }
 
+            // Get the item from the Right Finger
             myItem = GetItem(RightFinger);
             if (myItem != null)
             {
@@ -691,6 +710,7 @@ namespace Game.Models
                 }
             }
 
+            // // Get the item from the Left Finger
             myItem = GetItem(LeftFinger);
             if (myItem != null)
             {
@@ -700,6 +720,7 @@ namespace Game.Models
                 }
             }
 
+            // // Get the item from the Feet
             myItem = GetItem(Feet);
             if (myItem != null)
             {
