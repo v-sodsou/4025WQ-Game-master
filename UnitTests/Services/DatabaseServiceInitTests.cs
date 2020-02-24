@@ -30,5 +30,33 @@ namespace UnitTests.Services
         {
             await DataStore.WipeDataListAsync();
         }
+
+        [Test]
+        public void DatabaseService_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = DataStore;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void DatabaseService_GetDataConnection_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = DatabaseService<ItemModel>.GetDataConnection();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
