@@ -357,5 +357,100 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(false, result);
         }
 
+        [Test]
+        public async Task CharacterIndexViewModel_Create_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel
+            {
+                Name = "New Item"
+            };
+
+            // Act
+            var result = await ViewModel.CreateAsync(data);
+
+            // Reset
+
+            // Need to clear the added item, and reload the dataset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_Create_InValid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.CreateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void CharacterIndexViewModel_ExecuteLoadDataCommand_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Clear the Dataset, so no records
+            ViewModel.Dataset.Clear();
+
+            // Act
+            ViewModel.LoadDatasetCommand.Execute(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, ViewModel.Dataset.Count() > 0); // Check that there are rows of data
+        }
+
+        [Test]
+        public void CharacterIndexViewModel_ExecuteLoadDataCommand_InValid_Exception_Should_Fail()
+        {
+            // Arrange
+            var oldDataset = ViewModel.Dataset;
+
+            // Null dataset will throw
+
+            ViewModel.Dataset = null;
+
+            // Act
+            ViewModel.LoadDatasetCommand.Execute(null);
+
+            // Reset
+            ViewModel.Dataset = oldDataset;
+
+            // Assert
+            Assert.AreEqual(true, ViewModel.Dataset.Count() > 0); // Check that there are rows of data
+        }
+
+        [Test]
+        public void CharacterIndexViewModel_ExecuteLoadDataCommand_Valid_IsBusy_Should_Pass()
+        {
+            // Arrange
+
+            // Setting IsBusy will have the Load skip
+            ViewModel.IsBusy = true;
+
+            // Clear the Dataset, so no records
+            ViewModel.Dataset.Clear();
+
+            // Act
+            ViewModel.LoadDatasetCommand.Execute(null);
+            var count = ViewModel.Dataset.Count();  // Remember how many records exist
+
+            // Reset
+            ViewModel.IsBusy = false;
+            ViewModel.ForceDataRefresh();
+
+            // Assert
+            Assert.AreEqual(0, count); // Count of 0 for the load was skipped
+        }
+
     }
 }
