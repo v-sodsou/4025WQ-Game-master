@@ -106,5 +106,33 @@ namespace Game.Engine
 
             return true;
         }
+
+
+        /// <summary>
+        /// Add Monsters to the Round
+        /// 
+        /// Because Monsters can be duplicated, will add 1, 2, 3 to their name
+        ///   
+        /*
+            * Hint: 
+            * I don't have crudi monsters yet so will add 6 new ones...
+            * If you have crudi monsters, then pick from the list
+
+            * Consdier how you will scale the monsters up to be appropriate for the characters to fight
+            */
+        /// </summary>
+        /// <returns></returns>
+        public int AddMonstersToRound()
+        {
+            for (var i = 0; i < MaxNumberPartyMonsters; i++)
+            {
+                var data = new MonsterModel();
+                // Help identify which Monster it is
+                data.Name += " " + MonsterList.Count() + 1;
+                MonsterList.Add(new PlayerInfoModel(data));
+            }
+
+            return MonsterList.Count();
+        }
     }
 }
