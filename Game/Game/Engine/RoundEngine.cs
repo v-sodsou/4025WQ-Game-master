@@ -263,6 +263,61 @@ namespace Game.Engine
         }
 
 
+        /// <summary>
+        /// Manage Next Turn
+        /// 
+        /// Decides Who's Turn
+        /// Remembers Current Player
+        /// 
+        /// Starts the Turn
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public RoundEnum RoundNextTurn()
+        {
+            // No characters, game is over...
+            if (CharacterList.Count < 1)
+            {
+                // Game Over
+                RoundStateEnum = RoundEnum.GameOver;
+                return RoundStateEnum;
+            }
+
+            // Check if round is over
+            if (MonsterList.Count < 1)
+            {
+                // If over, New Round
+                RoundStateEnum = RoundEnum.NewRound;
+                return RoundEnum.NewRound;
+            }
+
+            // Decide Who gets next turn
+            // Remember who just went...
+            PlayerCurrent = GetNextPlayerTurn();
+
+            // Do the turn....
+            TakeTurn(PlayerCurrent);
+
+            RoundStateEnum = RoundEnum.NextTurn;
+
+            return RoundStateEnum;
+        }
+
+        /// <summary>
+        /// Get the Next Player to have a turn
+        /// </summary>
+        /// <returns></returns>
+        public PlayerInfoModel GetNextPlayerTurn()
+        {
+            // Recalculate Order
+            OrderPlayerListByTurnOrder();
+
+            // Get Next Player
+            var PlayerCurrent = GetNextPlayerInList();
+
+            return PlayerCurrent;
+        }
+
 
     }
 }
