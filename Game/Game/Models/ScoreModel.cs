@@ -61,9 +61,10 @@ namespace Game.Models
             GameDate = DateTime.Now;    // Set to be now by default.
             AutoBattle = false;         //assume user battle
 
-            CharacterAtDeathList = null;
-            MonstersKilledList = null;
-            ItemsDroppedList = null;
+            // TBD: Do we need these?
+            CharacterAtDeathList = string.Empty;
+            MonstersKilledList = string.Empty;
+            ItemsDroppedList = string.Empty;
 
             TurnCount = 0;
             RoundCount = 0;
