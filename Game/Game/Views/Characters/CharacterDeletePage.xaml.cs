@@ -3,17 +3,18 @@ using Game.ViewModels;
 using System;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Game.Views.Characters
 {
     [DesignTimeVisible(false)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterDeletePage : ContentPage
     {
         readonly GenericViewModel<CharacterModel> viewModel;
-        public CharacterDeletePage()
-        {
-            InitializeComponent();
-        }
+
+        // Empty Constructor needed for Unit Tests
+        public CharacterDeletePage(bool UnitTest) { }
 
         public CharacterDeletePage(GenericViewModel<CharacterModel> data)
         {
