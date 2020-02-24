@@ -30,9 +30,18 @@ namespace Game.Views
 
 			var Score = Engine.GetScoreObject();
 
-			BattleMessage = string.Format("Done {0} Rounds", Score.RoundCount);
+			BattleMessage = string.Format("Rounds Played: {0}", Score.RoundCount);
+
+			BattleMessage += string.Format("\nMonsters Slained: {0}", Score.MonsterSlainNumber);
+
+			BattleMessage += string.Format("\nExperience Gained: {0}", Score.ExperienceGainedTotal);
+
+			BattleMessage += string.Format("\nScore Total: {0}", Score.ScoreTotal);
 
 			BattleMessageValue.Text = BattleMessage;
+
+			Begin_Battle.IsVisible = false;
+			Battle_Ended.IsVisible = true;
 
 		}
 	}

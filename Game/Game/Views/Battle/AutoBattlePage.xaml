@@ -6,18 +6,53 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+            <!--<StackLayout Style="{StaticResource CardImageTextBox}">
 
                 <ImageButton
                         Source="watto.png"
                         Style="{StaticResource ImageLargeStyle}"
                         Clicked="AutobattleButton_Clicked"/>
 
-                <Label 
+                --><!--<Label 
                         Text="Begin Battle"
                         Style="{StaticResource CenterMessageStyle}"/>
-            </StackLayout>
 
+                <Label 
+                        Text="Battle Ended"
+                        Style="{StaticResource CenterMessageStyle}"/>--><!--
+            </StackLayout>-->
+            
+            <Grid
+                    RowSpacing="1"
+                    ColumnSpacing="2"
+                    VerticalOptions="Center">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Grid.Row="0" Grid.Column="0"
+                        Source="watto.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="AutobattleButton_Clicked"/>
+                
+                <Label Grid.Row="1" Grid.Column="0"
+                        x:Name="Begin_Battle"
+                        Text="Begin Battle"
+                        Style="{StaticResource CenterMessageStyle}"
+                        IsVisible="True"
+                        />
+
+                <Label Grid.Row="1" Grid.Column="0"
+                        x:Name="Battle_Ended"
+                        Text="Battle Ended"
+                        Style="{StaticResource CenterMessageStyle}"
+                        IsVisible="False"/>
+            </Grid>
+            
             <StackLayout Style="{StaticResource CardImageTextBox}">
 
                 <Label 
