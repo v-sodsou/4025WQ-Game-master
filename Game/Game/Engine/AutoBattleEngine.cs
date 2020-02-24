@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace Game.Engine
 {
-    class AutoBattleEngine: BattleEngine
+    /// <summary>
+    /// AutoBattleEngine class
+    /// </summary>
+    class AutoBattleEngine : BattleEngine
     {
 
         #region Algrorithm

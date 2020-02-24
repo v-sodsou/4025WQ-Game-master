@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Game.Helpers
 {
+    /// <summary>
+    /// ItemLocationEnumHelper class
+    /// </summary>
     class ItemLocationEnumHelper
     {
         /// <summary>
