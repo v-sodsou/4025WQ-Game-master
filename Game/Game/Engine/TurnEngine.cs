@@ -83,5 +83,32 @@ namespace Game.Engine
 
             return Defender;
         }
+
+        /// <summary>
+        /// Pick the Monster to Attack
+        /// </summary>
+        /// <returns></returns>
+        public PlayerInfoModel SelectMonsterToAttack()
+        {
+            if (MonsterList == null)
+            {
+                return null;
+            }
+
+            if (MonsterList.Count < 1)
+            {
+                return null;
+            }
+
+            // Select first one to hit in the list for now...
+            // Attack the Weakness (lowest HP) MonsterModel first 
+            var Defender = MonsterList
+                .Where(m => m.Alive)
+                .OrderBy(m => m.CurrentHealth).FirstOrDefault();
+
+            return Defender;
+        }
+
+
     }
 }
