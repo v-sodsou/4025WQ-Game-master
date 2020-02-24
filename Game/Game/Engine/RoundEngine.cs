@@ -198,5 +198,44 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Get the Information about the Player
+        /// </summary>
+        /// <returns></returns>
+        public PlayerInfoModel GetNextPlayerInList()
+        {
+            // Walk the list from top to bottom
+            // If Player is found, then see if next player exist, if so return that.
+            // If not, return first player (looped)
+
+            // If List is empty, return null
+            if (PlayerList.Count == 0)
+            {
+                return null;
+            }
+
+            // No current player, so set the first one
+            if (PlayerCurrent == null)
+            {
+                return PlayerList.FirstOrDefault();
+            }
+
+            // Find current player in the list
+            var index = PlayerList.FindIndex(m => m.Guid.Equals(PlayerCurrent.Guid));
+
+            // If at the end of the list, return the first element
+            if (index == PlayerList.Count() - 1)
+            {
+                return PlayerList.FirstOrDefault();
+            }
+
+            // Return the next element
+            return PlayerList[index + 1];
+
+            
+        }
+
+       
+
     }
 }
