@@ -86,5 +86,51 @@ namespace UnitTests.ViewModels
             Assert.AreEqual("z", result[2].Name);
         }
 
+        [Test]
+        public async Task ScoreIndexViewModel_CheckIfScoreExists_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Add Scores into the list Z ordered
+            var dataTest = new ScoreModel { Name = "test" };
+            await ViewModel.CreateAsync(dataTest);
+
+            await ViewModel.CreateAsync(new ScoreModel { Name = "z" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "m" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "a" });
+
+            // Act
+            var result = ViewModel.CheckIfScoreExists(dataTest);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(dataTest.Id, result.Id);
+        }
+
+        [Test]
+        public async Task ScoreIndexViewModel_CheckIfScoreExists_InValid_Missing_Should_Fail()
+        {
+            // Arrange
+
+            // Add Scores into the list Z ordered
+            var dataTest = new ScoreModel { Name = "test" };
+            // Don't add it to the list await ViewModel.CreateAsync(dataTest);
+
+            await ViewModel.CreateAsync(new ScoreModel { Name = "z" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "m" });
+            await ViewModel.CreateAsync(new ScoreModel { Name = "a" });
+
+            // Act
+            var result = ViewModel.CheckIfScoreExists(dataTest);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
     }
 }
