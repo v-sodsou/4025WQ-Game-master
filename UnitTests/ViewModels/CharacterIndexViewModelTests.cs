@@ -157,5 +157,104 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(null, data); // Item is removed
         }
 
+        [Test]
+        public async Task CharacterIndexViewModel_Delete_Valid_Should_Pass()
+        {
+            // Arrange
+            var first = ViewModel.Dataset.FirstOrDefault();
+
+            // Act
+            var result = await ViewModel.DeleteAsync(first);
+            var exists = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+
+            // Need to clear the added item, and reload the dataset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(true, result);  // Delete returned pass
+            Assert.AreEqual(null, exists);  // Should not exist so is null
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_Delete_Invalid_Should_Fail()
+        {
+            // Arrange
+            var data = new CharacterModel
+            {
+                Id = "bogus"
+            };
+
+            // Act
+            var result = await ViewModel.DeleteAsync(data);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);  // Delete returned fail
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_Delete_Invalid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.DeleteAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_Message_Create_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Make a new Item
+            var data = new CharacterModel();
+
+            // Make a Delete Page
+            var myPage = new Game.Views.CharacterCreatePage(true);
+
+            var countBefore = ViewModel.Dataset.Count();
+
+            // Act
+            MessagingCenter.Send(myPage, "Create", data);
+            var countAfter = ViewModel.Dataset.Count();
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_Message_Update_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Get the item to delete
+            var first = ViewModel.Dataset.FirstOrDefault();
+            first.Name = "test";
+
+            // Make a Delete Page
+            var myPage = new Game.Views.Characters.CharacterUpdatePage(true);
+
+            // Act
+            MessagingCenter.Send(myPage, "Update", first);
+            var result = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual("test", result.Name); // Count of 0 for the load was skipped
+        }
+
     }
 }
