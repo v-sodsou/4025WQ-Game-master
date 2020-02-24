@@ -1,7 +1,10 @@
 ﻿using Game.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Game.Engine
 {
@@ -33,6 +36,55 @@ namespace Game.Engine
         /// </summary>
         /// <returns></returns>
         public ScoreModel GetScoreObject() { return BattleScore; }
+
+        /// <summary>
+        /// Run Auto Battle
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> RunAutoBattle()
+        {
+            RoundEnum RoundCondition;
+
+            Debug.WriteLine("Auto Battle Starting");
+
+            // Auto Battle, does all the steps that a human would do.
+
+            // Prepare for Battle
+
+            // Picks 6 Characters
+            var data = new CharacterModel();
+            for (int i = CharacterList.Count(); i < MaxNumberPartyCharacters; i++)
+            {
+                PopulateCharacterList(data);
+            }
+
+            // Start Battle in AutoBattle mode
+            StartBattle(true);
+
+            // Fight Loop. Continue until Game is Over...
+            do
+            {
+                Debug.WriteLine("Next Turn");
+
+                // Do the turn...
+                // If the round is over start a new one...
+                RoundCondition = RoundNextTurn();
+
+                if (RoundCondition == RoundEnum.NewRound)
+                {
+                    NewRound();
+                    Debug.WriteLine("New Round");
+                }
+
+            } while (RoundCondition != RoundEnum.GameOver);
+
+            Debug.WriteLine("Game Over");
+
+            // Wrap up
+            EndBattle();
+
+            return true;
+        }
 
     }
 }
