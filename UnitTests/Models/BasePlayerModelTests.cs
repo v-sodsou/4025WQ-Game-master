@@ -33,6 +33,41 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void BasePlayerModel_Get_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new BasePlayerModel<CharacterModel>();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result.Id);
+            Assert.AreEqual(Game.Services.ItemService.DefaultImageURI, result.ImageURI);
+            Assert.AreEqual(PlayerTypeEnum.Unknown, result.PlayerType);
+            Assert.AreEqual(true, result.Alive);
+            Assert.AreEqual(0, result.Order);
+            Assert.AreEqual(result.Id, result.Guid);
+            Assert.AreEqual(0, result.ListOrder);
+            Assert.AreEqual(0, result.Speed);
+            Assert.AreEqual(1, result.Level);
+            Assert.AreEqual(0, result.ExperiencePoints);
+            Assert.AreEqual(0, result.CurrentHealth);
+            Assert.AreEqual(0, result.MaxHealth);
+            Assert.AreEqual(0, result.ExperienceTotal);
+            Assert.AreEqual(0, result.Defense);
+            Assert.AreEqual(0, result.Attack);
+            Assert.AreEqual(null, result.Head);
+            Assert.AreEqual(null, result.Feet);
+            Assert.AreEqual(null, result.Necklass);
+            Assert.AreEqual(null, result.PrimaryHand);
+            Assert.AreEqual(null, result.OffHand);
+            Assert.AreEqual(null, result.RightFinger);
+            Assert.AreEqual(null, result.LeftFinger);
+        }
+
+        [Test]
         public void BasePlayerModel_GetItemByLocation_Head_Default_Should_Pass()
         {
             // Arrange
