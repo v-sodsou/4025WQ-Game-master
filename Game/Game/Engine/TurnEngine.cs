@@ -217,6 +217,23 @@ namespace Game.Engine
             }
         }
 
+        /// <summary>
+        /// If Dead process Targed Died
+        /// </summary>
+        /// <param name="Target"></param>
+        public bool RemoveIfDead(PlayerInfoModel Target)
+        {
+            // Check for alive
+            if (Target.Alive == false)
+            {
+                TargetDied(Target);
+                return true;
+            }
+
+            return false;
+        }
+
+
 
     }
 }
