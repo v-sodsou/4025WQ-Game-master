@@ -306,27 +306,31 @@ namespace Game.Models
         // Add experience
         public bool AddExperience(int newExperience)
         {
-            // newExperience cannot be lower than 0
-            if (newExperience < 0)
-            {
-                return false;
-            }
+            return true;
 
-            // Increment the Experience
-            ExperienceTotal += newExperience;
+            /// TBD: need to investigate
+            /// Mike just returns true here.
+            //// newExperience cannot be lower than 0
+            //if (newExperience < 0)
+            //{
+            //    return false;
+            //}
 
-            // Can't level UP more than max.
-            if (Level >= 20)
-            {
-                return false;
-            }
+            //// Increment the Experience
+            //ExperienceTotal += newExperience;
+
+            //// Can't level UP more than max.
+            //if (Level >= 20)
+            //{
+            //    return false;
+            //}
            
-            // If experience is higher than the experience at the next level, level up.
-            if (ExperienceTotal >= LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience)
-            {
-                return LevelUp();
-            }
-            return false;
+            //// If experience is higher than the experience at the next level, level up.
+            //if (ExperienceTotal >= LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience)
+            //{
+            //    return LevelUp();
+            //}
+            //return false;
         }
 
         #region GetAttributeValues
