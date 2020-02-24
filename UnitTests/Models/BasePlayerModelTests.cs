@@ -663,5 +663,38 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654322, result);
         }
+
+        [Test]
+        public async Task BasePlayerModel_GetDamageItemBonus_Default_Speed_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
+
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            var data = new BasePlayerModel<CharacterModel>();
+            data.Level = 1;
+
+            // Add the first item
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+
+            Game.Helpers.DiceHelper.EnableRandomValues();
+            Game.Helpers.DiceHelper.SetForcedRandomValue(1);
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetDamageItemBonus;
+
+            // Reset
+            Game.Helpers.DiceHelper.DisableRandomValues();
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
     }
 }
