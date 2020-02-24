@@ -66,5 +66,36 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BattleMessageModel_GetDamageMessage_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+
+            // Act
+            var result = message.GetDamageMessage();
+
+            // Reset
+
+            // Assert
+
+            Assert.AreEqual(" for 0 damage ", result);
+        }
+
+        [Test]
+        public void BattleMessageModel_GetTurnMessage_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+
+            // Act
+            var result = message.GetTurnMessage();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
