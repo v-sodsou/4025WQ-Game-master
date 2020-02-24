@@ -9,6 +9,9 @@ using Xamarin.Forms;
 
 namespace Game.ViewModels
 {
+    /// <summary>
+    /// Character Index View Model Class
+    /// </summary>
     public class CharacterIndexViewModel : BaseViewModel<CharacterModel>
     {
         #region Singleton
