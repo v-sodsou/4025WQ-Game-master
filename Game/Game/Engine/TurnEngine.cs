@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Game.Engine
 {
+    /// <summary>
+    /// TurnEngine Class
+    /// </summary>
     class TurnEngine: BaseEngine
     {
 
