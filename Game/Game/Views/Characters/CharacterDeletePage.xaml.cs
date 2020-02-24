@@ -7,11 +7,14 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views.Characters
 {
+    /// <summary>
+    /// Character Delete Page Class
+    /// </summary>
     [DesignTimeVisible(false)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterDeletePage : ContentPage
     {
-        // Character viewModel object
+        // Character viewModel object used for data binding
         readonly GenericViewModel<CharacterModel> viewModel;
 
         // Empty Constructor needed for Unit Tests
