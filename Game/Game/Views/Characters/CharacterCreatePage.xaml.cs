@@ -15,6 +15,9 @@ namespace Game.Views
         // The character to create
         GenericViewModel<CharacterModel> ViewModel { get; set; }
 
+        // Empty Constructor for Tests
+        public CharacterCreatePage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
