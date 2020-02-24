@@ -132,5 +132,28 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(null, result);
         }
 
+        [Test]
+        public async Task ScoreIndexViewModel_Message_Delete_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Get the Score to delete
+            var first = ViewModel.Dataset.FirstOrDefault();
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ScoreDeletePage(true);
+
+            // Act
+            MessagingCenter.Send(myPage, "Delete", first);
+
+            var data = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+            await ResetDataAsync();
+
+            // Assert
+            Assert.AreEqual(null, data); // Score is removed
+        }
+
     }
 }
