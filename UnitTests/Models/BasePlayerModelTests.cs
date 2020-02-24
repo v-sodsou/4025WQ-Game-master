@@ -349,5 +349,31 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(null, result);
         }
+
+        [Test]
+        public void BasePlayerModel_DropAllItems_Default_Should_Pass()
+        {
+            var item = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>
+            {
+                Head = item.Id,
+                Necklass = item.Id,
+                PrimaryHand = item.Id,
+                OffHand = item.Id,
+                RightFinger = item.Id,
+                LeftFinger = item.Id,
+                Feet = item.Id,
+            };
+
+            // Act
+            var result = data.DropAllItems();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
