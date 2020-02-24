@@ -1,5 +1,8 @@
 ﻿namespace Game.Models
 {
+    /// <summary>
+    /// Item Location Enum
+    /// </summary>
     public enum ItemLocationEnum
     {
         // Not specified
