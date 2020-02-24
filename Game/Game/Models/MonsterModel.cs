@@ -3,10 +3,13 @@
 namespace Game.Models
 {
    
+    /// <summary>
+    /// Monster Model Class
+    /// </summary>
     public class MonsterModel : BasePlayerModel<MonsterModel>
     {
         /// <summary>
-        /// Parameterless constructor
+        /// Parameterless constructor for MonsterModel Class
         /// </summary>
         public MonsterModel()
         {
