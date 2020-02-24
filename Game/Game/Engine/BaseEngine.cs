@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Game.Engine
 {
+    /// <summary>
+    /// BaseEngine Class
+    /// </summary>
     class BaseEngine
     {
         #region Properties
