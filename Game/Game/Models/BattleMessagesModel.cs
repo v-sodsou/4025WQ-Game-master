@@ -52,5 +52,34 @@ namespace Game.Models
             return HitStatus.ToMessage();
         }
 
+        /// <summary>
+        /// Return formatted Damage
+        /// </summary>
+        /// <returns></returns>
+        public string GetDamageMessage()
+        {
+            return string.Format(" for {0} damage ", DamageAmount);
+        }
+
+        /// <summary>
+        /// Returns the String Attacker Hit Defender
+        /// </summary>
+        /// <returns></returns>
+        public string GetTurnMessage()
+        {
+            return AttackerName + GetSwingResult() + TargetName;
+        }
+
+        /// <summary>
+        /// Remaining Health Message
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentHealthMessage()
+        {
+            return " remaining health is " + CurrentHealth.ToString();
+        }
+
+
+
     }
 }
