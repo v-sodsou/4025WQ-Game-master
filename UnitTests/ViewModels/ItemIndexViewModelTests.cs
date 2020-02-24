@@ -9,29 +9,26 @@ namespace UnitTests.ViewModels
 {
     public class ItemIndexViewModelTests
     {
+        ItemIndexViewModel ViewModel;
+
         [SetUp]
         public void Setup()
         {
             // Initilize Xamarin Forms
             MockForms.Init();
 
-            // Activate the Datastore
-            ScoreIndexViewModel.Instance.GetCurrentDataSource();
-            ItemIndexViewModel.Instance.GetCurrentDataSource();
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            ViewModel = ItemIndexViewModel.Instance;
         }
 
-        [Test]
-        public async Task ItemIndexViewModel_Read_Invalid_ID_Bogus_Should_Fail()
+        /// <summary>
+        /// Reset the data store
+        /// </summary>
+        public async Task ResetDataAsync()
         {
-            // Arrange
-
-            // Act
-            var result = await ItemIndexViewModel.Instance.ReadAsync("bogus");
-
-            // Reset
-
-            // Assert
-            Assert.IsNull(result);
+            await ViewModel.WipeDataListAsync();
         }
     }
 }
