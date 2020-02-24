@@ -235,7 +235,34 @@ namespace Game.Engine
             
         }
 
-       
+        /// <summary>
+        /// Order the Players in Turn Sequence
+        /// </summary>
+        public List<PlayerInfoModel> OrderPlayerListByTurnOrder()
+        {
+            // Order is based by... 
+            // Order by Speed (Desending)
+            // Then by Highest level (Descending)
+            // Then by Highest Experience Points (Descending)
+            // Then by Character before MonsterModel (enum assending)
+            // Then by Alphabetic on Name (Assending)
+            // Then by First in list order (Assending
+
+            // Work with the Class variable PlayerList
+            PlayerList = MakePlayerList();
+
+            PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
+                .ThenByDescending(a => a.Level)
+                .ThenByDescending(a => a.ExperiencePoints)
+                .ThenByDescending(a => a.PlayerType)
+                .ThenBy(a => a.Name)
+                .ThenBy(a => a.ListOrder)
+                .ToList();
+
+            return PlayerList;
+        }
+
+
 
     }
 }
