@@ -34,5 +34,33 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Attack", result);
         }
+
+        [Test]
+        public void AttributeEnumExtensionsTests_CurrentHealth_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnum.CurrentHealth.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Current Health", result);
+        }
+
+        [Test]
+        public void AttributeEnumExtensionsTests_Defense_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnum.Defense.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Defense", result);
+        }
     }
 }
