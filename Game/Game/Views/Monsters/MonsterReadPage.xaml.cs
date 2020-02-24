@@ -11,6 +11,9 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views.Monsters
 {
+    /// <summary>
+    /// Monster Read Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterReadPage : ContentPage
     {

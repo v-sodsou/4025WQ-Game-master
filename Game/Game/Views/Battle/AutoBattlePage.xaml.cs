@@ -18,6 +18,11 @@ namespace Game.Views
 			InitializeComponent ();
 		}
 
+		/// <summary>
+		/// Auto Battle Method
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		public async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
 			// Call into Auto Battle from here to do the Battle...
