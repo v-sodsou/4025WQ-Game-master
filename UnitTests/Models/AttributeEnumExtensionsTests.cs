@@ -62,5 +62,33 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Defense", result);
         }
+
+        [Test]
+        public void AttributeEnumExtensionsTests_MaxHealth_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnum.MaxHealth.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Max Health", result);
+        }
+
+        [Test]
+        public void AttributeEnumExtensionsTests_Speed_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnum.Speed.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Speed", result);
+        }
     }
 }
