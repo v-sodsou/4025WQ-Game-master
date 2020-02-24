@@ -5,7 +5,10 @@ using System.Text;
 
 namespace Game.Engine
 {
-    class BattleEngine: RoundEngine
+    /// <summary>
+    /// BattleEngine class
+    /// </summary>
+    class BattleEngine : RoundEngine
     {
 
         // Track if the Battle is Running or Not
