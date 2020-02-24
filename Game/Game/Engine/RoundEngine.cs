@@ -86,5 +86,25 @@ namespace Game.Engine
 
             return true;
         }
+
+        /// <summary>
+        /// At the end of the round
+        /// Clear the ItemModel List
+        /// Clear the MonsterModel List
+        /// </summary>
+        /// <returns></returns>
+        public bool EndRound()
+        {
+            // Have each character pickup items...
+            foreach (var character in CharacterList)
+            {
+                PickupItemsFromPool(character);
+            }
+
+            // Reset Monster and Item Lists
+            ClearLists();
+
+            return true;
+        }
     }
 }
