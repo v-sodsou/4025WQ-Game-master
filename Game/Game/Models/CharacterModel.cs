@@ -7,10 +7,16 @@ using System.Collections.Generic;
 namespace Game.Models
 {
    
+    /// <summary>
+    /// Character Model Class
+    /// Inherits from BasePlayerModel Class
+    /// </summary>
     public class CharacterModel : BasePlayerModel<CharacterModel>
     {
-  
-        // Parameterless constructor for Character Model
+
+        /// <summary>
+        /// Parameterless constructor for Character Model
+        /// </summary>
         public CharacterModel()
         {
             PlayerType = PlayerTypeEnum.Character;
