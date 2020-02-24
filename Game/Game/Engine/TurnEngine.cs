@@ -128,5 +128,51 @@ namespace Game.Engine
         }
 
 
+        /// <summary>
+        /// Drop Items
+        /// </summary>
+        /// <param name="Target"></param>
+        public int DropItems(PlayerInfoModel Target)
+        {
+            // Drop Items to ItemModel Pool
+            var myItemList = Target.DropAllItems();
+
+            // I feel generous, even when characters die, random drops happen :-)
+            // If Random drops are enabled, then add some....
+            myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
+
+            // Add to ScoreModel
+            foreach (var ItemModel in myItemList)
+            {
+                BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
+                BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
+            }
+
+            ItemPool.AddRange(myItemList);
+
+            return myItemList.Count();
+        }
+
+        /// <summary>
+        /// Will drop between 1 and 4 items from the ItemModel set...
+        /// </summary>
+        /// <param name="round"></param>
+        /// <returns></returns>
+        public List<ItemModel> GetRandomMonsterItemDrops(int round)
+        {
+            // You decide how to drop monster items, level, etc.
+
+            var NumberToDrop = DiceHelper.RollDice(1, round);
+
+            var myList = new List<ItemModel>();
+
+            for (var i = 0; i < NumberToDrop; i++)
+            {
+                myList.Add(new ItemModel());
+            }
+            return myList;
+        }
+
+
     }
 }
