@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Game.Models
 {
+    /// <summary>
+    /// Battle Messages Model
+    /// </summary>
     public class BattleMessagesModel
     {
         // Is the player a character or a monster

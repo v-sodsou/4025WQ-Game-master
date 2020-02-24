@@ -77,6 +77,10 @@ namespace Game.Models
             return true;
         }
 
+        /// <summary>
+        /// FormatOutput
+        /// </summary>
+        /// <returns></returns>
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string
         public string FormatOutput()
         {
