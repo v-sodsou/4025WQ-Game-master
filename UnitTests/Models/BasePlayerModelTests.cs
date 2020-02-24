@@ -200,6 +200,21 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void BasePlayerModel_GetHealthMax_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // Act
+            var result = data.GetMaxHealthTotal;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [Test]
         public void BasePlayerModel_GetItemByLocation_Head_Default_Should_Pass()
         {
             // Arrange
