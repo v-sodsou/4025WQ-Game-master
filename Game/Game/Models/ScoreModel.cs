@@ -78,7 +78,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public ScoreModel(ScoreModel data)
         {
-            Id = data.Id;
+            // Id = data.Id;
             Update(data);
         }
 
