@@ -62,5 +62,47 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Primary Hand", result);
         }
+
+        [Test]
+        public void ItemLocationEnumExtensionsTests_OffHand_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnum.OffHand.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Off Hand", result);
+        }
+
+        [Test]
+        public void ItemLocationEnumExtensionsTests_RightFinger_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnum.RightFinger.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Right Finger", result);
+        }
+
+        [Test]
+        public void ItemLocationEnumExtensionsTests_LeftFinger_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnum.LeftFinger.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Left Finger", result);
+        }
     }
 }
