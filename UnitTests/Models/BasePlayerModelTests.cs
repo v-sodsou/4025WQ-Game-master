@@ -584,6 +584,28 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public async Task BasePlayerModel_AddItem_Default_Replace_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            // Add the first item
+            data.AddItem(ItemLocationEnum.Head, itemOld.Id);
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.AddItem(ItemLocationEnum.Head, itemNew.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(itemOld.Id, result.Id);
+        }
+
+        [Test]
         public void BasePlayerModel_AddItem_Default_Should_Pass()
         {
             // Arrange
