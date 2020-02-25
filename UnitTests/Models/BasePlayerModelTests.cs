@@ -226,7 +226,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual("", result);
+            Assert.AreEqual("Enter a name here... , Type: Unknown, Alive: True, Level: 1, Experience: 0, Speed: 0, Defense: 0, Attack: 0, Current Health: 0, Max Health: 0", result);
         }
 
         [Test]
