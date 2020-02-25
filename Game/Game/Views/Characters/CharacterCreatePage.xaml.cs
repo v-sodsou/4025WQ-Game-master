@@ -32,6 +32,18 @@ namespace Game.Views
 
             this.ViewModel.Title = "Create Character";
 
+            // Load the values for the Level into the Picker
+            for (var i = 1; i <= LevelTableHelper.MaxLevel; i++)
+            {
+                LevelPicker.Items.Add(i.ToString());
+            }
+
+            this.ViewModel.Data.Level = 1;
+
+            // AddItemsToDisplay();
+
+            UpdatePageBindingContext();
+
         }
 
         /// <summary>
@@ -110,6 +122,28 @@ namespace Game.Views
 
             // Show the Result
             MaxHealthValue.Text = ViewModel.Data.MaxHealth.ToString();
+        }
+
+        /// <summary>
+        /// Redo the Binding to cause a refresh
+        /// </summary>
+        /// <returns></returns>
+        public bool UpdatePageBindingContext()
+        {
+            // Temp store off the Level
+            var level = this.ViewModel.Data.Level;
+
+            // Clear the Binding and reset it
+            BindingContext = null;
+            BindingContext = this.ViewModel;
+
+            // This resets the Picker to -1 index, need to reset it back
+            ViewModel.Data.Level = level;
+            LevelPicker.SelectedIndex = ViewModel.Data.Level - 1;
+
+            ManageHealth();
+
+            return true;
         }
 
     }
