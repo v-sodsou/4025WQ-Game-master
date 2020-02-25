@@ -479,7 +479,21 @@ namespace Game.Models
             return Alive;
         }
 
-        public string FormatOutput() { return ""; }
+        public string FormatOutput() {
+            var result = Name + " , " +
+                         "Type: " + PlayerType + ", " +
+                         "Alive: " + Alive + ", " +
+                         "Level: " + Level + ", " +
+                         "Experience: " + ExperienceTotal + ", " +
+                         "Speed: " + Speed + ", " +
+                         "Defense: " + Defense + ", " +
+                         "Attack: " + Attack + ", " +
+                         "Current Health: " + CurrentHealth + ", " +
+                         "Max Health: " + MaxHealth;
+
+            return result.Trim(); 
+        }
+
         public int CalculateExperienceEarned(int damage) { return 0; }
 
         #region Items
