@@ -315,4 +315,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\bounty_hunter.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pilot.png" />
+  </ItemGroup>
 </Project>
