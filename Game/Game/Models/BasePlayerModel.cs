@@ -275,7 +275,7 @@ namespace Game.Models
         }
 
         // Level Up
-        public bool LevelUp()
+        public void LevelUp()
         {
             // Start the Level Table in descending order
             for (var i = LevelTableHelper.Instance.LevelDetailsList.Count - 1; i > 0; i--)
@@ -301,43 +301,38 @@ namespace Game.Models
 
                     // Set the new level
                     Level = NewLevel;
-
-                    return true;
                 }
             }
 
-            return false;
+           
         }
 
 
         // Add experience
         public bool AddExperience(int newExperience)
         {
-            return true;
-
-            /// TBD: need to investigate
-            /// Mike just returns true here.
-            //// newExperience cannot be lower than 0
-            //if (newExperience < 0)
-            //{
-            //    return false;
-            //}
-
-            //// Increment the Experience
-            //ExperienceTotal += newExperience;
-
-            //// Can't level UP more than max.
-            //if (Level >= 20)
-            //{
-            //    return false;
-            //}
            
-            //// If experience is higher than the experience at the next level, level up.
-            //if (ExperienceTotal >= LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience)
-            //{
-            //    return LevelUp();
-            //}
-            //return false;
+            // newexperience cannot be lower than 0
+            if (newExperience < 0)
+            {
+                return false;
+            }
+
+            // increment the experience
+            ExperienceTotal += newExperience;
+
+            // can't level up more than max.
+            if (Level >= 20)
+            {
+                return false;
+            }
+
+            // if experience is higher than the experience at the next level, level up.
+            if (ExperienceTotal >= LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience)
+            {
+                LevelUp();
+            }
+            return true;
         }
 
         #region GetAttributeValues
