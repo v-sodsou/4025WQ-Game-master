@@ -138,6 +138,7 @@
     <Content Include="obiwan.png" />
     <Content Include="Opening_Screen_Blue.png" />
     <Content Include="palpatine.png" />
+    <Content Include="pilot.png" />
     <Content Include="power_shield_png.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />

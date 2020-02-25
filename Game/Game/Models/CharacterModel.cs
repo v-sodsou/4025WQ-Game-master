@@ -20,8 +20,8 @@ namespace Game.Models
         public CharacterModel()
         {
             PlayerType = PlayerTypeEnum.Character;
-            Name = "Luke Skywalker";
-            Description = "The force is strong in him.";
+            Name = "Rebel Pilot";
+            Description = "The force is with him";
             ImageURI = CharacterService.DefaultImageURI;
             HasForce = false;
             Attack = 1;
