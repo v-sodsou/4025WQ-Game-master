@@ -67,8 +67,26 @@
 
                     </StackLayout>
 
-                    <Label Text="Force"  Grid.Row="3" Grid.Column="0"></Label>
-                    <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="3" Grid.Column="1"/>
+                    <Label Grid.Row="3" Grid.Column="0"
+                                Text="Level" 
+                                Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="3" Grid.Column="1"
+                                SelectedItem="{Binding SelectedItemProperty}" 
+                                SelectedIndexChanged="Level_Changed"
+                                x:Name="LevelPicker"/>
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                                Text="Max Health" 
+                                Style="{StaticResource LabelStyle}"/>
+
+                    <Label Grid.Row="4" Grid.Column="1"
+                                x:Name="MaxHealthValue"
+                                Text="{Binding Data.MaxHealth, StringFormat= '{0:G} hp'}" 
+                                Style="{StaticResource ValueStyle}"/>
+
+                    <Label Text="Force"  Grid.Row="5" Grid.Column="0"></Label>
+                    <Switch x:Name="Force" Toggled="OnToggled" Grid.Row="5" Grid.Column="1"/>
                
                 </Grid>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

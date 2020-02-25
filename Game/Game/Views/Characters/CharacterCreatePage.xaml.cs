@@ -1,5 +1,6 @@
 ﻿using Game.Models;
 using Game.ViewModels;
+using Game.Helpers;
 using System;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -85,6 +86,31 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// The Level selected from the list
+        /// Need to recalculate Max Health
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void Level_Changed(object sender, EventArgs args)
+        {
+            // Change the Level
+            ViewModel.Data.Level = LevelPicker.SelectedIndex + 1;
+
+            ManageHealth();
+        }
+
+        /// <summary>
+        /// Change the Level Picker
+        /// </summary>
+        public void ManageHealth()
+        {
+            // Roll for new HP
+            ViewModel.Data.MaxHealth = RandomPlayerHelper.GetHealth(ViewModel.Data.Level);
+
+            // Show the Result
+            MaxHealthValue.Text = ViewModel.Data.MaxHealth.ToString();
+        }
 
     }
 }
