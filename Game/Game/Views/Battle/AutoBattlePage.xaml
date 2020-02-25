@@ -20,7 +20,7 @@
                 </Grid.ColumnDefinitions>
 
                 <ImageButton Grid.Row="0" Grid.Column="0"
-                        Source="watto.png"
+                        Source="bounty_hunter.png"
                         Style="{StaticResource ImageLargeStyle}"
                         Clicked="AutobattleButton_Clicked"/>
                 

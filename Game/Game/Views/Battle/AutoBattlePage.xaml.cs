@@ -41,7 +41,8 @@ namespace Game.Views
 
 			BattleMessage += string.Format("\nExperience Gained: {0}", Score.ExperienceGainedTotal);
 
-			BattleMessage += string.Format("\nScore Total: {0}", Score.ScoreTotal);
+			// TBD: Do we show the Score for Autobattle?
+			// BattleMessage += string.Format("\nScore Total: {0}", Score.ScoreTotal);
 
 			BattleMessageValue.Text = BattleMessage;
 

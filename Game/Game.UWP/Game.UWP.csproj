@@ -109,6 +109,7 @@
     <Content Include="Assets\star_wars_village.png" />
     <Content Include="Assets\star_wars_village.scale-100.png" />
     <Content Include="battleboard.jpg" />
+    <Content Include="bounty_hunter.png" />
     <Content Include="Bowcaster.png" />
     <Content Include="c3po.png" />
     <Content Include="chewy_solo.png" />
@@ -120,6 +121,7 @@
     <Content Include="dice_20.png" />
     <Content Include="finn.png" />
     <Content Include="gameover.png" />
+    <Content Include="grievous.png" />
     <Content Include="Gun.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
