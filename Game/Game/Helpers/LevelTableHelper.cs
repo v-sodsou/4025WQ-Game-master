@@ -11,6 +11,7 @@ namespace Game.Models
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static LevelTableHelper _instance;
 
+        //Creates LevelTableHelper instance if none otherwise returns existing instance
         public static LevelTableHelper Instance
         {
             get
