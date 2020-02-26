@@ -40,6 +40,8 @@ namespace Game.Models
         /// Establish the Default Image Path
         /// </summary>
         public ItemModel() {
+            Name = "Pistol";
+            Description = "One handed weapon";
             ImageURI = ItemService.DefaultImageURI;
         }
 
