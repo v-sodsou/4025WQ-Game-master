@@ -1,12 +1,22 @@
-﻿using Game.Models;
-using System;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
+
+using Xamarin.Forms;
+
+using Game.Models;
+using Game.Views;
+using Game.Services;
+using Game.ViewModels;
 
 namespace Game.ViewModels
 {
-    class BattleEngineViewModel
+    /// <summary>
+    /// Index View Model
+    /// Manages the list of data records
+    /// </summary>
+    public class BattleEngineViewModel
     {
         #region Singleton
 
@@ -14,7 +24,6 @@ namespace Game.ViewModels
         private static volatile BattleEngineViewModel instance;
         private static readonly object syncRoot = new Object();
 
-        //Creates BattleEngineViewModel instance if none otherwise returns existing instance
         public static BattleEngineViewModel Instance
         {
             get
@@ -35,6 +44,7 @@ namespace Game.ViewModels
         }
 
         #endregion Singleton
+
 
         /// <summary>
         /// The Battle Engine
