@@ -8,7 +8,7 @@ namespace Game.Engine
     /// <summary>
     /// BattleEngine class
     /// </summary>
-    class BattleEngine : RoundEngine
+    public class BattleEngine : RoundEngine
     {
 
         // Track if the Battle is Running or Not
