@@ -8,7 +8,7 @@ namespace Game.Engine
     /// <summary>
     /// BaseEngine Class
     /// </summary>
-    class BaseEngine
+    public class BaseEngine
     {
         #region Properties
 
