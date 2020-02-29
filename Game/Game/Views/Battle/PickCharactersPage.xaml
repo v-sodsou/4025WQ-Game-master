@@ -6,7 +6,7 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Pick Characters Page..."></Label>
+            <Label Text="Select Characters"></Label>
 
             <Button Clicked="BattleButton_Clicked" Text="Begin Battle"></Button>
         </StackLayout>
