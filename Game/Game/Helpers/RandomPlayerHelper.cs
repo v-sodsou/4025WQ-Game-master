@@ -123,5 +123,66 @@ namespace Game.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Create Random Character for the battle
+        /// </summary>
+        /// <param name="MaxLevel"></param>
+        /// <returns></returns>
+        public static MonsterModel GetRandomMonster(int MaxLevel)
+        {
+            // If there are no Monsters in the system, return a default one
+            if (MonsterIndexViewModel.Instance.Dataset.Count == 0)
+            {
+                return new MonsterModel();
+            }
+
+            var rnd = DiceHelper.RollDice(1, MonsterIndexViewModel.Instance.Dataset.Count);
+
+            var result = new MonsterModel(MonsterIndexViewModel.Instance.Dataset.ElementAt(rnd - 1))
+            {
+                Level = DiceHelper.RollDice(1, MaxLevel),
+
+                // Randomize Name
+                Name = GetMonsterName(),
+                Description = GetMonsterDescription(),
+
+                // Randomize the Attributes
+                Attack = GetAbilityValue(),
+                Speed = GetAbilityValue(),
+                Defense = GetAbilityValue(),
+
+                ImageURI = GetMonsterImage(),
+
+                Difficulty = GetMonsterDifficultyValue()
+            };
+
+            // Adjust values based on Difficulty
+            result.Attack = result.Difficulty.ToModifier(result.Attack);
+            result.Defense = result.Difficulty.ToModifier(result.Defense);
+            result.Speed = result.Difficulty.ToModifier(result.Speed);
+            result.Level = result.Difficulty.ToModifier(result.Level);
+
+            // Get the new Max Health
+            result.MaxHealth = DiceHelper.RollDice(result.Level, 10);
+
+            // Adjust the health, If the new Max Health is above the rule for the level, use the original
+            var MaxHealthAdjusted = result.Difficulty.ToModifier(result.MaxHealth);
+            if (MaxHealthAdjusted < result.Level * 10)
+            {
+                result.MaxHealth = MaxHealthAdjusted;
+            }
+
+            // Level up to the new level
+            result.LevelUpToValue(result.Level);
+
+            // Set ExperienceRemaining so Monsters can both use this method
+            result.ExperienceRemaining = LevelTableHelper.Instance.LevelDetailsList[result.Level + 1].Experience;
+
+            // Enter Battle at full health
+            result.CurrentHealth = result.MaxHealth;
+
+            return result;
+        }
+
     }
 }
