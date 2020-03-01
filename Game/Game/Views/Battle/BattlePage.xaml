@@ -9,30 +9,104 @@
             <RelativeLayout x:Name="CharacterStyling"
                       BackgroundColor="{DynamicResource Primary}" 
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
-                      HeightRequest="80" 
+                      HeightRequest="100" 
                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
 
-                <Image  Source="yoda.png" Style="{StaticResource CharacterStyling1}" />
-                <Image  Source="luke.png" Style="{StaticResource CharacterStyling2}" />
-                <Image  Source="pilot.png" Style="{StaticResource CharacterStyling3}" />
-                <Image  Source="finn.png" Style="{StaticResource CharacterStyling4}" />
-                <Image  Source="rey.png" Style="{StaticResource CharacterStyling5}" />
-                <Image  Source="chewy_solo.png" Style="{StaticResource CharacterStyling6}" />
+                <RelativeLayout Style="{StaticResource CharacterStyling1}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="yoda.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
 
-            </RelativeLayout>
-            <RelativeLayout x:Name="MonstersStyling"
-                      VerticalOptions="End"
-                      BackgroundColor="{DynamicResource Primary}" 
-                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
-                      HeightRequest="80" 
-                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+                <RelativeLayout Style="{StaticResource CharacterStyling2}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="luke.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
 
-                <Image  Source="DarthVader.png" Style="{StaticResource CharacterStyling1}" />
-                <Image  Source="DarthMaul.png" Style="{StaticResource CharacterStyling2}" />
-                <Image  Source="kyloren.png" Style="{StaticResource CharacterStyling3}" />
-                <Image  Source="palpatine.png" Style="{StaticResource CharacterStyling4}" />
-                <Image  Source="trooper.png" Style="{StaticResource CharacterStyling5}" />
-                <Image  Source="bounty_hunter.png" Style="{StaticResource CharacterStyling6}" />
+                <RelativeLayout Style="{StaticResource CharacterStyling3}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="chewy_solo.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource CharacterStyling4}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="obiwan.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource CharacterStyling5}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="ahsoka.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource CharacterStyling6}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="rey.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
 
             </RelativeLayout>
         </StackLayout>
