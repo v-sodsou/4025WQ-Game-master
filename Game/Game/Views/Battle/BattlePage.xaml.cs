@@ -15,7 +15,7 @@ namespace Game.Views
 		/// </summary>
 		public BattlePage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 
 		/// <summary>
