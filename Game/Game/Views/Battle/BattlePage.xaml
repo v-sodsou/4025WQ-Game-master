@@ -12,12 +12,27 @@
                       HeightRequest="80" 
                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
 
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling1}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling2}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling3}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling4}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling5}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling6}" />
+                <Image  Source="yoda.png" Style="{StaticResource CharacterStyling1}" />
+                <Image  Source="luke.png" Style="{StaticResource CharacterStyling2}" />
+                <Image  Source="pilot.png" Style="{StaticResource CharacterStyling3}" />
+                <Image  Source="finn.png" Style="{StaticResource CharacterStyling4}" />
+                <Image  Source="rey.png" Style="{StaticResource CharacterStyling5}" />
+                <Image  Source="chewy_solo.png" Style="{StaticResource CharacterStyling6}" />
+
+            </RelativeLayout>
+            <RelativeLayout x:Name="MonstersStyling"
+                      VerticalOptions="End"
+                      BackgroundColor="{DynamicResource Primary}" 
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
+                      HeightRequest="80" 
+                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+
+                <Image  Source="DarthVader.png" Style="{StaticResource CharacterStyling1}" />
+                <Image  Source="DarthMaul.png" Style="{StaticResource CharacterStyling2}" />
+                <Image  Source="kyloren.png" Style="{StaticResource CharacterStyling3}" />
+                <Image  Source="palpatine.png" Style="{StaticResource CharacterStyling4}" />
+                <Image  Source="trooper.png" Style="{StaticResource CharacterStyling5}" />
+                <Image  Source="bounty_hunter.png" Style="{StaticResource CharacterStyling6}" />
 
             </RelativeLayout>
         </StackLayout>
