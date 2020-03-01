@@ -2,6 +2,9 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Game.Models;
+using Game.ViewModels;
+
 namespace Game.Views
 {
 	/// <summary>
@@ -10,12 +13,23 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PickCharactersPage : ContentPage
 	{
+		// The view model, used for data binding
+		readonly CharacterIndexViewModel ViewModel;
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public PickCharactersPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
+
+			BindingContext = ViewModel = CharacterIndexViewModel.Instance;
+
+		}
+
+		void OnCharacterSelected(object sender, EventArgs e)
+		{
+			//TBD
 		}
 
 		/// <summary>
