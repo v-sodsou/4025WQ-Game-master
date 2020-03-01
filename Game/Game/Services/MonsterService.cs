@@ -6,6 +6,6 @@
     static class MonsterService
     {
         // Return the Default Image URI for the Local Image for a Monster.
-        public static string DefaultImageURI = "kyloren.png";
+        public static string DefaultImageURI = "bounty_hunter.png";
     }
 }
