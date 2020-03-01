@@ -34,9 +34,9 @@
       <uap:VisualElements
         DisplayName="Game.UWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
+        Square44x44Logo="Assets\Square44x44starwars.png"
         Description="Game.UWP"
-        BackgroundColor="transparent">
+        BackgroundColor="#b6c779">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\star_wars_village.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />

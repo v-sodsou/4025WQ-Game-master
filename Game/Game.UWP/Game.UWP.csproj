@@ -106,8 +106,14 @@
   <ItemGroup>
     <Content Include="ahsoka.png" />
     <Content Include="Asajjventress.png" />
+    <Content Include="Assets\Square44x44starwars.png" />
+    <Content Include="Assets\Square44x44starwars.scale-400.png" />
     <Content Include="Assets\star_wars_village.png" />
     <Content Include="Assets\star_wars_village.scale-100.png" />
+    <Content Include="Assets\star_wars_village.scale-125.png" />
+    <Content Include="Assets\star_wars_village.scale-150.png" />
+    <Content Include="Assets\star_wars_village.scale-200.png" />
+    <Content Include="Assets\star_wars_village.scale-400.png" />
     <Content Include="battleboard.jpg" />
     <Content Include="bounty_hunter.png" />
     <Content Include="Bowcaster.png" />
