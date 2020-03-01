@@ -6,6 +6,8 @@
     <ContentPage.Content>
         <StackLayout>
         <!--<Button Text="Item Pages" Clicked="ItemPagesClicked" />-->
+
+            <!--<Characters on top of the page/>-->
             <RelativeLayout x:Name="CharacterStyling"
                       BackgroundColor="{DynamicResource Primary}" 
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
@@ -113,8 +115,138 @@
                         </StackLayout>
                     </Grid>
                 </RelativeLayout>
+            </RelativeLayout>
+
+            <!--<Straight Line/>-->
+            <BoxView Color="Black" HeightRequest="1"/>
+            
+            <!--<Message Box/>-->
+            <RelativeLayout>
+                
+            </RelativeLayout>
+
+            <!--<Straight Line/>-->
+            <BoxView Color="Black" HeightRequest="1"/>
+            
+            <!--<Battle Arena/>-->
+            <RelativeLayout>
 
             </RelativeLayout>
+
+            <!--<Straight Line/>-->
+            <BoxView Color="Black" HeightRequest="1"/>
+
+            <!--<Monster on top of the page/>-->
+
+            <RelativeLayout x:Name="MonsterStyling"
+                      BackgroundColor="{DynamicResource Primary}" 
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
+                      HeightRequest="100" 
+                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+
+                <RelativeLayout Style="{StaticResource MonsterStyling1}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="kyloren.png" />
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource MonsterStyling2}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="palpatine.png" />
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource MonsterStyling3}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="trooper.png" />
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource MonsterStyling4}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="DarthVader.png" />
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource MonsterStyling5}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="darthmaul.png" />
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource MonsterStyling6}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Image  Grid.Row="0" Grid.Column="0" Source="Asajjventress.png" />
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
+                    </Grid>
+                </RelativeLayout>
+            </RelativeLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
