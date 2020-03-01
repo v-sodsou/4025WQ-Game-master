@@ -127,6 +127,8 @@
     <Content Include="dice_20.png" />
     <Content Include="finn.png" />
     <Content Include="gameover.png" />
+    <Content Include="GreenCross.jpg" />
+    <Content Include="GreenCross.png" />
     <Content Include="grievous.png" />
     <Content Include="Gun.png" />
     <Content Include="icon_add.png" />
@@ -175,6 +177,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="r2d2.png" />
+    <Content Include="RedHeart.png" />
     <Content Include="RedSaber.png" />
     <Content Include="red_blaster.jpg" />
     <Content Include="red_bowcaster.jpg" />
