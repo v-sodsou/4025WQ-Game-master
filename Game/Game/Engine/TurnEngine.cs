@@ -11,7 +11,7 @@ namespace Game.Engine
     /// <summary>
     /// TurnEngine Class
     /// </summary>
-    class TurnEngine: BaseEngine
+    public class TurnEngine: BaseEngine
     {
 
         #region Algrorithm

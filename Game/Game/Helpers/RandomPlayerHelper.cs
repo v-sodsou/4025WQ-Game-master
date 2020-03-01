@@ -1,13 +1,11 @@
 ﻿using Game.Models;
+using Game.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Game.Helpers
 {
-    /// <summary>
-    /// Random Player Helper Class
-    /// </summary>
     public static class RandomPlayerHelper
     {
         /// <summary>
@@ -19,26 +17,73 @@ namespace Game.Helpers
         {
             // Roll the Dice and reset the Health
             return DiceHelper.RollDice(level, 10);
+        }
 
+        
+        /// <summary>
+        /// Get A Random Difficulty
+        /// </summary>
+        /// <returns></returns>
+        public static DifficultyEnum GetMonsterDifficultyValue()
+        {
+            var DifficultyList = DifficultyEnumHelper.GetListMonster;
+
+            var RandomDifficulty = DifficultyList.ElementAt(DiceHelper.RollDice(1, DifficultyList.Count()) - 1);
+
+            var result = DifficultyEnumHelper.ConvertStringToEnum(RandomDifficulty);
+
+            return result;
         }
 
         /// <summary>
-        /// Get Name
+        /// Get Random Image
         /// </summary>
         /// <returns></returns>
-        public static string GetName()
+        public static string GetMonsterImage()
         {
-            return "bob";
+
+            List<String> FirstNameList = new List<String> { "DarthVader.png", "palpatine.png", "darthmaul.png", "count_dooku.png", "Asajjventress.png", "kyloren.png" };
+
+            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
+
+            return result;
+        }
+
+      
+
+        /// <summary>
+        /// Get Name
+        /// 
+        /// Return a Random Name
+        /// </summary>
+        /// <returns></returns>
+        public static string GetMonsterName()
+        {
+
+            List<String> FirstNameList = new List<String> { "Darth Vader", "Palpatine", "Darth Maul", "Count Dooku", "Asajj Ventress", "Kylo Ren"};
+
+            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
+
+            return result;
         }
 
         /// <summary>
         /// Get Description
+        /// 
+        /// Return a random description
         /// </summary>
         /// <returns></returns>
-        public static string GetDescription()
+        public static string GetMonsterDescription()
         {
-            return "bob";
+            List<String> StringList = new List<String> { "A Sith Lord", "Dark architect of the Galactic Empire", "A dangerous combatant", "Possesses a brilliance and charisma", "Slave, Nightsister, Jedi apprentice", "The leader of the mysterious Knights of Ren" };
+
+            var result = StringList.ElementAt(DiceHelper.RollDice(1, StringList.Count()) - 1);
+
+            return result;
         }
+
+        
+        
 
         /// <summary>
         /// Get Random Ability Number
@@ -69,7 +114,14 @@ namespace Game.Helpers
         /// <returns></returns>
         public static string GetItem(ItemLocationEnum location)
         {
-            return null;
+            var ItemList = ItemIndexViewModel.Instance.GetLocationItems(location);
+
+            // Add Noe to the list
+            ItemList.Add(new ItemModel { Id = null, Name = "None" });
+
+            var result = ItemList.ElementAt(DiceHelper.RollDice(1, ItemList.Count()) - 1).Id;
+            return result;
         }
+
     }
 }
