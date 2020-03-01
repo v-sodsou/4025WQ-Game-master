@@ -63,6 +63,12 @@ namespace Game.Models
         // The Attack score to be used when attacking
         public int Attack { get; set; } = 0;
 
+        // The Difficulty level
+        public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
+
+        // The Experience available to given up
+        public int ExperienceRemaining { get; set; }
+
         #endregion PlayerAttributes
 
         #endregion Attributes
@@ -92,6 +98,9 @@ namespace Game.Models
         // alive status, !alive will be removed from the list
         [Ignore]
         public bool HasForce { get; set; } = false;
+
+        // Unique Drop Item for Monsters
+        public string UniqueItem { get; set; } = null;
         #endregion Items
 
         #region AttributeDisplay
@@ -239,7 +248,7 @@ namespace Game.Models
         /// </summary>
         /// <param name="level">The New Level</param>
         /// <returns>True if New Level Occurs</returns>
-        public bool ScaleLevel(int level)
+        public bool LevelUpToValue(int level)
         {
             // No need of changing if level < 1
             if (level < 1)
