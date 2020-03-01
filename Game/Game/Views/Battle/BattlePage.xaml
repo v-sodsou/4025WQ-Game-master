@@ -17,14 +17,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="yoda.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
                     </Grid>
                 </RelativeLayout>
 
@@ -33,14 +34,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="luke.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
                     </Grid>
                 </RelativeLayout>
 
@@ -49,14 +51,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="chewy_solo.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
                     </Grid>
                 </RelativeLayout>
 
@@ -65,14 +68,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="obiwan.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
                     </Grid>
                 </RelativeLayout>
 
@@ -81,14 +85,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="ahsoka.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
                     </Grid>
                 </RelativeLayout>
 
@@ -97,14 +102,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="rey.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
+                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        </StackLayout>
                     </Grid>
                 </RelativeLayout>
 
