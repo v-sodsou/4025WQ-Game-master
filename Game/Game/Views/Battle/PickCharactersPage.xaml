@@ -9,7 +9,6 @@
             <Label Text="Select Characters"></Label>
 
             <Button Clicked="BattleButton_Clicked" Text="Begin Battle"></Button>
-            <Button Clicked="BattleArenaButton_Clicked" Text="Go to Arena Battle"></Button>
         </StackLayout>
         
     </ContentPage.Content>

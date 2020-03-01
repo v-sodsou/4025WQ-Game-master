@@ -1,4 +1,4 @@
-﻿using Game.Views.Battle;
+﻿
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -29,12 +29,6 @@ namespace Game.Views
 		async void BattleButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
-			await Navigation.PopAsync();
-		}
-
-		async void BattleArenaButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new NavigationPage(new BattleArenaPage()));
 			await Navigation.PopAsync();
 		}
 	}
