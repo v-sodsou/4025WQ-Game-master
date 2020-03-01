@@ -67,7 +67,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Clicked="BattleButton_Clicked" Text="Next"></Button>
+            <Button Clicked="ShowMonstersPage_Clicked" Text="Next"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
