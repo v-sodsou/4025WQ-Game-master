@@ -129,7 +129,7 @@
             <BoxView Color="Black" HeightRequest="1"/>
             
             <!--<Battle Arena/>-->
-            <RelativeLayout>
+            <RelativeLayout HorizontalOptions="CenterAndExpand">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
