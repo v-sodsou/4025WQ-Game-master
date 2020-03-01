@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using Game.Models;
 using Game.ViewModels;
+using Game.Views.Battle;
 
 namespace Game.Views
 {
@@ -33,6 +34,11 @@ namespace Game.Views
 			//TBD
 		}
 
+		void OnChecked(object sender, EventArgs e)
+		{
+			// TBD	
+		}
+
 		/// <summary>
 		/// Jump to the Battle
 		/// 
@@ -42,7 +48,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+			await Navigation.PushModalAsync(new NavigationPage(new ShowMonstersPage()));
 			await Navigation.PopAsync();
 		}
 	}
