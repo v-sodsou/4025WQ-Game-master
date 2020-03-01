@@ -23,8 +23,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="yoda.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
                     </Grid>
                 </RelativeLayout>
 
@@ -39,8 +39,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="luke.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
                     </Grid>
                 </RelativeLayout>
 
@@ -55,8 +55,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="chewy_solo.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
                     </Grid>
                 </RelativeLayout>
 
@@ -71,8 +71,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="obiwan.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
                     </Grid>
                 </RelativeLayout>
 
@@ -87,8 +87,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="ahsoka.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
                     </Grid>
                 </RelativeLayout>
 
@@ -103,8 +103,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image  Grid.Row="0" Grid.Column="0" Source="rey.png" />
-                        <ProgressBar Grid.Row="1" Grid.Column="0"></ProgressBar>
-                        <ProgressBar Grid.Row="2" Grid.Column="0"></ProgressBar>
+                        <ProgressBar Grid.Row="1" Grid.Column="0" Progress="0.5" ProgressColor="Red"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" Progress="0.5" ProgressColor="Green"></ProgressBar>
                     </Grid>
                 </RelativeLayout>
 
