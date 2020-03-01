@@ -9,15 +9,110 @@
             <RelativeLayout x:Name="CharacterStyling"
                       BackgroundColor="{DynamicResource Primary}" 
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
-                      HeightRequest="80" 
+                      HeightRequest="100" 
                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+                <RelativeLayout Style="{StaticResource CharacterStyling1}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image  Grid.Row="0" Grid.Column="0" Source="troll.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
 
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling1}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling2}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling3}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling4}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling5}" />
-                <Image  Source="troll.png" Style="{StaticResource CharacterStyling6}" />
+                <RelativeLayout Style="{StaticResource CharacterStyling2}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image  Grid.Row="0" Grid.Column="0" Source="troll.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource CharacterStyling3}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image  Grid.Row="0" Grid.Column="0" Source="troll.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource CharacterStyling4}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image  Grid.Row="0" Grid.Column="0" Source="troll.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
+
+
+                <RelativeLayout Style="{StaticResource CharacterStyling5}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image  Grid.Row="0" Grid.Column="0" Source="troll.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
+
+                <RelativeLayout Style="{StaticResource CharacterStyling6}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image  Grid.Row="0" Grid.Column="0" Source="troll.png" />
+                        <ProgressBar Grid.Row="1" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                        <ProgressBar Grid.Row="2" Grid.Column="0" HeightRequest="5"></ProgressBar>
+                    </Grid>
+                </RelativeLayout>
 
             </RelativeLayout>
         </StackLayout>
