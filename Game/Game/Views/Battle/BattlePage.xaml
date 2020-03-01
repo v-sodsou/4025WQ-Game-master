@@ -130,7 +130,25 @@
             
             <!--<Battle Arena/>-->
             <RelativeLayout>
-
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image HeightRequest="200" Grid.Row="0" Grid.Column="0" Source="luke.png" />
+                    <Button 
+                       Grid.Row="0" Grid.Column="1"
+                       Text="Attack" 
+                       FontSize="Medium"
+                       BorderWidth="1" 
+                       BorderColor="black">
+                    </Button>
+                    <Image  HorizontalOptions="End" HeightRequest="200" Grid.Row="0" Grid.Column="2" Source="palpatine.png" />
+                </Grid>
             </RelativeLayout>
 
             <!--<Straight Line/>-->
