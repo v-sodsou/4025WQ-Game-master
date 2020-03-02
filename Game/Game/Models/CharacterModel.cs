@@ -32,5 +32,15 @@ namespace Game.Models
             Level = 1;
         }
 
+        /// <summary>
+        /// Create a copy
+        /// </summary>
+        /// <param name="data"></param>
+        public CharacterModel(CharacterModel data)
+        {
+            Update(data);
+        }
+
+
     }
 }

@@ -1,73 +1,148 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="SelectCharactersPage"
              x:Class="Game.Views.PickCharactersPage"
-             >
-
-    <!--<ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Select Characters"></Label>
-
-            <Button Clicked="BattleButton_Clicked" Text="Begin Battle"></Button>
-        </StackLayout>
-        
-    </ContentPage.Content>-->
+             Title="{Binding Title}">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource OuterBoxStack}">
-            <Label Text="Select Characters"></Label>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout Style="{StaticResource OuterBoxStack}">
 
-            <ListView x:Name="CharacterListView" 
-                    ItemsSource="{Binding Dataset}"
-                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                    RefreshCommand="{Binding LoadItemsCommand}"
-                    CachingStrategy="RecycleElement"
-                    ItemTapped="OnCharacterSelected"
-                    HasUnevenRows="true"
-                    Margin="5,0,5,0"
-                    RowHeight="80"
-                    >
+                <Label Text="Bring on the Battle" Style="{StaticResource CenterMessageStyle}"/>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid ColumnSpacing="5" RowSpacing="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
 
-                                <CheckBox  Grid.Column="0" Grid.Row="0"
-                                           IsChecked="False" Color="Black"
-                                           Opacity="50"
-                                           x:Name="chkbox"/>
+                    <StackLayout HorizontalOptions="Start">
 
-                                <Image  Grid.Column="1" Grid.Row="0" Grid.RowSpan="5"
-                                        Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageMediumStyle}"
-                                        VerticalOptions="CenterAndExpand"/>
+                        <Label Text="Characters" Style="{StaticResource CenterMessageStyle}"/>
 
-                                <Label Grid.Column="2" Grid.Row="0" 
-                                       Text="{Binding Name}" 
-                                       Style="{StaticResource ListStyle}"/>
+                        <ListView 
+                                x:Name="CharactersListView" 
+                                ItemsSource="{Binding DatabaseCharacterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadItemsCommand}"
+                                CachingStrategy="RecycleElement"
+                                ItemSelected="OnDatabaseCharacterItemSelected"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                RowHeight="80">
 
-                                <Label Grid.Column="2" Grid.Row="1"
-                                       Text="{Binding Description}" 
-                                       Style="{StaticResource ListStyle}"
-                                       FontSize="Micro"/>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid ColumnSpacing="5" RowSpacing="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
 
+                                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"/>
 
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button Clicked="ShowMonstersPage_Clicked" Text="Next"></Button>
-        </StackLayout>
+                                            <Label Grid.Column="1" Grid.Row="0"
+                                                   Text="{Binding Name}" 
+                                                   Style="{StaticResource ListStyle}"
+                                                   FontAttributes="Bold"/>
+
+                                            <Label Grid.Column="1" Grid.Row="1"
+                                                   Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
+                                                   Style="{StaticResource ListStyle}"/>
+
+                                            <Label Grid.Column="1" Grid.Row="2"
+                                                    Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                                    Style="{StaticResource ListStyle}"/>
+
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+
+                        <Label Text="Count" Style="{StaticResource CenterMessageStyle}"/>
+
+                        <Label Style="{StaticResource CenterMessageStyle}" 
+                            x:Name="PartyCountLabel"
+                            Text="0"/>
+
+                        <Button 
+                            x:Name="BeginBattleButton"
+                            Clicked="BattleButton_Clicked" 
+                            Text="Begin Battle"
+                            IsEnabled="False"
+                            HorizontalOptions="Center"/>
+
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="End">
+
+                        <Label Text="Party" Style="{StaticResource CenterMessageStyle}"/>
+
+                        <ListView 
+                                x:Name="PartyListView" 
+                                ItemsSource="{Binding PartyCharacterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadItemsCommand}"
+                                CachingStrategy="RecycleElement"
+                                ItemSelected="OnPartyCharacterItemSelected"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                RowHeight="80">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid ColumnSpacing="5" RowSpacing="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"/>
+
+                                            <Label Grid.Column="1" Grid.Row="0"
+                                                   Text="{Binding Name}" 
+                                                   Style="{StaticResource ListStyle}"
+                                                   FontAttributes="Bold"/>
+
+                                            <Label Grid.Column="1" Grid.Row="1"
+                                                   Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
+                                                   Style="{StaticResource ListStyle}"/>
+
+                                            <Label Grid.Column="1" Grid.Row="2"
+                                                    Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                                    Style="{StaticResource ListStyle}"/>
+
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

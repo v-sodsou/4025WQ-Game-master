@@ -184,5 +184,100 @@ namespace Game.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Get Character Random Image
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCharacterImage()
+        {
+            List<String> FirstNameList = new List<String> { "yoda.png", "chewy_solo.png", "pilot.png", "r2d2.png", "luke.png", "obiwan.png", "rey.png" };
+
+            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get Name
+        /// 
+        /// Return a Random Name
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCharacterName()
+        {
+
+            List<String> FirstNameList = new List<String> { "Yoda", "Chewy", "Hans Solo", "Rebel Pilot", "R2D2", "Luke Skywalker", "Obiwan", "Rey" };
+
+            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get Description
+        /// 
+        /// Return a random description
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCharacterDescription()
+        {
+            List<String> StringList = new List<String> { "the terrible", "the awesome", "the lost", "the old", "the younger", "the quiet", "the loud", "the helpless", "the happy", "the sleepy", "the angry", "the clever" };
+
+            var result = StringList.ElementAt(DiceHelper.RollDice(1, StringList.Count()) - 1);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Create Random Character for the battle
+        /// </summary>
+        /// <param name="MaxLevel"></param>
+        /// <returns></returns>
+        public static CharacterModel GetRandomCharacter(int MaxLevel)
+        {
+            // If there are no characters in the system, return a default one
+            if (CharacterIndexViewModel.Instance.Dataset.Count == 0)
+            {
+                return new CharacterModel();
+            }
+
+            var rnd = DiceHelper.RollDice(1, CharacterIndexViewModel.Instance.Dataset.Count);
+
+            var result = new CharacterModel(CharacterIndexViewModel.Instance.Dataset.ElementAt(rnd - 1))
+            {
+                Level = DiceHelper.RollDice(1, MaxLevel),
+
+                // Randomize Name
+                Name = GetCharacterName(),
+                Description = GetCharacterDescription(),
+
+                // Randomize the Attributes
+                Attack = GetAbilityValue(),
+                Speed = GetAbilityValue(),
+                Defense = GetAbilityValue(),
+
+                // Randomize an Item for Location
+                Head = GetItem(ItemLocationEnum.Head),
+                Necklass = GetItem(ItemLocationEnum.Necklass),
+                PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand),
+                OffHand = GetItem(ItemLocationEnum.OffHand),
+                RightFinger = GetItem(ItemLocationEnum.Finger),
+                LeftFinger = GetItem(ItemLocationEnum.Finger),
+                Feet = GetItem(ItemLocationEnum.Feet),
+
+                ImageURI = GetCharacterImage()
+            };
+
+            result.MaxHealth = DiceHelper.RollDice(MaxLevel, 10);
+
+            // Level up to the new level
+            result.LevelUpToValue(result.Level);
+
+            // Enter Battle at full health
+            result.CurrentHealth = result.MaxHealth;
+
+            return result;
+        }
+
     }
 }
