@@ -359,6 +359,49 @@
                     Factor=0.80, Constant=20}" />
             </Style>
 
+            <Style TargetType="StackLayout"
+                x:Key="PlayerInfoBox"
+                BasedOn="{StaticResource CardImageTextBox}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="Spacing" Value="1" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="ScoreCharacterInfoBox"
+                BasedOn="{StaticResource PlayerInfoBox}">
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="BattlePlayerInfoInfoBox"
+                BasedOn="{StaticResource PlayerInfoBox}">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="WidthRequest" Value="60" />
+            </Style>
+            
+            <Style TargetType="Image"
+                x:Key="ImageBattleLargeStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="WidthRequest" Value="80" />
+                <Setter Property="HeightRequest" Value="80" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="ValueStyleMicro"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="ImageBattleSmallStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+
 
         </ResourceDictionary>
     </Application.Resources>
