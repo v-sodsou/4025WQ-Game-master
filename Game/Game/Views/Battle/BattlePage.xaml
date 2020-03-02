@@ -4,267 +4,100 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
-        <StackLayout>
-        <!--<Button Text="Item Pages" Clicked="ItemPagesClicked" />-->
 
-            <!--<Characters on top of the page/>-->
-            <RelativeLayout x:Name="CharacterStyling"
-                      BackgroundColor="{DynamicResource Primary}" 
-                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
-                      HeightRequest="100" 
-                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+        <AbsoluteLayout
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        >
 
-                <RelativeLayout Style="{StaticResource CharacterStyling1}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="yoda.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+            <StackLayout 
+                    Style="{StaticResource VerticalStack}"
+                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                    AbsoluteLayout.LayoutFlags="All"
+                    HorizontalOptions="FillAndExpand">
+
+                <StackLayout Style="{StaticResource VerticalStack}"
+                         x:Name="GameUIDisplay" 
+                         IsVisible="true" 
+                         VerticalOptions="StartAndExpand" 
+                         HorizontalOptions="FillAndExpand">
+
+                    <Label Text="Characters" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout x:Name="CharacterBox" Style="{StaticResource HorizontalStack}"/>
+
+                    <Label Text="Monsters" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout x:Name="MonsterBox" Style="{StaticResource HorizontalStack}"/>
+
+                    <StackLayout x:Name="BattlePlayerBox" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+
+                        <StackLayout x:Name="AttackerBox" Style="{StaticResource PlayerInfoBox}" HorizontalOptions="Start">
+                            <Image x:Name="AttackerImage"  Style="{StaticResource ImageBattleLargeStyle}"/>
+                            <Label x:Name="AttackerName" Text="" HorizontalOptions="Center"/>
+                            <Label x:Name="AttackerHealth" Text="" HorizontalOptions="Center"/>
                         </StackLayout>
-                    </Grid>
-                </RelativeLayout>
 
-                <RelativeLayout Style="{StaticResource CharacterStyling2}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="luke.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label x:Name="BattlePlayerBoxVersus" Text="vs" Style="{StaticResource CenterMessageStyle}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
                         </StackLayout>
-                    </Grid>
-                </RelativeLayout>
 
-                <RelativeLayout Style="{StaticResource CharacterStyling3}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="chewy_solo.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
+                        <StackLayout x:Name="DefenderBox" Style="{StaticResource PlayerInfoBox}" HorizontalOptions="End">
+                            <Image x:Name="DefenderImage" Style="{StaticResource ImageBattleLargeStyle}"/>
+                            <Label x:Name="DefenderName" Text="" HorizontalOptions="Center"/>
+                            <Label x:Name="DefenderHealth" Text="" HorizontalOptions="Center"/>
                         </StackLayout>
-                    </Grid>
-                </RelativeLayout>
+                    </StackLayout>
 
-                <RelativeLayout Style="{StaticResource CharacterStyling4}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="obiwan.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
+                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
 
-                <RelativeLayout Style="{StaticResource CharacterStyling5}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="ahsoka.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
+                        <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" />
 
-                <RelativeLayout Style="{StaticResource CharacterStyling6}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="rey.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
-            </RelativeLayout>
+                    </StackLayout>
 
-            <!--<Straight Line/>-->
-            <BoxView Color="Black" HeightRequest="1"/>
-            
-            <!--<Message Box/>-->
-            <RelativeLayout>
-                
-            </RelativeLayout>
+                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="StartAndExpand">
+                        <Label Text="Game Messages" Style="{StaticResource CenterMessageStyle}"></Label>
 
-            <!--<Straight Line/>-->
-            <BoxView Color="Black" HeightRequest="1"/>
-            
-            <!--<Battle Arena/>-->
-            <RelativeLayout HorizontalOptions="CenterAndExpand">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Image HeightRequest="200" Grid.Row="0" Grid.Column="0" Source="luke.png" />
-                    <Button 
-                       Grid.Row="0" Grid.Column="1"
-                       Text="Attack" 
-                       FontSize="Medium"
-                       BorderWidth="1" 
-                       BorderColor="black">
-                    </Button>
-                    <Image  HorizontalOptions="End" HeightRequest="200" Grid.Row="0" Grid.Column="2" Source="palpatine.png" />
-                </Grid>
-            </RelativeLayout>
+                        <Label x:Name="BattleMessages" 
+                               HorizontalOptions="StartAndExpand" 
+                               LineBreakMode="WordWrap" 
+                               MaxLines="10"
+                               LineHeight="1"
+                               Style="{StaticResource LabelStyle}"/>
 
-            <!--<Straight Line/>-->
-            <BoxView Color="Black" HeightRequest="1"/>
+                        <WebView
+                        x:Name="HtmlBox"
+                        WidthRequest="100"
+                        MinimumWidthRequest="100"
+                        HeightRequest="100"
+                        MinimumHeightRequest="100"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        BackgroundColor="Transparent"
+                        IsVisible="false"
+                        />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
 
-            <!--<Monster on top of the page/>-->
+            <StackLayout 
+                    Style="{StaticResource VerticalStack}"
+                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                    AbsoluteLayout.LayoutFlags="All"
+                    HorizontalOptions="FillAndExpand"
+                    x:Name="GameOverDisplay" 
+                    IsVisible="false">
 
-            <RelativeLayout x:Name="MonsterStyling"
-                      BackgroundColor="{DynamicResource Primary}" 
-                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" 
-                      HeightRequest="100" 
-                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="Thank you for Playing" Style="{StaticResource CenterMessageStyle}"/>
 
-                <RelativeLayout Style="{StaticResource MonsterStyling1}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="kyloren.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
+                    <Label Text="Check your score, or click Exit and return soon" Style="{StaticResource MessageStyle}" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" MaxLines="5" Padding="20"/>
 
-                <RelativeLayout Style="{StaticResource MonsterStyling2}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="palpatine.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
+                    <Button x:Name="ShowScoreButton" Clicked="ShowScoreButton_Clicked" Text="Score"/>
 
-                <RelativeLayout Style="{StaticResource MonsterStyling3}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="trooper.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
+                    <Button x:Name="ExitButton" Clicked="ExitButton_Clicked" Text="Exit"></Button>
 
-                <RelativeLayout Style="{StaticResource MonsterStyling4}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="DarthVader.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
+                </StackLayout>
+            </StackLayout>
 
-                <RelativeLayout Style="{StaticResource MonsterStyling5}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="darthmaul.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
-
-                <RelativeLayout Style="{StaticResource MonsterStyling6}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                        </Grid.ColumnDefinitions>
-                        <Image  Grid.Row="0" Grid.Column="0" Source="Asajjventress.png" />
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
-                            <Image HeightRequest="5" Source="GreenCross.png"></Image>
-                            <ProgressBar HeightRequest="5"  WidthRequest="70" Progress="0.5" ProgressColor="Green"></ProgressBar>
-                        </StackLayout>
-                    </Grid>
-                </RelativeLayout>
-            </RelativeLayout>
-
-        </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
