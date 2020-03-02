@@ -6,29 +6,26 @@
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
 
-            <StackLayout Style="{StaticResource VerticalStack}">
+            <StackLayout VerticalOptions ="Center">
 
-                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageStyle}"/>
+                <Label Text="Monsters awaiting in this round.." Style="{StaticResource CenterMessageStyle}"/>
+                <Button Clicked="BeginButton_Clicked" Text="Begin Round"/>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                    <StackLayout Padding="25">
+                        <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
+                        <StackLayout x:Name="PartyListFrame"/>
+                    </StackLayout>
 
-                <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
+                    <StackLayout  Padding="25">
+                        <Label Text="Monsters" Style="{StaticResource MessageStyle}"/>
+                        <StackLayout x:Name="MonsterListFrame"/>
+                    </StackLayout>
+                  
+                    <StackLayout Padding="1"></StackLayout>
+                </StackLayout>
 
-                <FlexLayout x:Name="PartyListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
-
-                <Label Text="Monsters" Style="{StaticResource MessageStyle}"/>
-
-                <FlexLayout x:Name="MonsterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
-
-                <StackLayout Padding="1"></StackLayout>
-
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+                <Button Clicked="BeginButton_Clicked" Text="Begin Round"/>
 
             </StackLayout>
         </ScrollView>

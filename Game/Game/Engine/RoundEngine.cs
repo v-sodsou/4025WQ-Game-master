@@ -1,4 +1,6 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
+using Game.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -128,15 +130,91 @@ namespace Game.Engine
         /// <returns></returns>
         public int AddMonstersToRound()
         {
-            for (var i = 0; i < MaxNumberPartyMonsters; i++)
+            //  no need to add more if monster list s full
+            if (MonsterList.Count() >= MaxNumberPartyMonsters)
             {
-                var data = new MonsterModel();
-                // Help identify which Monster it is
-                data.Name += " " + MonsterList.Count() + 1;
-                MonsterList.Add(new PlayerInfoModel(data));
+                return 0;
+            }
+
+            var myMonsterViewModel = MonsterIndexViewModel.Instance;
+            if (myMonsterViewModel.Dataset.Count() > 0)
+            {
+                // Scale monsters within the range of the Characters
+
+                var ScaleLevelMax = 1;
+                var ScaleLevelMin = 1;
+                var ScaleLevelAverage = 1;
+
+                if (CharacterList.Any())
+                {
+                    ScaleLevelMax = GetMaxCharacterLevel();
+                    ScaleLevelMin = GetMinCharacterLevel();
+                    ScaleLevelAverage = GetAverageCharacterLevel();
+                }
+
+                do
+                {
+                    var rnd = DiceHelper.RollDice(1, MonsterIndexViewModel.Instance.Dataset.Count);
+                    {
+                        var monster = new MonsterModel(myMonsterViewModel.Dataset[rnd - 1]);
+
+                        // Identify which monster it is...
+                        monster.Name += " " + (1 + MonsterList.Count()).ToString();
+
+                        // Scale the monster to be between the average level of the characters+1
+                        var rndScale = DiceHelper.RollDice(1, ScaleLevelAverage + 1);
+                        var item = new PlayerInfoModel(monster);
+                        item.LevelUpToValue(rndScale);
+                        MonsterList.Add(item);
+                    }
+
+                } while (MonsterList.Count() < MaxNumberPartyMonsters);
+            }
+            else
+            {
+                // If no monsters in DB, add 6 new ones...
+                for (var i = 0; i < MaxNumberPartyMonsters; i++)
+                {
+                    var item = new MonsterModel();
+                    item.Name += " " + MonsterList.Count() + 1;
+                    MonsterList.Add(new PlayerInfoModel(item));
+                }
             }
 
             return MonsterList.Count();
+        }
+
+        /// <summary>
+        /// Will return the Min, Max, Average for the Characters in the party
+        /// So the monster can get scaled to the appropraite level
+        /// </summary>
+        /// <returns></returns>
+        public int GetAverageCharacterLevel()
+        {
+            var data = CharacterList.Average(m => m.Level);
+            return (int)Math.Floor(data);
+        }
+
+        /// <summary>
+        /// Will return the Min, Max, Average for the Characters in the party
+        /// So the monster can get scaled to the appropraite level
+        /// </summary>
+        /// <returns></returns>
+        public int GetMinCharacterLevel()
+        {
+            var data = CharacterList.Min(m => m.Level);
+            return data;
+        }
+
+        /// <summary>
+        /// Will return the Min, Max, Average for the Characters in the party
+        /// So the monster can get scaled to the appropraite level
+        /// </summary>
+        /// <returns></returns>
+        public int GetMaxCharacterLevel()
+        {
+            var data = CharacterList.Max(m => m.Level);
+            return data;
         }
 
         /// <summary>
