@@ -260,16 +260,7 @@ namespace Game.Views
             // Output the Message of what happened.
             GameMessage();
 
-
-            //// TODO: TEAM
-
-            /////
-            ///// Now that the turn is over, need to change the attacker and defender 
-            ///// In the UI game, the player would choose who to attack
-            ///// The monster would auto pick
-            /////
-
-            //// Get the turn, set the current player and attacker to match
+            // Get the turn, set the current player and attacker to match
             EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn();
 
             if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
