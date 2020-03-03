@@ -13,14 +13,6 @@ namespace Game.Views
 {
     /// <summary>
     /// Selecting Characters for the Game
-    /// 
-    /// TODO: Team
-    /// Mike's game allows duplicate characters in a party (6 Mikes can all fight)
-    /// If you do not allow duplicates, change the code below
-    /// Instead of using the database list directly make a copy of it in the viewmodel
-    /// Then have on select of the database remove the character from that list and add to the part list
-    /// Have select from the party list remove it from the party list and add it to the database list
-    ///
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0019:Use pattern matching", Justification = "<Pending>")]
     [DesignTimeVisible(false)]
@@ -65,8 +57,13 @@ namespace Game.Views
             // Manually deselect Character.
             CharactersListView.SelectedItem = null;
 
+            // Do not allow duplicate characters to be added.
+            if (EngineViewModel.PartyCharacterList.Contains(data))
+            {
+                DisplayAlert("Character Already Added", "Please Select a Different One!", "OK");
+            }
             // Don't add more than the party max
-            if (EngineViewModel.PartyCharacterList.Count() < EngineViewModel.Engine.MaxNumberPartyCharacters)
+            else if (EngineViewModel.PartyCharacterList.Count() < EngineViewModel.Engine.MaxNumberPartyCharacters)
             {
                 EngineViewModel.PartyCharacterList.Add(data);
             }
@@ -98,6 +95,8 @@ namespace Game.Views
             {
                 EngineViewModel.PartyCharacterList.Add(data);
             }
+
+            // if (EngineViewModel.PartyCharacterList.Contains(data.Name))
 
             UpdateNextButtonState();
         }
@@ -131,7 +130,7 @@ namespace Game.Views
         {
             CreateEngineCharacterList();
 
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePage1()));
             await Navigation.PopAsync();
         }
 

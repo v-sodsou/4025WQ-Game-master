@@ -149,7 +149,7 @@ namespace Game.Engine
             foreach (var ItemModel in myItemList)
             {
                 BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
+                BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped.";
             }
 
             ItemPool.AddRange(myItemList);
@@ -188,7 +188,7 @@ namespace Game.Engine
         public bool TargetDied(PlayerInfoModel Target)
         {
             // Mark Status in output
-            BattleMessagesModel.TurnMessageSpecial = " and causes death";
+            BattleMessagesModel.TurnMessageSpecial = " and causes death. ";
 
             // Remove target from list...
 
@@ -295,7 +295,11 @@ namespace Game.Engine
 
             RemoveIfDead(Target);
 
-            BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial;
+            BattleMessagesModel.TurnMessage = string.Format("\"{0}\" attacks {1} \"{2}\" {3}",
+                Attacker.Name,
+                BattleMessagesModel.AttackStatus,
+                Target.Name,
+                BattleMessagesModel.TurnMessageSpecial);
             Debug.WriteLine(BattleMessagesModel.TurnMessage);
 
             return true;
