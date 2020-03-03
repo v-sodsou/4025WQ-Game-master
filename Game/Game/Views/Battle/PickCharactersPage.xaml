@@ -12,7 +12,7 @@
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource OuterBoxStack}">
 
-                <Label Text="Bring on the Battle" Style="{StaticResource CenterMessageStyle}"/>
+                <Label Text="Select Your Brave Characters" Style="{StaticResource CenterMessageStyle}"/>
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
 
