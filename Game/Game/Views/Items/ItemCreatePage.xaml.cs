@@ -54,6 +54,22 @@ namespace Game.Views
             {
                 await DisplayAlert("Alert", "Please enter a name!", "OK");
             }
+            
+            // Add Validation for Description
+            if (string.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                await DisplayAlert("Alert", "Please enter a description!", "OK");
+            }
+
+            if (ViewModel.Data.Attribute == AttributeEnum.Unknown)
+            {
+                await DisplayAlert("Alert", "Please select an attribute!", "OK");
+            }
+
+            if (ViewModel.Data.Location == ItemLocationEnum.Unknown)
+            {
+                await DisplayAlert("Alert", "Please select a location for the item!", "OK");
+            }
             else
             {
                 MessagingCenter.Send(this, "Create", ViewModel.Data);
