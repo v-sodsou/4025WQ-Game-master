@@ -396,6 +396,11 @@ namespace Game.Models
             // Get Speed bonus from Items
             myReturn += GetSpeedItemBonus;
 
+            if(HasForce)
+            {
+                myReturn += 5;
+            }
+
             return myReturn;
         }
 
