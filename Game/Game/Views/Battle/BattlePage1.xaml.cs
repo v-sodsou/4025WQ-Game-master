@@ -183,7 +183,7 @@ namespace Game.Views
 
                 if (EngineViewModel.Engine.CurrentDefender.Alive == false)
                 {
-                    DefenderImage.BackgroundColor = Color.Red;
+                    DefenderImage.FadeTo(.2, 100);
                 }
             }
 
@@ -202,7 +202,7 @@ namespace Game.Views
             DefenderImage.Source = string.Empty;
             DefenderName.Text = string.Empty;
             DefenderHealth.Text = string.Empty;
-            DefenderImage.BackgroundColor = Color.Transparent;
+            DefenderImage.FadeTo(1, 250);
 
             BattlePlayerBoxVersus.Text = string.Empty;
         }
