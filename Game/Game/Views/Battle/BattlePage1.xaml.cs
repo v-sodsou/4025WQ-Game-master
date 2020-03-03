@@ -168,6 +168,7 @@ namespace Game.Views
         {
             DrawGameBoardClear();
 
+            // Get an attacker
             if (EngineViewModel.Engine.CurrentAttacker != null)
             {
                 AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.ImageURI;
@@ -175,19 +176,24 @@ namespace Game.Views
                 AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.GetCurrentHealthTotal.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.GetMaxHealthTotal.ToString();
             }
 
+            // Get a defender
             if (EngineViewModel.Engine.CurrentDefender != null)
             {
                 DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.ImageURI;
                 DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
                 DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.GetCurrentHealthTotal.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.GetMaxHealthTotal.ToString();
 
+                // If the defender is dead, fade out its image
                 if (EngineViewModel.Engine.CurrentDefender.Alive == false)
                 {
+
                     DefenderImage.FadeTo(.2, 100);
+
                 }
+
             }
 
-            BattlePlayerBoxVersus.Text = "vs";
+            //BattlePlayerBoxVersus.Text = "vs";
         }
 
         /// <summary>
@@ -204,7 +210,8 @@ namespace Game.Views
             DefenderHealth.Text = string.Empty;
             DefenderImage.FadeTo(1, 250);
 
-            BattlePlayerBoxVersus.Text = string.Empty;
+            // Added grid but keep this message just in case
+            // BattlePlayerBoxVersus.Text = string.Empty;
         }
 
         /// <summary>
@@ -217,6 +224,7 @@ namespace Game.Views
             NextAttackExample();
         }
 
+        
         /// <summary>
         /// Next Attack Example
         /// 
@@ -369,6 +377,11 @@ namespace Game.Views
             ShowModalScorePage();
         }
 
+        /// <summary>
+        /// Handle Pick Characters and new round modal pages
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void HandleModalPopping(object sender, ModalPoppingEventArgs e)
         {
             if (e.Modal == ModalNewRoundPage)

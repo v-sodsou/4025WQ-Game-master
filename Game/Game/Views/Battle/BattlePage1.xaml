@@ -33,24 +33,63 @@
                         />
                     </StackLayout>
 
-                    <StackLayout x:Name="BattlePlayerBox" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Grid VerticalOptions="FillAndExpand"
+                      HorizontalOptions="FillAndExpand"
+                      RowSpacing="0"
+                      ColumnSpacing="0">
 
-                        <StackLayout x:Name="AttackerBox" HorizontalOptions="Start">
-                            <Image x:Name="AttackerImage" Source="knight.png" Style="{StaticResource ImageBattleLargeStyle}"/>
-                            <Label x:Name="AttackerName" Text="" HorizontalOptions="Center"/>
-                            <Label x:Name="AttackerHealth" Text="" HorizontalOptions="Center"/>
-                        </StackLayout>
+                        <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                        <StackLayout HorizontalOptions="Center">
-                            <Label x:Name="BattlePlayerBoxVersus" Text="vs" Style="{StaticResource CenterMessageStyle}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-                        </StackLayout>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
 
-                        <StackLayout x:Name="DefenderBox" HorizontalOptions="End">
-                            <Image x:Name="DefenderImage" Source="troll.png" Style="{StaticResource ImageBattleLargeStyle}"/>
-                            <Label x:Name="DefenderName" Text="" HorizontalOptions="Center"/>
-                            <Label x:Name="DefenderHealth" Text="" HorizontalOptions="Center"/>
-                        </StackLayout>
-                    </StackLayout>
+                        <BoxView BackgroundColor="Black"
+                           HeightRequest="1"
+                           HorizontalOptions="FillAndExpand"
+                           Grid.Row="0"/>
+
+                        <Grid VerticalOptions="Start"
+                        ColumnSpacing="0"
+                        Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <StackLayout x:Name="AttackerBox" HorizontalOptions="Center">
+                                <Image x:Name="AttackerImage" Source="pilot.png" Style="{StaticResource ImageBattleLargeStyle}"/>
+                                <Label x:Name="AttackerName" Text="" HorizontalOptions="Center"/>
+                                <Label x:Name="AttackerHealth" Text="" HorizontalOptions="Center"/>
+                            </StackLayout>
+
+                            <BoxView BackgroundColor="Black"
+                         WidthRequest="1"
+                         VerticalOptions="FillAndExpand"
+                         Grid.Column="1"/>
+
+                            <StackLayout x:Name="DefenderBox" HorizontalOptions="Center" Grid.Column="2">
+                                <Image x:Name="DefenderImage" Source="darth_vader.png" Style="{StaticResource ImageBattleLargeStyle}"/>
+                                <Label x:Name="DefenderName" Text="" HorizontalOptions="Center"/>
+                                <Label x:Name="DefenderHealth" Text="" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Grid>
+
+                        <BoxView BackgroundColor="Black"
+                           HeightRequest="1"
+                           HorizontalOptions="FillAndExpand"
+                           Grid.Row="2"/>
+                    </Grid>
 
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
 
