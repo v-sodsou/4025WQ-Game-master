@@ -30,8 +30,8 @@
     <Compile Update="Views\Battle\AutoBattlePage.xaml.cs">
       <DependentUpon>AutoBattlePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Battle\BattlePage1.xaml.cs">
-      <DependentUpon>BattlePage1.xaml</DependentUpon>
+    <Compile Update="Views\Battle\BattlePage.xaml.cs">
+      <DependentUpon>BattlePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Battle\PickItemsPage.xaml.cs">
       <DependentUpon>PickItemsPage.xaml</DependentUpon>
