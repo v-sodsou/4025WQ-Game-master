@@ -92,18 +92,12 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Button 
                        Text="Save" 
-                       Clicked="SaveCharacter_Clicked"
-                       FontSize="Medium"
-                       BorderWidth="1" 
-                       BorderColor="black">
+                       Clicked="SaveCharacter_Clicked">
                     </Button>
 
                     <Button 
                        Text="Cancel" 
-                       Clicked="Cancel_Clicked"
-                       FontSize="Medium"
-                       BorderWidth="1" 
-                       BorderColor="black">
+                       Clicked="Cancel_Clicked">
                     </Button>
                     
                 </StackLayout>

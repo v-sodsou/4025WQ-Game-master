@@ -28,14 +28,10 @@
                 </StackLayout>    
                 
                 <StackLayout Padding="0, 50, 0, 0" HorizontalOptions="Center" Orientation="Horizontal">
-                <Button 
+                    <Button 
                     Text="Delete" 
-                    Clicked="CharacterDelete_Clicked" 
-                    HorizontalOptions="Center"
-                    FontSize="Medium"
-                    BorderWidth="1" 
-                    BorderColor="black">
-                </Button>
+                    Clicked="CharacterDelete_Clicked">
+                    </Button>
             </StackLayout>
         </StackLayout>
       </ScrollView>
