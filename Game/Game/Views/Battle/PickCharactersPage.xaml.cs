@@ -86,14 +86,11 @@ namespace Game.Views
             // Manually deselect Character.
             PartyListView.SelectedItem = null;
 
-            // Remove the character from the list
-            //EngineViewModel.PartyCharacterList.Remove(data);
+            // Manually deselect Character.
+            PartyListView.SelectedItem = null;
 
-            // Don't add more than the party max
-            if (EngineViewModel.PartyCharacterList.Count() < EngineViewModel.Engine.MaxNumberPartyCharacters)
-            {
-                EngineViewModel.PartyCharacterList.Add(data);
-            }
+            // Remove the character from the list
+            EngineViewModel.PartyCharacterList.Remove(data);
 
             // if (EngineViewModel.PartyCharacterList.Contains(data.Name))
 
