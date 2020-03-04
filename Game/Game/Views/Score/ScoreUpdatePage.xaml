@@ -134,14 +134,10 @@
                 Style="{StaticResource ValueStyle}"/>
 
                 <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button FontSize="Medium"
-                            BorderWidth="1" 
-                            BorderColor="black"
+                    <Button 
                             Clicked="Cancel_Clicked"
                             Text="Cancel" />
-                    <Button FontSize="Medium"
-                            BorderWidth="1" 
-                            BorderColor="black"
+                    <Button 
                             Clicked="Save_Clicked"
                             Text="Save" />
                 </StackLayout>
