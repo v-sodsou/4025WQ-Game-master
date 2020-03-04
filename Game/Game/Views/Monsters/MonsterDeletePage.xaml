@@ -31,9 +31,7 @@
                     Text="Delete" 
                     Clicked="MonsterDelete_Clicked" 
                     HorizontalOptions="Center"
-                    FontSize="Medium"
-                    BorderWidth="1" 
-                    BorderColor="black">
+                    >
                     </Button>
                 </StackLayout>
             </StackLayout>

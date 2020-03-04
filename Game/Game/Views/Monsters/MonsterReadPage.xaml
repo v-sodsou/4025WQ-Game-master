@@ -53,14 +53,10 @@
                 </StackLayout>
 
                 <StackLayout Padding="0, 20, 20, 0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button FontSize="Medium"
-                            BorderWidth="1" 
-                            BorderColor="black"
+                    <Button 
                             Clicked="EditMonster_Clicked"
                             Text="Update" />
-                    <Button FontSize="Medium"
-                            BorderWidth="1" 
-                            BorderColor="black"
+                    <Button 
                             Clicked="DeleteMonster_Clicked"
                             Text="Delete" />
                 </StackLayout>
