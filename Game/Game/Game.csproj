@@ -48,9 +48,6 @@
     <Compile Update="Views\Battle\PickCharactersPage.xaml.cs">
       <DependentUpon>PickCharactersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Battle\BattlePage.xaml.cs">
-      <DependentUpon>BattlePage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\Characters\CharacterIndexPage.xaml.cs">
       <DependentUpon>CharacterIndexPage.xaml</DependentUpon>
     </Compile>
@@ -87,9 +84,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Battle\ShowMonstersPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\Characters\CharacterDeletePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
