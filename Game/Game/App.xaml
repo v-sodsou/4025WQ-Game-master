@@ -256,60 +256,7 @@
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
-
-            <!-- Character Styling Battle Arena -->
-            <Style TargetType="Image"
-                x:Key="CharacterStyling">
-                <Setter Property="WidthRequest" Value="80"/>
-                <Setter Property="HeightRequest" Value="80" />
-                <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=0}" />
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="CharacterStyling1"
-                BasedOn="{StaticResource CharacterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.05, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="CharacterStyling2"
-                BasedOn="{StaticResource CharacterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.20, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="CharacterStyling3"
-                BasedOn="{StaticResource CharacterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.35, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="CharacterStyling4"
-                BasedOn="{StaticResource CharacterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.50, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="CharacterStyling5"
-                BasedOn="{StaticResource CharacterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.65, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="CharacterStyling6"
-                BasedOn="{StaticResource CharacterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.80, Constant=20}" />
-            </Style>
-
-       
-
+            
             <Style TargetType="StackLayout"
                 x:Key="PlayerInfoBox"
                 BasedOn="{StaticResource CardImageTextBox}">
