@@ -162,17 +162,13 @@
                         <Button 
                        Text="Save" 
                        Clicked="Save_Clicked"
-                       FontSize="Medium"
-                       BorderWidth="1" 
-                       BorderColor="black">
+                      >
                         </Button>
 
                         <Button 
                        Text="Cancel" 
                        Clicked="Cancel_Clicked"
-                       FontSize="Medium"
-                       BorderWidth="1" 
-                       BorderColor="black">
+                       >
                         </Button>
 
                     </StackLayout>
