@@ -308,56 +308,7 @@
                     Factor=0.80, Constant=20}" />
             </Style>
 
-            <!-- Monsters Styling Battle Arena -->
-            <Style TargetType="Image"
-                x:Key="MonsterStyling">
-                <Setter Property="WidthRequest" Value="80"/>
-                <Setter Property="HeightRequest" Value="80" />
-                <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=0}" />
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="MonsterStyling1"
-                BasedOn="{StaticResource MonsterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.05, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="MonsterStyling2"
-                BasedOn="{StaticResource MonsterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.20, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="MonsterStyling3"
-                BasedOn="{StaticResource MonsterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.35, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="MonsterStyling4"
-                BasedOn="{StaticResource MonsterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.50, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="MonsterStyling5"
-                BasedOn="{StaticResource MonsterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.65, Constant=20}" />
-            </Style>
-
-            <Style TargetType="Image"
-                x:Key="MonsterStyling6"
-                BasedOn="{StaticResource MonsterStyling}">
-                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, 
-                    Factor=0.80, Constant=20}" />
-            </Style>
+       
 
             <Style TargetType="StackLayout"
                 x:Key="PlayerInfoBox"
