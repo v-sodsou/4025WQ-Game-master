@@ -8,20 +8,8 @@
 
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles-->
 
-            <!--Colors -->
-
-            <!--
-                Light
-                    #BF895A
-                    #D9C6B0
-                    #733612
-                    #8C3D20
-                    #400D01
-                Dark
-                -->
-
+            <!-- These colors are different than Mike's -->
             <Color x:Key="PageBackgroundColor">#b6c779</Color>
             <Color x:Key="ViewBackgroundColor">#D7C078</Color>
             <Color x:Key="NavigationBarColor">#D9C6B9</Color>
