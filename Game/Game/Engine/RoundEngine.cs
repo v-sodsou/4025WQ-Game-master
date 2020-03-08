@@ -164,7 +164,8 @@ namespace Game.Engine
                         // Scale the monster to be between the average level of the characters+1
                         var rndScale = DiceHelper.RollDice(1, ScaleLevelAverage + 1);
                         var item = new PlayerInfoModel(monster);
-                        item.LevelUpToValue(rndScale);
+                        item.LevelUpToValue(1);
+                        //item.LevelUpToValue(rndScale);
                         MonsterList.Add(item);
                     }
 
