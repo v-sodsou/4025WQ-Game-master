@@ -272,7 +272,7 @@ namespace Game.Engine
             BattleMessagesModel.AttackerName = Attacker.Name;
 
             // Hackathon
-            // Hackathon Scenario 2, Bob alwasys misses
+            // Hackathon Scenario 2, Bob always misses
             if (Attacker.Name.Equals("Bob"))
             {
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;

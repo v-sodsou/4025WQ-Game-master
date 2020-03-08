@@ -16,23 +16,25 @@
                     <Label Text="Characters" Style="{StaticResource LabelStyle}"/>
                     <StackLayout x:Name="CharacterBox" Style="{StaticResource HorizontalStack}"/>
 
-                    <StackLayout Style="{StaticResource VerticalStack}">
-                        <Label Text="Game Messages" Style="{StaticResource CenterMessageStyle}"></Label>
-
+                    <AbsoluteLayout Style="{StaticResource VerticalStack}">
+                        <Label Text="Game Messages" Style="{StaticResource LabelStyle}"></Label>
+                    </AbsoluteLayout>
+                    <AbsoluteLayout Style="{StaticResource VerticalStack}">
+                        
                         <Label x:Name="BattleMessages" LineBreakMode="WordWrap" MaxLines="20" HorizontalOptions="FillAndExpand" LineHeight="1"></Label>
 
                         <WebView
                         x:Name="HtmlBox"
                         WidthRequest="100"
                         MinimumWidthRequest="100"
-                        HeightRequest="100"
-                        MinimumHeightRequest="100"
+                        HeightRequest="70"
+                        MinimumHeightRequest="70"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Start"
                         BackgroundColor="Transparent"
                         IsVisible="false"
                         />
-                    </StackLayout>
+                    </AbsoluteLayout>
 
                     <Grid VerticalOptions="FillAndExpand"
                       HorizontalOptions="FillAndExpand"
