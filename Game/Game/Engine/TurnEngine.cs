@@ -149,7 +149,7 @@ namespace Game.Engine
             foreach (var ItemModel in myItemList)
             {
                 BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped.";
+                BattleMessagesModel.TurnMessageSpecial += string.Format("\nItem(s) Dropped: {0}. ", ItemModel.Name);
             }
 
             ItemPool.AddRange(myItemList);

@@ -21,7 +21,7 @@
                     </AbsoluteLayout>
                     <AbsoluteLayout Style="{StaticResource VerticalStack}">
                         
-                        <Label x:Name="BattleMessages" LineBreakMode="WordWrap" MaxLines="20" HorizontalOptions="FillAndExpand" LineHeight="2"></Label>
+                        <Label x:Name="BattleMessages" LineBreakMode="WordWrap" MaxLines="2" HorizontalOptions="FillAndExpand" LineHeight="2"></Label>
 
                         <WebView
                         x:Name="HtmlBox"
@@ -42,14 +42,14 @@
                       ColumnSpacing="0">
 
                         <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="1"/>
-                                </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
 
                         <BoxView BackgroundColor="Black"
                            HeightRequest="1"
@@ -93,7 +93,7 @@
                            HorizontalOptions="FillAndExpand"
                            Grid.Row="2"/>
                     </Grid>
-
+                    
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
 
                         <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" />
