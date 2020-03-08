@@ -11,7 +11,7 @@ namespace Game.Engine
     /// <summary>
     /// AutoBattleEngine class
     /// </summary>
-    class AutoBattleEngine : BattleEngine
+    public class AutoBattleEngine : BattleEngine
     {
 
         #region Algrorithm
