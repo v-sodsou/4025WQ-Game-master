@@ -8,7 +8,8 @@
 
             <StackLayout VerticalOptions ="Center">
 
-                <Label Text="Monsters you will fight in this round..." Style="{StaticResource CenterMessageStyle}"/>
+                <Label Text="Monsters you will fight in this round..." Style="{StaticResource CenterMessageStyle}"
+                       x:Name="BattleRound"/>
                 <Button Clicked="BeginButton_Clicked" Text="Begin Round"/>
 
                 <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">

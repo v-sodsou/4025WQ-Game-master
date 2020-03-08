@@ -21,7 +21,7 @@
                     </AbsoluteLayout>
                     <AbsoluteLayout Style="{StaticResource VerticalStack}">
                         
-                        <Label x:Name="BattleMessages" LineBreakMode="WordWrap" MaxLines="20" HorizontalOptions="FillAndExpand" LineHeight="1"></Label>
+                        <Label x:Name="BattleMessages" LineBreakMode="WordWrap" MaxLines="20" HorizontalOptions="FillAndExpand" LineHeight="2"></Label>
 
                         <WebView
                         x:Name="HtmlBox"

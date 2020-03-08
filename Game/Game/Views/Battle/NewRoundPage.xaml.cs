@@ -4,6 +4,7 @@ using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Game.Engine;
 using Game.Models;
 using Game.ViewModels;
 
@@ -24,6 +25,9 @@ namespace Game.Views
         public NewRoundPage()
         {
             InitializeComponent();
+
+            // Keep track of the number of rounds to display at the beginning of each round.
+            BattleRound.Text = string.Format("Round number: {0}. Monsters you will fight...", EngineViewModel.Engine.BattleScore.RoundCount) ;
 
             // Draw the Characters
             foreach (var data in EngineViewModel.Engine.CharacterList)
