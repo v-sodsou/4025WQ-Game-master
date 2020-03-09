@@ -59,7 +59,8 @@ namespace Game.Views
             // Do not allow duplicate characters to be added.
             if (EngineViewModel.PartyCharacterList.Contains(data))
             {
-                DisplayAlert("Character Already Added", "Please Select a Different One!", "OK");
+                // Remove the character from the party list
+                EngineViewModel.PartyCharacterList.Remove(data);
             }
             // Don't add more than the party max
             else if (EngineViewModel.PartyCharacterList.Count() < EngineViewModel.Engine.MaxNumberPartyCharacters)
@@ -86,13 +87,8 @@ namespace Game.Views
             // Manually deselect Character.
             PartyListView.SelectedItem = null;
 
-            // Manually deselect Character.
-            PartyListView.SelectedItem = null;
-
             // Remove the character from the list
             EngineViewModel.PartyCharacterList.Remove(data);
-
-            // if (EngineViewModel.PartyCharacterList.Contains(data.Name))
 
             UpdateNextButtonState();
         }
