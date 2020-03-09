@@ -212,6 +212,31 @@
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="HeightRequest" Value="200" />
                 <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="Spacing" Value="1" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="PlayerInfoBox"
+                BasedOn="{StaticResource CardImageTextBox}">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="Spacing" Value="1" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="ScoreCharacterInfoBox"
+                BasedOn="{StaticResource PlayerInfoBox}">
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="ScoreMonsterInfoBox"
+                BasedOn="{StaticResource ScoreCharacterInfoBox}">
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="WidthRequest" Value="80" />
             </Style>
 
             <!-- Frame -->
@@ -264,20 +289,6 @@
                 <Setter Property="FontSize" Value="Small" />
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
-            </Style>
-            
-            <Style TargetType="StackLayout"
-                x:Key="PlayerInfoBox"
-                BasedOn="{StaticResource CardImageTextBox}">
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="HeightRequest" Value="150" />
-                <Setter Property="WidthRequest" Value="100" />
-                <Setter Property="Spacing" Value="1" />
-            </Style>
-
-            <Style TargetType="StackLayout"
-                x:Key="ScoreCharacterInfoBox"
-                BasedOn="{StaticResource PlayerInfoBox}">
             </Style>
 
             <Style TargetType="StackLayout"
