@@ -187,35 +187,41 @@ namespace Game.Engine
         /// <param name="Target"></param>
         public bool TargetDied(PlayerInfoModel Target)
         {
+            bool found;
+
             // Mark Status in output
             BattleMessagesModel.TurnMessageSpecial = " and causes death. ";
-
-            // Remove target from list...
 
             // Using a switch so in the future additional PlayerTypes can be added (Boss...)
             switch (Target.PlayerType)
             {
                 case PlayerTypeEnum.Character:
-                    CharacterList.Remove(Target);
-
-                    // Add the MonsterModel to the killed list
+                    // Add the Character to the killed list
                     BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
 
+                    BattleScore.CharacterModelDeathList.Add(Target);
+
                     DropItems(Target);
+
+                    found = CharacterList.Remove(CharacterList.Find(m => m.Guid.Equals(Target.Guid)));
+                    found = PlayerList.Remove(PlayerList.Find(m => m.Guid.Equals(Target.Guid)));
 
                     return true;
 
                 case PlayerTypeEnum.Monster:
                 default:
-                    MonsterList.Remove(Target);
-
                     // Add one to the monsters killed count...
                     BattleScore.MonsterSlainNumber++;
 
                     // Add the MonsterModel to the killed list
                     BattleScore.MonstersKilledList += Target.FormatOutput() + "\n";
 
+                    BattleScore.MonsterModelDeathList.Add(Target);
+
                     DropItems(Target);
+
+                    found = MonsterList.Remove(MonsterList.Find(m => m.Guid.Equals(Target.Guid)));
+                    found = PlayerList.Remove(PlayerList.Find(m => m.Guid.Equals(Target.Guid)));
 
                     return true;
             }

@@ -146,6 +146,27 @@
                 <Setter Property="HeightRequest" Value="30" />
             </Style>
 
+            <Style TargetType="Image"
+                x:Key="PlayerBattleSmallStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="40" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="ImageBattleSmallStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="ImageBattleMediumStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="WidthRequest" Value="60" />
+            </Style>
+
             <!-- ImageButton -->
             <Style TargetType="ImageButton">
                 <Setter Property="WidthRequest" Value="150" />
@@ -281,12 +302,6 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
-            <Style TargetType="Image"
-                x:Key="ImageBattleSmallStyle"
-                BasedOn="{StaticResource ImageLargeStyle}">
-                <Setter Property="WidthRequest" Value="50" />
-                <Setter Property="HeightRequest" Value="50" />
-            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
