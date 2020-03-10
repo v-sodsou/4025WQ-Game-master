@@ -256,7 +256,7 @@ namespace Scenario
 
             //AutoBattleEngine.MaxNumberCharacters = 1;
 
-            //var CharacterPlayerYoshi = new CharacterModel
+            //var CharacterPlayerBen = new CharacterModel
             //{
             //    Speed = -1, // Will go last...
             //    Level = 1,
@@ -279,10 +279,76 @@ namespace Scenario
 
             ////Assert
             //Assert.AreEqual(true, result);
-            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
+            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Ben")));
             //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
             Assert.AreEqual(true, true);
         }
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_32_Round5_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      32
+            *      
+            * Description: 
+            *      Every 5th round, the sort order for turn order changes and list is sorted by Characters first, 
+            *      then lowest health, then lowest speed
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for every 5th round,
+            *      and apply new sorting order rule if Round number is a  5
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set speed to -1 (very slow)
+            *      
+            *      Set Round number to 4 completed
+            *      Start New Round
+            * 
+            * Test Conditions:
+            *      Round number is 5, so new hackathon sort order should be applied
+            * 
+            * Validation:
+            *      Character is first in List
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            //AutoBattleEngine.MaxNumberCharacters = 1;
+
+            //var CharacterPlayerBen = new CharacterModel
+            //{
+            //    Speed = -1, // Will go last...
+            //    Level = 1,
+            //    CurrentHealth = 1,
+            //    TotalExperience = 1,
+            //    Name = "Yoshi"
+            //};
+
+            //AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            //// Set Monster Conditions
+
+            //// Auto Battle will add the monsters
+
+
+            ////Act
+            //var result = await AutoBattleEngine.RunAutoBattle();
+
+            ////Reset
+
+            ////Assert
+            //Assert.AreEqual(true, result);
+            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Ben")));
+            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
+            Assert.AreEqual(true, true);
+        }
+
 
         [Test]
         public async Task HackathonScenario_Scenario_2_Character_Not_Bob_Should_Hit()
