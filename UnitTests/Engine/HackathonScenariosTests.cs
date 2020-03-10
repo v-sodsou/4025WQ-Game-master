@@ -222,6 +222,170 @@ namespace Scenario
         }
 
         [Test]
+        public async Task HackathonScenario_Scenario_32_Round1_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      32
+            *      
+            * Description: 
+            *      Every 5th round, the sort order for turn order changes and list is sorted by Characters first, 
+            *      then lowest health, then lowest speed
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: update OrderPlayerListByTurnOrder method to check for every 5th round,
+            *      and apply new sorting order rule if Round number is  5
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set speed to 1 (slow)
+            *      
+            *      Start New Round
+            * 
+            * Test Conditions:
+            *      Round number is 1, so usual sort order should be applied
+            * 
+            * Validation:
+            *      Verify fast Character is first in resulting list from sort
+            *  
+            */
+
+
+
+            // Arrange
+            BattleEngine.StartBattle(true);
+            var Monster = new MonsterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 100,
+                ExperienceTotal = 1000,
+                Name = "Z",
+                ListOrder = 1,
+            };
+
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            var Character = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 2,
+                ExperienceTotal = 1,
+                Name = "C",
+                ListOrder = 10
+            };
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Make the List
+            BattleEngine.PlayerList = BattleEngine.MakePlayerList();
+
+            // Sort the list by Current Health, so it has to be resorted.
+            BattleEngine.PlayerList = BattleEngine.PlayerList.OrderBy(m => m.CurrentHealth).ToList();
+
+            // Act
+            var result = BattleEngine.OrderPlayerListByTurnOrder();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Z", result[0].Name);
+            Assert.AreEqual(1, BattleEngine.BattleScore.RoundCount);
+            Assert.AreEqual(true, true);
+        }
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_32_Round5_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      32
+            *      
+            * Description: 
+            *      Every 5th round, the sort order for turn order changes and list is sorted by Characters first, 
+            *      then lowest health, then lowest speed
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for every 5th round,
+            *      and apply new sorting order rule if Round number is a  5
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set speed to 1 (very slow)
+            *      
+            *      Complete 4 rounds
+            *      Start New Round
+            * 
+            * Test Conditions:
+            *      Round number is 5, so new hackathon sort order should be applied
+            * 
+            * Validation:
+            *      Character is first in List
+            *  
+            */
+
+        
+            // Arrange
+            BattleEngine.StartBattle(true);
+            BattleEngine.NewRound();
+            BattleEngine.NewRound();
+            BattleEngine.NewRound();
+            BattleEngine.NewRound();
+            //BattleEngine.BattleScore.RoundCount = 5;
+
+            var Monster = new MonsterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 100,
+                ExperienceTotal = 1000,
+                Name = "Z",
+                ListOrder = 1,
+            };
+
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            var Character = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 2,
+                ExperienceTotal = 1,
+                Name = "C",
+                ListOrder = 10
+            };
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Make the List
+            BattleEngine.PlayerList = BattleEngine.MakePlayerList();
+
+            // Sort the list by Current Health, so it has to be resorted.
+            BattleEngine.PlayerList = BattleEngine.PlayerList.OrderBy(m => m.CurrentHealth).ToList();
+
+            // Act
+            var result = BattleEngine.OrderPlayerListByTurnOrder();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("C", result[0].Name);
+            Assert.AreEqual(5, BattleEngine.BattleScore.RoundCount);
+            Assert.AreEqual(true, true);
+        }
+
+
+        [Test]
         public async Task HackathonScenario_Scenario_2_Character_Not_Bob_Should_Hit()
         {
             /* 
@@ -298,134 +462,6 @@ namespace Scenario
             //Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
-        }
-
-        [Test]
-        public async Task HackathonScenario_Scenario_32_Round1_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      32
-            *      
-            * Description: 
-            *      Every 5th round, the sort order for turn order changes and list is sorted by Characters first, 
-            *      then lowest health, then lowest speed
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      RoundEngine class: update OrderPlayerListByTurnOrder method to check for every 5th round,
-            *      and apply new sorting order rule if Round number is  5
-            * 
-            * Test Algorithm:
-            *      Create Character
-            *      Set speed to -1 (very slow)
-            *      
-            *      Start New Round
-            * 
-            * Test Conditions:
-            *      Round number is 1, so usual sort order should be applied
-            * 
-            * Validation:
-            *      Verify slow Character is last in EntityList
-            *  
-            */
-
-            //Arrange
-
-            // Set Character Conditions
-
-            //AutoBattleEngine.MaxNumberCharacters = 1;
-
-            //var CharacterPlayerBen = new CharacterModel
-            //{
-            //    Speed = -1, // Will go last...
-            //    Level = 1,
-            //    CurrentHealth = 1,
-            //    TotalExperience = 1,
-            //    Name = "Yoshi"
-            //};
-
-            //AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-
-            //// Set Monster Conditions
-
-            //// Auto Battle will add the monsters
-
-
-            ////Act
-            //var result = await AutoBattleEngine.RunAutoBattle();
-
-            ////Reset
-
-            ////Assert
-            //Assert.AreEqual(true, result);
-            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Ben")));
-            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
-            Assert.AreEqual(true, true);
-        }
-
-
-        [Test]
-        public async Task HackathonScenario_Scenario_32_Round5_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      32
-            *      
-            * Description: 
-            *      Every 5th round, the sort order for turn order changes and list is sorted by Characters first, 
-            *      then lowest health, then lowest speed
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for every 5th round,
-            *      and apply new sorting order rule if Round number is a  5
-            * 
-            * Test Algorithm:
-            *      Create Character
-            *      Set speed to -1 (very slow)
-            *      
-            *      Set Round number to 4 completed
-            *      Start New Round
-            * 
-            * Test Conditions:
-            *      Round number is 5, so new hackathon sort order should be applied
-            * 
-            * Validation:
-            *      Character is first in List
-            *  
-            */
-
-            //Arrange
-
-            // Set Character Conditions
-
-            //AutoBattleEngine.MaxNumberCharacters = 1;
-
-            //var CharacterPlayerBen = new CharacterModel
-            //{
-            //    Speed = -1, // Will go last...
-            //    Level = 1,
-            //    CurrentHealth = 1,
-            //    TotalExperience = 1,
-            //    Name = "Yoshi"
-            //};
-
-            //AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-
-            //// Set Monster Conditions
-
-            //// Auto Battle will add the monsters
-
-
-            ////Act
-            //var result = await AutoBattleEngine.RunAutoBattle();
-
-            ////Reset
-
-            ////Assert
-            //Assert.AreEqual(true, result);
-            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Ben")));
-            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
-            Assert.AreEqual(true, true);
         }
     }
 }
