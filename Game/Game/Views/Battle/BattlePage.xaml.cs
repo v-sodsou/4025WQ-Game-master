@@ -61,11 +61,27 @@ namespace Game.Views
             EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
 
             // Show the New Round Screen
-            ShowModalNewRoundPage();
+            ShowModalNewRoundPage(); 
 
             // Draw the Characters
             foreach (var data in EngineViewModel.Engine.CharacterList)
             {
+                // Hackathon Hack #30: Who will volunteer to be first?
+                // The first character in the list gets their base Attack, Speed and Defense
+                // values doubled.
+                if (data.Name == EngineViewModel.Engine.CharacterList[0].Name)
+                {
+                    // Handle the attack == 0 case; otherwise double it.
+                    data.Attack = (data.Attack == 0) ? data.Attack = 2 : data.Attack *= 2;
+                    
+                    // Handle the speed == 0 case; otherwise double it.
+                    data.Speed = (data.Speed == 0) ? data.Speed = 2 : data.Speed *= 2;
+
+                    // Handle the defense == 0 case; otherwise double it.
+                    data.Defense = (data.Defense == 0) ? data.Defense = 2 : data.Defense *= 2;
+
+                }
+
                 CharacterBox.Children.Add(CreatePlayerDisplayBox(data));
             }
 
