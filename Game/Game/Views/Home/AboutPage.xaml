@@ -96,6 +96,14 @@
 
                 </StackLayout>
             </StackLayout>
+
+            <!-- Hackaton 9 -->
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label FontSize="Small" Text="Hackaton 9" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                <Switch x:Name="EnableHackaton9" HorizontalOptions="EndAndExpand" 
+                                    Toggled="MiracleMax_OnToggled" IsToggled="False"/>
+            </StackLayout>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

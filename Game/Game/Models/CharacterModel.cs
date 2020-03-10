@@ -1,18 +1,31 @@
 ﻿using Game.Helpers;
 using Game.Services;
 using Game.ViewModels;
+using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Game.Models
 {
-   
+
     /// <summary>
     /// Character Model Class
     /// Inherits from BasePlayerModel Class
     /// </summary>
     public class CharacterModel : BasePlayerModel<CharacterModel>
     {
+
+        #region Miracle Max
+
+        public static bool EnableMiracleMaxOnCharacters = false;
+
+        public static void ToogleMiracleMaxOnCharacters()
+        {
+            EnableMiracleMaxOnCharacters = !EnableMiracleMaxOnCharacters;
+        }
+
+        #endregion Miracle Max
 
         /// <summary>
         /// Parameterless constructor for Character Model
@@ -40,7 +53,5 @@ namespace Game.Models
         {
             Update(data);
         }
-
-
     }
 }
