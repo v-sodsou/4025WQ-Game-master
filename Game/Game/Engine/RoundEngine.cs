@@ -372,13 +372,27 @@ namespace Game.Engine
             // Then by Alphabetic on Name (Assending)
             // Then by First in list order (Assending
 
-            PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
-                .ThenByDescending(a => a.Level)
-                .ThenByDescending(a => a.ExperienceTotal)
-                .ThenByDescending(a => a.PlayerType)
-                .ThenBy(a => a.Name)
-                .ThenBy(a => a.ListOrder)
-                .ToList();
+            //For Hackathon change the sort logic
+            //Sort by character first, then lowest health, lowest speed
+            if (BattleScore.RoundCount!=1 && BattleScore.RoundCount % 5 == 0)
+            {
+                PlayerList = PlayerList.OrderBy(a => a.PlayerType)
+                                       .ThenBy(a => a.GetCurrentHealth())
+                                       .ThenBy(a => a.GetSpeed())
+                                       .ToList();
+            }
+            else
+            {
+                PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
+               .ThenByDescending(a => a.Level)
+               .ThenByDescending(a => a.ExperienceTotal)
+               .ThenByDescending(a => a.PlayerType)
+               .ThenBy(a => a.Name)
+               .ThenBy(a => a.ListOrder)
+               .ToList();
+            }
+
+           
 
             return PlayerList;
         }
