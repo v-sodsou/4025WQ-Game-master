@@ -257,6 +257,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AttackButton_Clicked(object sender, EventArgs e)
         {
+            // Hackathon: Hack #18. Did you hear that? 
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("chord.wav");
             player.Play();
