@@ -7,6 +7,9 @@ using Xamarin.Forms.Xaml;
 using Game.Models;
 using Game.ViewModels;
 using System.Threading.Tasks;
+using Plugin.SimpleAudioPlayer;
+using System.IO;
+using System.Reflection;
 
 namespace Game.Views
 {
@@ -172,8 +175,25 @@ namespace Game.Views
                     PlayerHPLabel,
                 },
             };
+            // Mauricio: Testing
+            //var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            //player.Load("star_wars_theme.mp3");
+            //player.Play();
 
+            //ISimpleAudioPlayer player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            //player.Load(GetStreamFromFile("star_wars_theme.mp3"));
+            //player.Play();
+
+            //var alertSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            //alertSound.Load("")
             return PlayerStack;
+        }
+
+        private Stream GetStreamFromFile(string filename)
+        {
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            var stream = assembly.GetManifestResourceStream("YourApp." + filename);
+            return stream;
         }
 
 
@@ -237,6 +257,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AttackButton_Clicked(object sender, EventArgs e)
         {
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("chord.wav");
+            player.Play();
+
             NextAttackExample();
         }
 

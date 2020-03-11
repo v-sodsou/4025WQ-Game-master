@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Game.Engine
 {
@@ -192,6 +193,11 @@ namespace Game.Engine
             // Mark Status in output
             BattleMessagesModel.TurnMessageSpecial = " and causes death. ";
 
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            Thread.Sleep(500);
+            player.Load("shutdown.wav");
+            player.Play();
+
             // Using a switch so in the future additional PlayerTypes can be added (Boss...)
             switch (Target.PlayerType)
             {
@@ -294,12 +300,24 @@ namespace Game.Engine
             // It's a Miss
             if (BattleMessagesModel.HitStatus == HitStatusEnum.Miss)
             {
+                // Hackathon: Hack #18. Did you hear that?
+                var player1 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                Thread.Sleep(500);
+                player1.Load("chimes.wav");
+                player1.Play();
+
                 return true;
             }
 
             // It's a Hit
             if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
             {
+                // Hackathon: Hack #18. Did you hear that?
+                var player2 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                Thread.Sleep(500);
+                player2.Load("notify.wav");
+                player2.Play();
+
                 //Calculate Damage
                 BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
 
