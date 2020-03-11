@@ -48,6 +48,7 @@ namespace Game.Engine
         // Max Number of Monsters
         public int MaxNumberPartyMonsters = 6;
 
+
         #endregion Properties
     }
 }

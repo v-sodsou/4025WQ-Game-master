@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -28,7 +29,26 @@ namespace Game.Views
 
             // Set to the curent date and time
             CurrentDateTime.Text = DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
+
+
+            // Set debug settings
+            EnableHackaton9.IsToggled = CharacterModel.EnableHackathon9;
         }
+
+
+        #region Hackaton 9
+
+        /// <summary>
+        /// Enable Monsters to steal items they dropped.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MiracleMax_OnToggled(object sender, ToggledEventArgs e)
+        {
+            CharacterModel.EnableHackathon9 = e.Value;
+        }
+
+        #endregion Hackaton 9
 
         /// <summary>
         /// Show or hide the Database Frame

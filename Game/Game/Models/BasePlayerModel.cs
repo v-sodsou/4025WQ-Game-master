@@ -4,6 +4,8 @@ using System.Text;
 using SQLite;
 using Game.ViewModels;
 using Game.Helpers;
+using System.Diagnostics;
+using Game.Models;
 
 namespace Game.Models
 {
@@ -487,13 +489,44 @@ namespace Game.Models
 
         // Death
         // Alive turns to False
-        public bool CauseDeath()
+        /*public virtual bool CauseDeath()
         {
             Alive = false;
             return Alive;
+        }*/
+
+        [Ignore]
+        // Revive characters from death using select toggles
+        public int Revived { get; set; } = 1;
+
+        public bool oneTimeBattle = true;
+
+        /// <summary>
+        /// Causes death by setting Alive property to false;
+        /// If Miracle Max Enable, character can be resurrected
+        /// </summary>
+        /// 
+
+        public bool CauseDeath()
+        {
+            Alive = false;
+
+            if (CharacterModel.EnableHackathon9 && oneTimeBattle && (int)this.PlayerType == 1)
+            {
+                oneTimeBattle = false;
+                if (Revived > 0)
+                {
+                    Revived--;
+                    CurrentHealth = MaxHealth;
+                    Alive = true;
+                    return Alive;
+
+                }
+            }
+            return Alive;
         }
 
-        public string FormatOutput() {
+            public string FormatOutput() {
             var result = Name + " , " +
                          "Type: " + PlayerType + ", " +
                          "Alive: " + Alive + ", " +
