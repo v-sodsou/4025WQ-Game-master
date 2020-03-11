@@ -18,11 +18,11 @@ namespace Game.Models
 
         #region Miracle Max
 
-        public static bool EnableMiracleMaxOnCharacters = false;
+        public static bool EnableHackathon9 = false;
 
         public static void ToogleMiracleMaxOnCharacters()
         {
-            EnableMiracleMaxOnCharacters = !EnableMiracleMaxOnCharacters;
+            EnableHackathon9 = !EnableHackathon9;
         }
 
         #endregion Miracle Max

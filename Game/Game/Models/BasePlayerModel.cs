@@ -511,19 +511,14 @@ namespace Game.Models
         {
             Alive = false;
 
-            if (CharacterModel.EnableMiracleMaxOnCharacters && oneTimeBattle && (int)this.PlayerType == 1)
+            if (CharacterModel.EnableHackathon9 && oneTimeBattle && (int)this.PlayerType == 1)
             {
                 oneTimeBattle = false;
                 if (Revived > 0)
                 {
                     Revived--;
-
                     CurrentHealth = MaxHealth;
-
-                    Debug.WriteLine("Reincarnation Happened, thanks Miracle Max");
-
-                    Alive = true; // Death did not happen
-
+                    Alive = true;
                     return Alive;
 
                 }

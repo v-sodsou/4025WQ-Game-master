@@ -250,8 +250,6 @@ namespace Scenario
             *  
             */
 
-
-
             // Arrange
             BattleEngine.StartBattle(true);
             var Monster = new MonsterModel
@@ -464,113 +462,163 @@ namespace Scenario
             Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
         }
 
-        /*********************************************************************************/
+
         [Test]
-        public async Task HackathonScenario_30_FirstCharacter_PlayerList_2x_Attack_Speed_Defense()
+        public async Task HackathonScenario_Scenario_9_Character_Revived_Once_Should_Pass()
         {
             /* 
              * Scenario Number:  
-             *  30
-             *  
+             *      9
+             *      
              * Description: 
-             *      The first character in the player list should be rewarded for its courage
-             *      Therefore, its Attack, Speed and Defense will be doubled.
-             *      Other Characters will not be affected
+             *      Make one Character super weak and make it fight against a super strong monster and see if the character revived.
              * 
              * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-             *      Class: BattleEngine
-             *      Changed: PopulateCharacterList Method
-             *      Check for first character in player list - doubles Attack, Speed and Defense.
+             *      Instance of Monster and Character; 
+             *      BattleEngine.TurnAsAttack;
+             *      isAlive;
              *                 
              * Test Algrorithm:
-             *  Create 1 character
-             *  Populate the PopulateCharacterList
+             *      Create two Character
+             *      Create Monster
+             *      Call TurnAsAttack so one Character will die and Revived
              * 
              * Test Conditions:
-             *  Test with first Character in players list
-             * 
-             * Validation:
-             *      Verify the first character in players list has its Attack, Speed and Defense doubled.
+             *      Check if the weak character is alive after receive a hit that cause his death.
              *  
+             *  Validation
+             *      Verify Alive = true;
+             *      
              */
 
             //Arrange
 
             // Set Character Conditions
+
+            var toggle = CharacterModel.EnableHackathon9;
+            CharacterModel.EnableHackathon9 = true;
 
             BattleEngine.MaxNumberPartyCharacters = 1;
 
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 1,
+                                Level = 1,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Character",
+                            });
 
-            var CharacterPlayer = new CharacterModel();
+            BattleEngine.CharacterList.Add(CharacterPlayer);
 
-            CharacterPlayer.Attack = 5;
-            CharacterPlayer.Defense = 5;
-            CharacterPlayer.Speed = 5;
+            // Set Monster Conditions
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
 
-            BattleEngine.PopulateCharacterList(CharacterPlayer);
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 10,
+                    Level = 10,
+                    CurrentHealth = 10,
+                    ExperienceTotal = 10,
+                    ExperienceRemaining = 10,
+                    Name = "Monster",
+                });
 
-            Assert.AreEqual(10, CharacterPlayer.Attack);
-            Assert.AreEqual(10, CharacterPlayer.Defense);
-            Assert.AreEqual(10, CharacterPlayer.Speed);
+            BattleEngine.CharacterList.Add(MonsterPlayer);
 
+            // Have dice roll 20
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(20);
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(MonsterPlayer, CharacterPlayer);
+            var isAlive = CharacterPlayer.Alive;
+
+            //Assert
+            Assert.AreEqual(true, isAlive);
         }
 
         [Test]
-        public async Task HackathonScenario_30_SecondCharacter_PlayerList_Not2x_Attack_Speed_Defense()
+        public async Task HackathonScenario_Scenario_9_Character_Revived_Toggle_not_triggered_Should_Not_Pass()
         {
             /* 
              * Scenario Number:  
-             *  30
-             *  
+             *      9
+             *      
              * Description: 
-             *      The first character in the player list should be rewarded for its courage
-             *      Therefore, its Attack, Speed and Defense will be doubled.
-             *      However, the second character or subsequent Characters should not be affected
+             *      Make one Character super weak and make it fight against a super strong monster and see if the character revived.
              * 
              * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-             *      Class: BattleEngine
-             *      Changed: PopulateCharacterList Method
-             *      Check for NOT first character in player list - does NOT double Attack, Speed or Defense.
+             *      Instance of Monster and Character; 
+             *      BattleEngine.TurnAsAttack;
+             *      isAlive;
              *                 
              * Test Algrorithm:
-             *  Create 2 characters
-             *  Populate the PopulateCharacterList
+             *      Create two Character
+             *      Create Monster
+             *      Call TurnAsAttack so one Character will die and Revived
              * 
              * Test Conditions:
-             *  Test with first Character in players list
-             *  Test with second character in players list
-             * 
-             * Validation:
-             *      Verify second character in players list does NOT double Attack, Speed or Defense.
+             *      Check if the weak character is alive after receive a hit that cause his death.
              *  
+             *  Validation
+             *      Verify Alive = true;
+             *      
              */
 
             //Arrange
 
             // Set Character Conditions
 
-            var CharacterPlayer1 = new CharacterModel();
+            var toggle = CharacterModel.EnableHackathon9;
+            CharacterModel.EnableHackathon9 = false;
 
-            CharacterPlayer1.Attack = 5;
-            CharacterPlayer1.Defense = 5;
-            CharacterPlayer1.Speed = 5;
+            BattleEngine.MaxNumberPartyCharacters = 1;
 
-            BattleEngine.PopulateCharacterList(CharacterPlayer1);
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 1,
+                                Level = 1,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Character",
+                            });
 
-            var CharacterPlayer2 = new CharacterModel();
+            BattleEngine.CharacterList.Add(CharacterPlayer);
 
-            var originalAttack = CharacterPlayer2.Attack;
-            var originalDefense = CharacterPlayer2.Defense;
-            var originalSpeed = CharacterPlayer2.Speed;
+            // Set Monster Conditions
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
 
-            BattleEngine.PopulateCharacterList(CharacterPlayer2);
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 10,
+                    Level = 10,
+                    CurrentHealth = 10,
+                    ExperienceTotal = 10,
+                    ExperienceRemaining = 10,
+                    Name = "Monster",
+                });
 
-            // Verify Second player added to the list did not increase its
-            // Attack, Defense or Speed.
-            Assert.AreEqual(originalAttack, CharacterPlayer2.Attack);
-            Assert.AreEqual(originalDefense, CharacterPlayer2.Defense);
-            Assert.AreEqual(originalSpeed, CharacterPlayer2.Speed);
+            BattleEngine.CharacterList.Add(MonsterPlayer);
 
+            // Have dice roll 20
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(20);
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(MonsterPlayer, CharacterPlayer);
+            var isAlive = CharacterPlayer.Alive;
+
+            //Assert
+            Assert.AreEqual(false, isAlive);
         }
     }
 }

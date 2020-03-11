@@ -32,7 +32,7 @@ namespace Game.Views
 
 
             // Set debug settings
-            EnableHackaton9.IsToggled = CharacterModel.EnableMiracleMaxOnCharacters;
+            EnableHackaton9.IsToggled = CharacterModel.EnableHackathon9;
         }
 
 
@@ -45,7 +45,7 @@ namespace Game.Views
         /// <param name="e"></param>
         private void MiracleMax_OnToggled(object sender, ToggledEventArgs e)
         {
-            CharacterModel.EnableMiracleMaxOnCharacters = e.Value;
+            CharacterModel.EnableHackathon9 = e.Value;
         }
 
         #endregion Hackaton 9
