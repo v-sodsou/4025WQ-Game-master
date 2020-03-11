@@ -715,5 +715,171 @@ namespace Scenario
             Assert.AreEqual(false, isAlive2);
         }
 
+
+        [Test]
+        public async Task HackathonScenario_Scenario_33_Round13_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      33
+            *      
+            * Description: 
+            *      For round 13, bad things happen to all the characters i.e their health gets bad just like that (decreases by 1)
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: update NewRound method to check 13th round and call unlucky round method
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set CurrentHealth to 3 
+            *      
+            *     
+            *      Start 13th Round
+            * 
+            * Test Conditions:
+            *      Round number is 13, so all characters current health should be altered (decrease by 1)
+            * 
+            * Validation:
+            *      Verify if Current health of all the characters health has been altered(decreased by 1) in the 13th round. 
+            *  
+            */
+
+
+            // Arrange
+            BattleEngine.StartBattle(true);
+
+
+            var Monster = new MonsterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 100,
+                ExperienceTotal = 1000,
+                Name = "Z",
+                ListOrder = 1,
+            };
+
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            var Character1 = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 3,
+                ExperienceTotal = 1,
+                Name = "C",
+                ListOrder = 10
+            };
+
+            var Character2 = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 4,
+                ExperienceTotal = 1,
+                Name = "D",
+                ListOrder = 10
+            };
+
+            var CharacterPlayer1 = new PlayerInfoModel(Character1);
+            var CharacterPlayer2 = new PlayerInfoModel(Character2);
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayer1);
+            BattleEngine.CharacterList.Add(CharacterPlayer2);
+
+            // Act
+            for (int i = 1; i < 13; i++)
+            {
+                BattleEngine.NewRound();
+            }
+
+            //Check the character health in Round 13
+            var characterC = BattleEngine.CharacterList.Find(m => m.Name == "C");
+            var characterD = BattleEngine.CharacterList.Find(m => m.Name == "D");
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, characterC.CurrentHealth);
+            Assert.AreEqual(3, characterD.CurrentHealth);
+            Assert.AreEqual(13, BattleEngine.BattleScore.RoundCount);
+        }
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_33_Round2_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      33
+            *      
+            * Description: 
+            *      For round 13, bad things happen to characters, their health gets lower (decreases by 1)
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: update NewRound method to check 13th round and call unlucky round method
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set CurrentHealth to 3 
+            *      
+            *     
+            *      Start Round 2 (Since it is not round 13 current health of the characters should not get altered)
+            * 
+            * Test Conditions:
+            *      Round number is 2, so character current health should not be altered
+            * 
+            * Validation:
+            *      Verify if Current health has altered. Since this Round 2 current health should not be altered.
+            *  
+            */
+
+
+            // Arrange
+            BattleEngine.StartBattle(true);
+
+
+            var Monster = new MonsterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 100,
+                ExperienceTotal = 1000,
+                Name = "Z",
+                ListOrder = 1,
+            };
+
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            var Character = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 3,
+                ExperienceTotal = 1,
+                Name = "C",
+                ListOrder = 10
+            };
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+
+
+            // Act
+            BattleEngine.NewRound();
+            var characterToCheck = BattleEngine.CharacterList.Find(m => m.Name == "C");
+            // Reset
+
+            // Assert
+            Assert.AreEqual(3, characterToCheck.CurrentHealth);
+            Assert.AreEqual(2, BattleEngine.BattleScore.RoundCount);
+        }
+
+
     }
 }
