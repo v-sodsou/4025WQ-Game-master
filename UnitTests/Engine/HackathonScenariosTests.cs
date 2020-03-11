@@ -540,5 +540,87 @@ namespace Scenario
             //Assert
             Assert.AreEqual(true, isAlive);
         }
+
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_9_Character_Revived_Toggle_Not_Triggered_Should_Pass()
+        {
+            /* 
+             * Scenario Number:  
+             *      9
+             *      
+             * Description: 
+             *      Make one Character super weak and make it fight against a super strong monster and see if the character revived.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Instance of Monster and Character; 
+             *      BattleEngine.TurnAsAttack;
+             *      isAlive;
+             *                 
+             * Test Algrorithm:
+             *      Create two Character
+             *      Create Monster
+             *      Call TurnAsAttack so one Character will die and Revived
+             * 
+             * Test Conditions:
+             *      Check if the weak character is alive after receive a hit that cause his death.
+             *  
+             *  Validation
+             *      Verify Alive = true;
+             *      
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            var toggle = CharacterModel.EnableHackathon9;
+            CharacterModel.EnableHackathon9 = false;
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 1,
+                                Level = 1,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Character",
+                            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 10,
+                    Level = 10,
+                    CurrentHealth = 10,
+                    ExperienceTotal = 10,
+                    ExperienceRemaining = 10,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Have dice roll 20
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(20);
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(MonsterPlayer, CharacterPlayer);
+            var isAlive = CharacterPlayer.Alive;
+
+            //Assert
+            Assert.AreEqual(false, isAlive);
+        }
+
     }
 }
