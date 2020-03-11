@@ -67,6 +67,19 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// Hackathon Scenario 33 - unlucky things happen in round 13
+        /// Character health is decreased by 1 (health is decreased)
+        /// </summary>
+        public void UnluckyRound()
+        {
+           
+            foreach (var character in CharacterList)
+            {
+                character.CurrentHealth--;
+            }
+        }
+
+        /// <summary>
         /// Get the Information about the Player
         /// </summary>
         /// <returns></returns>
@@ -210,8 +223,12 @@ namespace Game.Engine
             // Set Order for the Round
             OrderPlayerListByTurnOrder();
 
+           
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
+
+            if (BattleScore.RoundCount == 13)
+                UnluckyRound();
 
             return true;
         }
