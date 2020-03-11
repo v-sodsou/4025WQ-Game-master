@@ -67,7 +67,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Hackathon Scenario 33 - unlucky things happen in round 13
+        /// Hackathon Scenario 33 - unlucky things happen to all characters in round 13
         /// Character health is decreased by 1 (health is decreased)
         /// </summary>
         public void UnluckyRound()
