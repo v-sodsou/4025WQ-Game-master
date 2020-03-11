@@ -880,6 +880,114 @@ namespace Scenario
             Assert.AreEqual(2, BattleEngine.BattleScore.RoundCount);
         }
 
+        /*********************************************************************************/
+        [Test]
+        public async Task HackathonScenario_30_FirstCharacter_PlayerList_2x_Attack_Speed_Defense()
+        {
+            /* 
+             * Scenario Number:  
+             *  30
+             *  
+             * Description: 
+             *      The first character in the player list should be rewarded for its courage
+             *      Therefore, its Attack, Speed and Defense will be doubled.
+             *      Other Characters will not be affected
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Class: BattleEngine
+             *      Changed: PopulateCharacterList Method
+             *      Check for first character in player list - doubles Attack, Speed and Defense.
+             *                 
+             * Test Algrorithm:
+             *  Create 1 character
+             *  Populate the PopulateCharacterList
+             * 
+             * Test Conditions:
+             *  Test with first Character in players list
+             * 
+             * Validation:
+             *      Verify the first character in players list has its Attack, Speed and Defense doubled.
+             *  
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+
+            var CharacterPlayer = new CharacterModel();
+
+            CharacterPlayer.Attack = 5;
+            CharacterPlayer.Defense = 5;
+            CharacterPlayer.Speed = 5;
+
+            BattleEngine.PopulateCharacterList(CharacterPlayer);
+
+            Assert.AreEqual(10, CharacterPlayer.Attack);
+            Assert.AreEqual(10, CharacterPlayer.Defense);
+            Assert.AreEqual(10, CharacterPlayer.Speed);
+
+        }
+
+        [Test]
+        public async Task HackathonScenario_30_SecondCharacter_PlayerList_Not2x_Attack_Speed_Defense()
+        {
+            /* 
+             * Scenario Number:  
+             *  30
+             *  
+             * Description: 
+             *      The first character in the player list should be rewarded for its courage
+             *      Therefore, its Attack, Speed and Defense will be doubled.
+             *      However, the second character or subsequent Characters should not be affected
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Class: BattleEngine
+             *      Changed: PopulateCharacterList Method
+             *      Check for NOT first character in player list - does NOT double Attack, Speed or Defense.
+             *                 
+             * Test Algrorithm:
+             *  Create 2 characters
+             *  Populate the PopulateCharacterList
+             * 
+             * Test Conditions:
+             *  Test with first Character in players list
+             *  Test with second character in players list
+             * 
+             * Validation:
+             *      Verify second character in players list does NOT double Attack, Speed or Defense.
+             *  
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            var CharacterPlayer1 = new CharacterModel();
+
+            CharacterPlayer1.Attack = 5;
+            CharacterPlayer1.Defense = 5;
+            CharacterPlayer1.Speed = 5;
+
+            BattleEngine.PopulateCharacterList(CharacterPlayer1);
+
+            var CharacterPlayer2 = new CharacterModel();
+
+            var originalAttack = CharacterPlayer2.Attack;
+            var originalDefense = CharacterPlayer2.Defense;
+            var originalSpeed = CharacterPlayer2.Speed;
+
+            BattleEngine.PopulateCharacterList(CharacterPlayer2);
+
+            // Verify Second player added to the list did not increase its
+            // Attack, Defense or Speed.
+            Assert.AreEqual(originalAttack, CharacterPlayer2.Attack);
+            Assert.AreEqual(originalDefense, CharacterPlayer2.Defense);
+            Assert.AreEqual(originalSpeed, CharacterPlayer2.Speed);
+
+        }
 
     }
 }
