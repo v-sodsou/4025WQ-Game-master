@@ -1,19 +1,21 @@
-﻿using Game.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+
+using Game.Models;
+using Game.ViewModels;
 
 namespace Game.Engine
 {
     /// <summary>
-    /// AutoBattleEngine class
+    /// AutoBattle Engine
+    /// 
+    /// Runs the engine simulation with no user interaction
+    /// 
     /// </summary>
     public class AutoBattleEngine : BattleEngine
     {
-
         #region Algrorithm
         // Prepare for Battle
         // Pick 6 Characters
@@ -44,7 +46,9 @@ namespace Game.Engine
         /// Run Auto Battle
         /// </summary>
         /// <returns></returns>
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task<bool> RunAutoBattle()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             RoundEnum RoundCondition;
 
@@ -54,12 +58,7 @@ namespace Game.Engine
 
             // Prepare for Battle
 
-            // Picks 6 Characters
-            var data = new CharacterModel();
-            for (int i = CharacterList.Count(); i < MaxNumberPartyCharacters; i++)
-            {
-                PopulateCharacterList(data);
-            }
+            CreateCharacterParty();
 
             // Start Battle in AutoBattle mode
             StartBattle(true);
@@ -67,6 +66,14 @@ namespace Game.Engine
             // Fight Loop. Continue until Game is Over...
             do
             {
+                // Check for excessive duration.
+                if (DetectInfinateLoop())
+                {
+                    Debug.WriteLine("Aborting, More than Max Rounds");
+                    EndBattle();
+                    return false;
+                }
+
                 Debug.WriteLine("Next Turn");
 
                 // Do the turn...
@@ -89,5 +96,55 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Check if the Engine is not ending
+        /// 
+        /// Too many Rounds
+        /// Too many Turns in a round
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool DetectInfinateLoop()
+        {
+            if (BattleScore.RoundCount > 10000)
+            {
+                return true;
+            }
+
+            if (BattleScore.TurnCount > 10000)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Create Characters for Party
+        /// </summary>
+        public bool CreateCharacterParty()
+        {
+            // Picks 6 Characters
+
+            // To use your own characters, populate the List before calling RunAutoBattle
+
+            // Will first pull from existing characters
+            foreach (var data in CharacterIndexViewModel.Instance.Dataset)
+            {
+                if (CharacterList.Count() >= MaxNumberPartyCharacters)
+                {
+                    break;
+                }
+                PopulateCharacterList(data);
+            }
+
+            //If there are not enough will add random ones
+            for (int i = CharacterList.Count(); i < MaxNumberPartyCharacters; i++)
+            {
+                PopulateCharacterList(Helpers.RandomPlayerHelper.GetRandomCharacter(1));
+            }
+
+            return true;
+        }
     }
 }
