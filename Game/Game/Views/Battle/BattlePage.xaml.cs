@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Game.Engine;
 using Game.Models;
 using Game.ViewModels;
 using System.Threading.Tasks;
@@ -40,6 +41,8 @@ namespace Game.Views
 
         // Wait time before proceeding
         public int WaitTime = 1500;
+
+        //public int BattleEngine be;
 
         #endregion PageHandelerVariables
 
@@ -265,7 +268,33 @@ namespace Game.Views
             NextAttackExample();
         }
 
-        
+
+        public void NewAttackerButton_Clicked(object sender, EventArgs e)
+        {
+            SelectNewAttacker();
+        }
+
+        private void SelectNewAttacker()
+        {
+            // Get the turn, set the current player and attacker to match
+            EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn();
+
+            if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                // User would select who to attack
+
+                // for now just auto selecting
+                EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+                DrawGameBoardAttackerDefender();
+                return;
+            }
+
+            // Monsters turn, so auto pick a Character to Attack
+            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+            DrawGameBoardAttackerDefender();
+        }
+
+
         /// <summary>
         /// Next Attack Example
         /// 

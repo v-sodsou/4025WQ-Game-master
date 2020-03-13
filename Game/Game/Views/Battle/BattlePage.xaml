@@ -93,11 +93,11 @@
                            HorizontalOptions="FillAndExpand"
                            Grid.Row="2"/>
                     </Grid>
-                    
+
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
-
-                        <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" />
-
+                        <Button x:Name="NewAttacker" Clicked="NewAttackerButton_Clicked" Text="New Attacker"/>
+                        <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Attack"
+                                WidthRequest="200"/>
                     </StackLayout>
 
                    
