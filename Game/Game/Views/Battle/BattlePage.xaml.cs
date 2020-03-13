@@ -192,6 +192,12 @@ namespace Game.Views
             return PlayerStack;
         }
 
+        
+        /// <summary>
+        /// In the future will try to make this work
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         private Stream GetStreamFromFile(string filename)
         {
             var assembly = typeof(App).GetTypeInfo().Assembly;
@@ -269,11 +275,19 @@ namespace Game.Views
         }
 
 
+        /// <summary>
+        /// New button to change attacker if desired
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void NewAttackerButton_Clicked(object sender, EventArgs e)
         {
             SelectNewAttacker();
         }
 
+        /// <summary>
+        /// Private method to select a new attacker
+        /// </summary>
         private void SelectNewAttacker()
         {
             // Get the turn, set the current player and attacker to match
