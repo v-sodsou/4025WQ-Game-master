@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Game.Models
@@ -44,6 +45,49 @@ namespace Game.Models
                     MapGridLocation[x, y] = new MapModelLocation { Row = y, Column = x, Player = EmptySquare };
                 }
             }
+            return true;
+        }
+
+        /// <summary>
+        /// Initialize the Data Structure
+        /// Add Characters and Monsters to the Map
+        /// </summary>
+        /// <param name="PlayerList"></param>
+        /// <returns></returns>
+        public bool PopulateMapModel(List<PlayerInfoModel> PlayerList)
+        {
+            ClearMapGrid();
+
+            int x = 0;
+            int y = 0;
+            foreach (var data in PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Character))
+            {
+                MapGridLocation[x, y].Player = data;
+
+                // If too many to fit on a row, start at the next row
+                x++;
+                if (x >= MapXAxiesCount)
+                {
+                    x = 0;
+                    y++;
+                }
+            }
+
+            x = 0;
+            y = MapYAxiesCount - 1;
+            foreach (var data in PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Monster))
+            {
+                MapGridLocation[x, y].Player = data;
+
+                // If too many to fit on a row, start at the next row
+                x++;
+                if (x >= MapXAxiesCount)
+                {
+                    x = 0;
+                    y--;
+                }
+            }
+
             return true;
         }
 
