@@ -72,7 +72,7 @@
             </StackLayout>
 
             <!--Debug Settings Frame-->
-            <StackLayout Style="{StaticResource HorizontalStack}">
+            <!--<StackLayout Style="{StaticResource HorizontalStack}">
 
                 <Label
                     Text="Debug Settings"
@@ -94,6 +94,65 @@
 
                     <Label Text="More Debug Settings to come..." />
 
+                </StackLayout>
+            </StackLayout>-->
+
+            <!--Debug Settings Frame-->
+            <StackLayout Style="{StaticResource HorizontalStack}">
+
+                <Label
+                    Text="Debug Settings"
+                    Style="{DynamicResource LabelStyle}"
+                    />
+
+                <Switch
+                    x:Name="DebugSettingsSwitch"
+                    HorizontalOptions="EndAndExpand"
+                    Toggled="DebugSettingsSwitch_OnToggled"
+                    IsToggled="False"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource VerticalStack}" x:Name="DebugSettingsFrame" IsVisible="False">
+
+                <StackLayout Style="{StaticResource VerticalStack}" Padding="5,0,0,0">
+
+                    <Label Text="More Debug Settings to come..." Style="{DynamicResource MessageStyle}"/>
+
+                    <StackLayout Style="{StaticResource VerticalStack}">
+
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+                            <Label
+                                Text="Number of Items "
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                Style="{DynamicResource LabelStyle}"
+                                />
+
+                            <Entry
+                                x:Name="ServerItemValue"
+                                Text="1" 
+                                FontSize="Micro"
+                                MaxLength="5"
+                                CursorPosition="0"
+                                SelectionLength = "5"
+                                Keyboard="Numeric"
+                                WidthRequest="50"
+                                HorizontalOptions="FillAndExpand"
+                                Style="{DynamicResource EntryStyle}"
+                                />
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Button
+                                Text="Get"
+                                Clicked="GetItemsGet_Command"/>
+
+                            <Button
+                                Text="Post"
+                                Clicked="GetItemsPost_Command"/>
+                        </StackLayout>
+
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
 
