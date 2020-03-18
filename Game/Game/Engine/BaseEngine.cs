@@ -48,6 +48,9 @@ namespace Game.Engine
         // Max Number of Monsters
         public int MaxNumberPartyMonsters = 6;
 
+        // Hold the MapModel
+        public MapModel MapModel = new MapModel();
+
 
         #endregion Properties
     }
