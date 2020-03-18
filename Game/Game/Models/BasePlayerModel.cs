@@ -71,6 +71,10 @@ namespace Game.Models
         // The Experience available to given up
         public int ExperienceRemaining { get; set; }
 
+        // The natural range for this Player, 1 is normal
+        public int Range { get; set; } = 1;
+
+
         #endregion PlayerAttributes
 
         #endregion Attributes
@@ -318,6 +322,20 @@ namespace Game.Models
            
         }
 
+        /// <summary>
+        /// Return the Range for the Attack Distance
+        /// </summary>
+        /// <returns></returns>
+        public int GetRange()
+        {
+            // Base Attack
+            var myReturn = Range;
+
+            // Get Attack bonus from Items
+            myReturn += GetItemRange();
+
+            return myReturn;
+        }
 
         // Add experience
         public bool AddExperience(int newExperience)
@@ -787,6 +805,30 @@ namespace Game.Models
             }
 
             return myReturn;
+        }
+
+        /// <summary>
+        /// Get the Range value for the equipped primary weapon
+        /// 
+        /// If it has a positive value, return that
+        /// 
+        /// Else return 0
+        /// </summary>
+        /// <returns></returns>
+        public int GetItemRange()
+        {
+            var weapon = GetItemByLocation(ItemLocationEnum.PrimaryHand);
+            if (weapon == null)
+            {
+                return 0;
+            }
+
+            if (weapon.Range < 0)
+            {
+                return 0;
+            }
+
+            return weapon.Range;
         }
 
         #endregion Items
