@@ -262,7 +262,7 @@ namespace Game.Engine
 
             for (var i = 0; i < MaxNumberPartyMonsters; i++)
             {
-                var data = Helpers.RandomPlayerHelper.GetRandomMonster(TargetLevel);
+                var data = Helpers.RandomPlayerHelper.GetRandomMonster(TargetLevel, BattleSettingsModel.AllowMonsterItems);
 
                 // Help identify which Monster it is
                 data.Name += " " + MonsterList.Count() + 1;

@@ -2,6 +2,7 @@
 using Game.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Game.Helpers
@@ -39,14 +40,36 @@ namespace Game.Helpers
         /// Get Random Image
         /// </summary>
         /// <returns></returns>
-        public static string GetMonsterImage()
+        public static string GetMonsterImage(string name)
         {
 
-            List<String> FirstNameList = new List<String> { "DarthVader.png", "palpatine.png", "darthmaul.png", "count_dooku.png", "Asajjventress.png", "kyloren.png" };
+            string image = string.Empty;
+            switch (name)
+            {
+                case "Darth Vader":
+                    image = "DarthVader.png";
+                    break;
+                case "Palpatine":
+                    image = "palpatine.png";
+                    break;
+                case "Darth Maul":
+                    image = "darthmaul.png";
+                    break;
+                case "Count Dooku":
+                    image = "count_dooku.png";
+                    break;
+                case "Asajj Ventress":
+                    image = "Asajjventress.png";
+                    break;
+                case "Kylo Ren":
+                    image = "kyloren.png";
+                    break;
+                default:
+                    image = "grievous.png";
+                    break;
+            }
 
-            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
-
-            return result;
+            return image;
         }
 
       
@@ -73,16 +96,36 @@ namespace Game.Helpers
         /// Return a random description
         /// </summary>
         /// <returns></returns>
-        public static string GetMonsterDescription()
+        public static string GetMonsterDescription(string name)
         {
-            List<String> StringList = new List<String> { "A Sith Lord", "Dark architect of the Galactic Empire", "A dangerous combatant", "Possesses a brilliance and charisma", "Slave, Nightsister, Jedi apprentice", "The leader of the mysterious Knights of Ren" };
-
-            var result = StringList.ElementAt(DiceHelper.RollDice(1, StringList.Count()) - 1);
-
-            return result;
+            string description = string.Empty;
+            switch (name)
+            {
+                case "Darth Vader":
+                    description = "A Sith Lord";
+                    break;
+                case "Palpatine":
+                    description = "Dark architect of the Galactic Empire";
+                    break;
+                case "Darth Maul":
+                    description = "A dangerous combatant";
+                    break;
+                case "Count Dooku":
+                    description = "Possesses a brilliance and charisma";
+                    break;
+                case "Asajj Ventress":
+                    description = "Slave, Nightsister, Jedi apprentice";
+                    break;
+                case "Kylo Ren":
+                    description = "The leader of the mysterious Knights of Ren";
+                    break;
+                default:
+                    description = "Dangerous Sith Lord";
+                    break;
+            }
+            
+            return description;
         }
-
-        
         
 
         /// <summary>
@@ -128,7 +171,7 @@ namespace Game.Helpers
         /// </summary>
         /// <param name="MaxLevel"></param>
         /// <returns></returns>
-        public static MonsterModel GetRandomMonster(int MaxLevel)
+        public static MonsterModel GetRandomMonster(int MaxLevel, bool Items = false)
         {
             // If there are no Monsters in the system, return a default one
             if (MonsterIndexViewModel.Instance.Dataset.Count == 0)
@@ -136,23 +179,25 @@ namespace Game.Helpers
                 return new MonsterModel();
             }
 
+            // Randomize Name
+            string name = GetMonsterName();
+            string description = GetMonsterDescription(name);
+            string image = GetMonsterImage(name);
+
             var rnd = DiceHelper.RollDice(1, MonsterIndexViewModel.Instance.Dataset.Count);
 
             var result = new MonsterModel(MonsterIndexViewModel.Instance.Dataset.ElementAt(rnd - 1))
             {
                 Level = DiceHelper.RollDice(1, MaxLevel),
 
-                // Randomize Name
-                Name = GetMonsterName(),
-                Description = GetMonsterDescription(),
+                Name = name,
+                Description = description,
+                ImageURI = image,
 
                 // Randomize the Attributes
                 Attack = GetAbilityValue(),
                 Speed = GetAbilityValue(),
                 Defense = GetAbilityValue(),
-
-                ImageURI = GetMonsterImage(),
-
                 Difficulty = GetMonsterDifficultyValue()
             };
 
@@ -180,6 +225,18 @@ namespace Game.Helpers
 
             // Enter Battle at full health
             result.CurrentHealth = result.MaxHealth;
+
+            // Monsters can have weapons too....
+            if (Items)
+            {
+                result.Head = GetItem(ItemLocationEnum.Head);
+                result.Necklass = GetItem(ItemLocationEnum.Necklass);
+                result.PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand);
+                result.OffHand = GetItem(ItemLocationEnum.OffHand);
+                result.RightFinger = GetItem(ItemLocationEnum.Finger);
+                result.LeftFinger = GetItem(ItemLocationEnum.Finger);
+                result.Feet = GetItem(ItemLocationEnum.Feet);
+            }
 
             return result;
         }
