@@ -132,6 +132,16 @@ namespace Game.Models
 
         }
 
+        /// Calculate the Final Score
+        /// </summary>
+        /// <returns></returns>
+        public int CalculateScore()
+        {
+            int result = ExperienceGainedTotal;
+
+            return result;
+        }
+
         #region ScoreItems
 
         //public bool AddToList(CharacterModel data)
