@@ -150,8 +150,8 @@ namespace Game.Services
                     Attack = 3,
                     Defense = 5,
                     Speed = 4,
-                    CurrentHealth = 8,
-                    MaxHealth = 9
+                    CurrentHealth = 25,
+                    MaxHealth = 25
         },
 
                 new CharacterModel {
@@ -162,8 +162,8 @@ namespace Game.Services
                     Attack = 6,
                     Defense = 6,
                     Speed = 8,
-                    CurrentHealth = 7,
-                    MaxHealth = 9
+                    CurrentHealth = 20,
+                    MaxHealth = 20
                 },
 
                 new CharacterModel {
@@ -174,7 +174,7 @@ namespace Game.Services
                     Attack = 3,
                     Defense = 3,
                     Speed = 4,
-                    CurrentHealth = 6,
+                    CurrentHealth = 7,
                     MaxHealth = 7
                 },
 
@@ -186,8 +186,8 @@ namespace Game.Services
                     Attack = 3,
                     Defense = 5,
                     Speed = 4,
-                    CurrentHealth = 7,
-                    MaxHealth = 9
+                    CurrentHealth = 10,
+                    MaxHealth = 10
                 },
 
                 new CharacterModel {
@@ -198,8 +198,8 @@ namespace Game.Services
                     Attack = 8,
                     Defense = 8,
                     Speed = 2,
-                    CurrentHealth = 8,
-                    MaxHealth = 9
+                    CurrentHealth = 15,
+                    MaxHealth = 15
                 },
 
                 new CharacterModel {
@@ -210,8 +210,8 @@ namespace Game.Services
                     Attack = 8,
                     Defense = 5,
                     Speed = 4,
-                    CurrentHealth = 8,
-                    MaxHealth = 9
+                    CurrentHealth = 31,
+                    MaxHealth = 31
                 }
             };
 
