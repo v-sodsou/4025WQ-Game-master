@@ -223,7 +223,9 @@ namespace Game.Engine
             // Set Order for the Round
             OrderPlayerListByTurnOrder();
 
-           
+            // Populate MapModel with Characters and Monsters
+            MapModel.PopulateMapModel(PlayerList);
+
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
 
