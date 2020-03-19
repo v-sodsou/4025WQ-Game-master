@@ -60,6 +60,9 @@ namespace Game.Engine
         // When the current action is an ability, what ability was selected
         public AbilityEnum CurrentActionAbility;
 
+        // Hold the Battle Settings
+        public BattleSettingsModel BattleSettingsModel = new BattleSettingsModel();
+
 
         #endregion Properties
     }
