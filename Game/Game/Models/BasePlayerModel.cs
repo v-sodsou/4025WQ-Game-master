@@ -90,6 +90,9 @@ namespace Game.Models
         [Ignore]
         public int BuffSpeedValue { get; set; } = 0;
 
+        // The Job for the Player
+        public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
+
 
         #endregion PlayerAttributes
 
