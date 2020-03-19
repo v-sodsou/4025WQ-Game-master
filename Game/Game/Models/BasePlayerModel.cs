@@ -575,7 +575,40 @@ namespace Game.Models
             return result.Trim(); 
         }
 
-        public int CalculateExperienceEarned(int damage) { return 0; }
+        /// <summary>
+        /// Calculate The amount of Experience to give
+        /// Reduce the remaining by what was given
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns></returns>
+        public int CalculateExperienceEarned(int damage)
+        {
+            if (damage < 1)
+            {
+                return 0;
+            }
+
+            int remainingHealth = Math.Max(CurrentHealth - damage, 0); // Go to 0 is OK...
+            double rawPercent = (double)remainingHealth / (double)CurrentHealth;
+            double deltaPercent = 1 - rawPercent;
+            var pointsAllocate = (int)Math.Floor(ExperienceRemaining * deltaPercent);
+
+            // Catch rounding of low values, and force to 1.
+            if (pointsAllocate < 1)
+            {
+                pointsAllocate = 1;
+            }
+
+            // Take away the points from remaining experience
+            ExperienceRemaining -= pointsAllocate;
+            if (ExperienceRemaining < 0)
+            {
+                pointsAllocate = 1;
+            }
+
+            return pointsAllocate;
+        }
+
 
         #region Items
         // Get the Item at a known string location (head, foot etc.)
