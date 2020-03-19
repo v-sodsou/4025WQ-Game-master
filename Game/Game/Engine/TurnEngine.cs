@@ -223,11 +223,12 @@ namespace Game.Engine
 
                     var d20 = DiceHelper.RollDice(1, 20);
 
-                    if (d20 == 1)
+                    // Enhanced feature. If we roll a 2, the character is reincarnated.
+                    if (d20 == 2)
                     {
                         Target.Alive = true;
                         Target.CurrentHealth = Target.GetMaxHealth();
-                        BattleMessagesModel.TurnMessageSpecial =
+                        BattleMessagesModel.TurnMessageSpecial +=
                             string.Format("\n{0} has been reincarnated!", Target.Name);
                         return false;
                     }
