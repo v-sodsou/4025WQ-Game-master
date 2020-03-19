@@ -442,13 +442,143 @@ namespace Game.Engine
         {
             // Choose Action.  Such as Move, Attack etc.
 
-            var result = Attack(Attacker);
+            // INFO: Teams, if you have other actions they would go here.
+
+            bool result = false;
+
+            // If the action is not set, then try to set it or use Attact
+            if (CurrentAction == ActionEnum.Unknown)
+            {
+                // Set the action if one is not set
+                CurrentAction = DetermineActionChoice(Attacker);
+
+                // When in doubt, attack...
+                if (CurrentAction == ActionEnum.Unknown)
+                {
+                    CurrentAction = ActionEnum.Attack;
+                }
+            }
+
+            switch (CurrentAction)
+            {
+                //case ActionEnum.Unknown:
+                //    // Action already happened
+                //    break;
+
+                case ActionEnum.Attack:
+                    result = Attack(Attacker);
+                    break;
+
+                case ActionEnum.Ability:
+                    result = UseAbility(Attacker);
+                    break;
+
+                case ActionEnum.Move:
+                    result = MoveAsTurn(Attacker);
+                    break;
+            }
 
             BattleScore.TurnCount++;
+
+            // Save the Previous Action off
+            PreviousAction = CurrentAction;
+
+            // Reset the Action to unknown for next time
+            CurrentAction = ActionEnum.Unknown;
 
             return result;
         }
 
+        /// <summary>
+        /// Determine what Actions to do
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public ActionEnum DetermineActionChoice(PlayerInfoModel Attacker)
+        {
+            // If it is the characters turn, and NOT auto battle, use what was sent into the engine
+            if (Attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                if (BattleScore.AutoBattle == false)
+                {
+                    return CurrentAction;
+                }
+            }
 
+            /*
+             * The following is Used for Monsters, and Auto Battle Characters
+             * 
+             * Order of Priority
+             * If can attack Then Attack
+             * Next use Ability or Move
+             */
+
+            // Assume Move if nothing else happens
+            CurrentAction = ActionEnum.Move;
+
+            // Check to see if ability is avaiable
+            if (ChooseToUseAbility(Attacker))
+            {
+                CurrentAction = ActionEnum.Ability;
+                return CurrentAction;
+            }
+
+            // See if Desired Target is within Range, and if so attack away
+            if (MapModel.IsTargetInRange(Attacker, AttackChoice(Attacker)))
+            {
+                CurrentAction = ActionEnum.Attack;
+            }
+
+            return CurrentAction;
+        }
+
+        /// <summary>
+        /// Use the Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool UseAbility(PlayerInfoModel Attacker)
+        {
+            BattleMessagesModel.TurnMessage = Attacker.Name + " Uses Ability " + CurrentActionAbility.ToMessage();
+            return (Attacker.UseAbility(CurrentActionAbility));
+        }
+
+        /// <summary>
+        /// Decide to use an Ability or not
+        /// 
+        /// Set the Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool ChooseToUseAbility(PlayerInfoModel Attacker)
+        {
+            // See if healing is needed.
+            CurrentActionAbility = Attacker.SelectHealingAbility();
+            if (CurrentActionAbility != AbilityEnum.Unknown)
+            {
+                CurrentAction = ActionEnum.Ability;
+                return true;
+            }
+
+            // If not needed, then role dice to see if other ability should be used
+            // <30% chance
+            if (DiceHelper.RollDice(1, 10) < 3)
+            {
+                CurrentActionAbility = Attacker.SelectAbilityToUse();
+
+                if (CurrentActionAbility != AbilityEnum.Unknown)
+                {
+                    // Ability can , switch to unknown to exit
+                    CurrentAction = ActionEnum.Ability;
+                    return true;
+                }
+
+                // No ability available
+                return false;
+            }
+
+            // Don't try
+            return false;
+        }
     }
 }
