@@ -7,17 +7,20 @@
     {
         Unknown = 0,
 
+        // Default for settings mode to use
+        Default = 1,
+
         // Miss
-        Miss = 1,
+        Miss = 10,
 
         // Critical Miss, miss and something bad happens
-        CriticalMiss = 10,
+        CriticalMiss = 15,
 
         // Hit
-        Hit = 5,
+        Hit = 20,
 
         // Critical Hit, bonus after hit happens
-        CriticalHit = 15
+        CriticalHit = 25
     }
 
     /// <summary>
