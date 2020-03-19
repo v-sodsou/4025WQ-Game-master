@@ -45,6 +45,15 @@ namespace Game.Models
         // Ending of the Html Block for Html formatting
         public string htmlTail = @"</p></body></html>";
 
+        // Turn Experience Earned Message
+        public string ExperienceEarned = string.Empty;
+
+        // Message when something bad happens with Critical Miss
+        public string BadCriticalMissMessage = string.Empty;
+
+        // Message when something Drops
+        public string DroppedMessage = string.Empty;
+
         /// <summary>
         /// Return formatted string
         /// </summary>
@@ -53,6 +62,30 @@ namespace Game.Models
         public string GetSwingResult()
         {
             return HitStatus.ToMessage();
+        }
+
+        /// <summary>
+        /// Clear all the messages
+        /// </summary>
+        /// <returns></returns>
+        public bool ClearMessages()
+        {
+
+            PlayerType = PlayerTypeEnum.Unknown;
+            HitStatus = HitStatusEnum.Unknown;
+            AttackerName = string.Empty;
+            TargetName = string.Empty;
+            AttackStatus = string.Empty;
+            TurnMessage = string.Empty;
+            TurnMessageSpecial = string.Empty;
+            ExperienceEarned = string.Empty;
+            LevelUpMessage = string.Empty;
+            BadCriticalMissMessage = string.Empty;
+
+            DamageAmount = 0;
+            CurrentHealth = 0;
+
+            return true;
         }
 
         /// <summary>
