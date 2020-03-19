@@ -1,5 +1,6 @@
 ﻿using Game.Helpers;
 using Game.Models;
+using Game.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -270,19 +271,26 @@ namespace Game.Engine
                 return false;
             }
 
-            BattleMessagesModel.TurnMessage = string.Empty;
-            BattleMessagesModel.TurnMessageSpecial = string.Empty;
-            BattleMessagesModel.AttackStatus = string.Empty;
+            //BattleMessagesModel.TurnMessage = string.Empty;
+            //BattleMessagesModel.TurnMessageSpecial = string.Empty;
+            //BattleMessagesModel.AttackStatus = string.Empty;
 
-            BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+            //BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
 
-            var AttackScore = Attacker.Level + Attacker.GetAttack();
-            var DefenseScore = Target.GetDefense() + Target.Level;
+            //var AttackScore = Attacker.Level + Attacker.GetAttack();
+            //var DefenseScore = Target.GetDefense() + Target.Level;
 
-            // Choose who to attack
+            //// Choose who to attack
 
-            BattleMessagesModel.TargetName = Target.Name;
-            BattleMessagesModel.AttackerName = Attacker.Name;
+            //BattleMessagesModel.TargetName = Target.Name;
+            //BattleMessagesModel.AttackerName = Attacker.Name;
+
+            /******** TESTING ******************************************/
+            // Set Messages to empty
+            BattleMessagesModel.ClearMessages();
+
+            // Do the Attack
+            CalculateAttackStatus(Attacker, Target);
 
             // Hackathon
             // Hackathon Scenario 2, Bob always misses
@@ -294,50 +302,216 @@ namespace Game.Engine
                 return true;
             }
 
-            BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+            //BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
 
-            Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
+            //Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
 
-            // It's a Miss
-            if (BattleMessagesModel.HitStatus == HitStatusEnum.Miss)
+            //// It's a Miss
+            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Miss)
+            //{
+            //    // Hackathon: Hack #18. Did you hear that?
+            //    //var player1 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            //    //Thread.Sleep(500);
+            //    //player1.Load("chimes.wav");
+            //    //player1.Play();
+
+            //    return true;
+            //}
+
+            //// It's a Hit
+            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
+            //{
+            //    // Hackathon: Hack #18. Did you hear that?
+            //    //var player2 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            //    //Thread.Sleep(500);
+            //    //player2.Load("notify.wav");
+            //    //player2.Play();
+
+            //    //Calculate Damage
+            //    BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
+
+            //    Target.TakeDamage(BattleMessagesModel.DamageAmount);
+            //}
+
+            //BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
+            //BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
+
+            //RemoveIfDead(Target);
+
+            //BattleMessagesModel.TurnMessage = string.Format("\"{0}\" attacks {1} \"{2}\" {3}",
+            //    Attacker.Name,
+            //    BattleMessagesModel.AttackStatus,
+            //    Target.Name,
+            //    BattleMessagesModel.TurnMessageSpecial);
+            //Debug.WriteLine(BattleMessagesModel.TurnMessage);
+
+            //return true;
+
+            /***************Testing******************************/
+            // See if the Battle Settings Overrides the Roll
+            BattleMessagesModel.HitStatus = BattleSettingsOverride(Attacker);
+
+            switch (BattleMessagesModel.HitStatus)
             {
-                // Hackathon: Hack #18. Did you hear that?
-                //var player1 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-                //Thread.Sleep(500);
-                //player1.Load("chimes.wav");
-                //player1.Play();
+                case HitStatusEnum.Miss:
+                    // It's a Miss
 
-                return true;
+                    break;
+
+                case HitStatusEnum.CriticalMiss:
+                    // It's a Critical Miss, so Bad things may happen
+                    DetermineCriticalMissProblem(Attacker);
+
+                    break;
+
+                case HitStatusEnum.CriticalHit:
+                case HitStatusEnum.Hit:
+                    // It's a Hit
+
+                    //Calculate Damage
+                    BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
+
+                    // If critical Hit, double the damage
+                    if (BattleMessagesModel.HitStatus == HitStatusEnum.CriticalHit)
+                    {
+                        BattleMessagesModel.DamageAmount *= 2;
+                    }
+
+                    // Apply the Damage
+                    ApplyDamage(Target);
+
+                    BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
+
+                    // Check if Dead and Remove
+                    RemoveIfDead(Target);
+
+                    // If it is a character apply the experience earned
+                    CalculateExperience(Attacker, Target);
+
+                    break;
             }
 
-            // It's a Hit
-            if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
-            {
-                // Hackathon: Hack #18. Did you hear that?
-                //var player2 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-                //Thread.Sleep(500);
-                //player2.Load("notify.wav");
-                //player2.Play();
-
-                //Calculate Damage
-                BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
-
-                Target.TakeDamage(BattleMessagesModel.DamageAmount);
-            }
-
-            BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
-            BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
-
-            RemoveIfDead(Target);
-
-            BattleMessagesModel.TurnMessage = string.Format("\"{0}\" attacks {1} \"{2}\" {3}",
-                Attacker.Name,
-                BattleMessagesModel.AttackStatus,
-                Target.Name,
-                BattleMessagesModel.TurnMessageSpecial);
+            BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial + BattleMessagesModel.ExperienceEarned;
             Debug.WriteLine(BattleMessagesModel.TurnMessage);
 
             return true;
+        }
+
+        /// <summary>
+        /// See if the Battle Settings will Override the Hit
+        /// Return the Override for the HitStatus
+        /// </summary>
+        /// <returns></returns>
+        public HitStatusEnum BattleSettingsOverride(PlayerInfoModel Attacker)
+        {
+            if (Attacker.PlayerType == PlayerTypeEnum.Monster)
+            {
+                return BattleSettingsOverrideHitStatusEnum(BattleSettingsModel.MonsterHitEnum);
+            }
+
+            return BattleSettingsOverrideHitStatusEnum(BattleSettingsModel.CharacterHitEnum);
+        }
+
+        /// <summary>
+        /// Return the Override for the HitStatus
+        /// </summary>
+        /// <param name="myEnum"></param>
+        /// <returns></returns>
+        public HitStatusEnum BattleSettingsOverrideHitStatusEnum(HitStatusEnum myEnum)
+        {
+            switch (myEnum)
+            {
+                case HitStatusEnum.Hit:
+                    BattleMessagesModel.AttackStatus = " somehow Hit ";
+                    return HitStatusEnum.Hit;
+
+                case HitStatusEnum.CriticalHit:
+                    BattleMessagesModel.AttackStatus = " somehow Critical Hit ";
+                    return HitStatusEnum.CriticalHit;
+
+                case HitStatusEnum.Miss:
+                    BattleMessagesModel.AttackStatus = " somehow Missed ";
+                    return HitStatusEnum.Miss;
+
+                case HitStatusEnum.CriticalMiss:
+                    BattleMessagesModel.AttackStatus = " somehow Critical Missed ";
+                    return HitStatusEnum.CriticalMiss;
+
+                case HitStatusEnum.Unknown:
+                case HitStatusEnum.Default:
+                default:
+                    // Return what it was
+                    return BattleMessagesModel.HitStatus;
+            }
+        }
+
+        /// <summary>
+        /// Apply the Damage to the Target
+        /// </summary>
+        /// <param name="Target"></param>
+        private void ApplyDamage(PlayerInfoModel Target)
+        {
+            Target.TakeDamage(BattleMessagesModel.DamageAmount);
+            BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
+        }
+
+        /// <summary>
+        /// Calculate Experience
+        /// Level up if needed
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <param name="Target"></param>
+        public bool CalculateExperience(PlayerInfoModel Attacker, PlayerInfoModel Target)
+        {
+            if (Attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                var points = " points";
+
+                var experienceEarned = Target.CalculateExperienceEarned(BattleMessagesModel.DamageAmount);
+
+                if (experienceEarned == 1)
+                {
+                    points = " point";
+                }
+
+                BattleMessagesModel.ExperienceEarned = " Earned " + experienceEarned + points;
+
+                var LevelUp = Attacker.AddExperience(experienceEarned);
+                if (LevelUp)
+                {
+                    BattleMessagesModel.LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetMaxHealthTotal;
+                    Debug.WriteLine(BattleMessagesModel.LevelUpMessage);
+                }
+
+                // Add Experinece to the Score
+                BattleScore.ExperienceGainedTotal += experienceEarned;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Calculate the Attack, return if it hit or missed.
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public HitStatusEnum CalculateAttackStatus(PlayerInfoModel Attacker, PlayerInfoModel Target)
+        {
+            // Remember Current Player
+            BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+
+            // Choose who to attack
+            BattleMessagesModel.TargetName = Target.Name;
+            BattleMessagesModel.AttackerName = Attacker.Name;
+
+            // Set Attack and Defense
+            var AttackScore = Attacker.Level + Attacker.GetAttack();
+            var DefenseScore = Target.GetDefense() + Target.Level;
+
+            BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+
+            return BattleMessagesModel.HitStatus;
         }
 
         /// <summary>
@@ -579,6 +753,114 @@ namespace Game.Engine
 
             // Don't try
             return false;
+        }
+
+        /// <summary>
+        /// Critical Miss Problem
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <returns></returns>
+        public bool DetermineCriticalMissProblem(PlayerInfoModel attacker)
+        {
+            // What was dropped
+            ItemModel droppedItem;
+
+            if (attacker == null)
+            {
+                BattleMessagesModel.BadCriticalMissMessage = " Critical Miss Problem: Invalid Character ";
+                Debug.WriteLine(BattleMessagesModel.BadCriticalMissMessage);
+
+                return false;
+            }
+
+            // Default Message
+            BattleMessagesModel.BadCriticalMissMessage = " Nothing Bad Happened ";
+
+            // It may be a critical miss, roll again and find out...
+            var rnd = DiceHelper.RollDice(1, 10);
+
+            /*
+                1. Primary Hand Item breaks, and is lost forever
+                2-4, Character Drops the Primary Hand Item back into the item pool
+                5-6, Character drops a random equipped item back into the item pool
+                7-10, Nothing bad happens, luck was with the attacker
+             */
+
+            BattleMessagesModel.BadCriticalMissMessage = " Luckly, nothing to drop from " + ItemLocationEnum.PrimaryHand;
+
+            switch (rnd)
+            {
+                case 1:
+
+                    var myItem = ItemIndexViewModel.Instance.GetItem(attacker.PrimaryHand);
+                    if (myItem != null)
+                    {
+                        BattleMessagesModel.BadCriticalMissMessage = " Item " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand + " Broke, and lost forever";
+                    }
+
+                    attacker.PrimaryHand = null;
+                    break;
+
+                case 2:
+                case 3:
+                case 4:
+                    // Put on the new item, which drops the one back to the pool
+                    droppedItem = attacker.AddItem(ItemLocationEnum.PrimaryHand, null);
+                    if (droppedItem != null)
+                    {
+                        // Add the dropped item to the pool
+                        ItemPool.Add(droppedItem);
+                        BattleMessagesModel.DroppedMessage = " Dropped " + droppedItem.Name + "\n";
+                        BattleScore.ItemModelDropList.Add(droppedItem);
+                        BattleMessagesModel.BadCriticalMissMessage = " Dropped " + droppedItem.Name + " from " + ItemLocationEnum.PrimaryHand;
+                    }
+                    break;
+
+                case 5:
+                case 6:
+                    var LocationRnd = DiceHelper.RollDice(1, ItemLocationEnumHelper.GetListCharacter.Count);
+                    var myLocationEnum = ItemLocationEnumHelper.GetLocationByPosition(LocationRnd);
+
+                    BattleMessagesModel.BadCriticalMissMessage = " Luckly, nothing to drop from " + myLocationEnum;
+
+                    // Put on the new item, which drops the one back to the pool
+                    droppedItem = attacker.AddItem(myLocationEnum, null);
+                    if (droppedItem != null)
+                    {
+                        // Add the dropped item to the pool
+                        ItemPool.Add(droppedItem);
+                        BattleMessagesModel.DroppedMessage = " Dropped " + droppedItem.Name + "\n";
+                        BattleScore.ItemModelDropList.Add(droppedItem);
+                        BattleMessagesModel.BadCriticalMissMessage = " Dropped " + droppedItem.Name + " from " + myLocationEnum;
+                    }
+                    else
+                    {
+                        // Did not have an item, see if monster
+                        if (attacker.PlayerType == PlayerTypeEnum.Monster)
+                        {
+                            // drop a random item
+                            droppedItem = GetRandomMonsterItemDrops(1).FirstOrDefault();
+                            if (droppedItem != null)
+                            {
+                                ItemPool.Add(droppedItem);
+                                BattleMessagesModel.DroppedMessage = " Dropped " + droppedItem.Name + "\n";
+                                BattleScore.ItemModelDropList.Add(droppedItem);
+                                BattleMessagesModel.BadCriticalMissMessage = " Dropped " + droppedItem.Name + " from " + myLocationEnum;
+                            }
+                        }
+                    }
+                    break;
+
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                default:
+                    BattleMessagesModel.BadCriticalMissMessage = " Relief, Nothing Bad Happened ";
+                    break;
+            }
+
+            return true;
         }
     }
 }
