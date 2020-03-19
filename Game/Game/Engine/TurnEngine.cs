@@ -220,6 +220,17 @@ namespace Game.Engine
             switch (Target.PlayerType)
             {
                 case PlayerTypeEnum.Character:
+
+                    var d20 = DiceHelper.RollDice(1, 20);
+
+                    if (d20 == 1)
+                    {
+                        Target.Alive = true;
+                        Target.CurrentHealth = Target.GetMaxHealth();
+                        BattleMessagesModel.TurnMessageSpecial =
+                            string.Format("\n{0} has been reincarnated!", Target.Name);
+                        return false;
+                    }
                     // Add the Character to the killed list
                     BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
 
