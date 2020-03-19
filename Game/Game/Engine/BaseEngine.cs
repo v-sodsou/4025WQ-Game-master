@@ -51,6 +51,15 @@ namespace Game.Engine
         // Hold the MapModel
         public MapModel MapModel = new MapModel();
 
+        // The Action 
+        public ActionEnum CurrentAction;
+
+        // The Action that just happened
+        public ActionEnum PreviousAction = ActionEnum.Unknown;
+
+        // When the current action is an ability, what ability was selected
+        public AbilityEnum CurrentActionAbility;
+
 
         #endregion Properties
     }
