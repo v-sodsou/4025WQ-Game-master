@@ -39,27 +39,43 @@ namespace Game.Engine
 
             if (d20 == 1)
             {
-                // Force Miss
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                BattleMessagesModel.AttackStatus = " rolls 1 to miss ";
+
+                if (BattleSettingsModel.AllowCriticalMiss)
+                {
+                    BattleMessagesModel.AttackStatus = " rolls 1 to completly miss ";
+                    BattleMessagesModel.HitStatus = HitStatusEnum.CriticalMiss;
+                }
+
                 return BattleMessagesModel.HitStatus;
             }
 
             if (d20 == 20)
             {
-                // Force Hit
+                BattleMessagesModel.AttackStatus = " rolls 20 for hit ";
                 BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+
+                if (BattleSettingsModel.AllowCriticalHit)
+                {
+                    BattleMessagesModel.AttackStatus = " rolls 20 for lucky hit ";
+                    BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
+                }
                 return BattleMessagesModel.HitStatus;
             }
 
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
-                BattleMessagesModel.AttackStatus = " misses ";
+                BattleMessagesModel.AttackStatus = string.Format(" rolls {0} and misses ", d20);
+
                 // Miss
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
                 BattleMessagesModel.DamageAmount = 0;
                 return BattleMessagesModel.HitStatus;
             }
+
+            BattleMessagesModel.AttackStatus = string.Format(" rolls {0} and hits ", d20);
 
             // Hit
             BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
