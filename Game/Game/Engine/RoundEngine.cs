@@ -223,7 +223,9 @@ namespace Game.Engine
             // Set Order for the Round
             OrderPlayerListByTurnOrder();
 
-           
+            // Populate MapModel with Characters and Monsters
+            MapModel.PopulateMapModel(PlayerList);
+
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
 
@@ -262,7 +264,7 @@ namespace Game.Engine
 
             for (var i = 0; i < MaxNumberPartyMonsters; i++)
             {
-                var data = Helpers.RandomPlayerHelper.GetRandomMonster(TargetLevel);
+                var data = Helpers.RandomPlayerHelper.GetRandomMonster(TargetLevel, BattleSettingsModel.AllowMonsterItems);
 
                 // Help identify which Monster it is
                 data.Name += " " + MonsterList.Count() + 1;

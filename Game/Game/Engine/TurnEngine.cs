@@ -39,27 +39,43 @@ namespace Game.Engine
 
             if (d20 == 1)
             {
-                // Force Miss
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                BattleMessagesModel.AttackStatus = " rolls 1 to miss ";
+
+                if (BattleSettingsModel.AllowCriticalMiss)
+                {
+                    BattleMessagesModel.AttackStatus = " rolls 1 to completly miss ";
+                    BattleMessagesModel.HitStatus = HitStatusEnum.CriticalMiss;
+                }
+
                 return BattleMessagesModel.HitStatus;
             }
 
             if (d20 == 20)
             {
-                // Force Hit
+                BattleMessagesModel.AttackStatus = " rolls 20 for hit ";
                 BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+
+                if (BattleSettingsModel.AllowCriticalHit)
+                {
+                    BattleMessagesModel.AttackStatus = " rolls 20 for lucky hit ";
+                    BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
+                }
                 return BattleMessagesModel.HitStatus;
             }
 
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
-                BattleMessagesModel.AttackStatus = " misses ";
+                BattleMessagesModel.AttackStatus = string.Format(" rolls {0} and misses ", d20);
+
                 // Miss
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
                 BattleMessagesModel.DamageAmount = 0;
                 return BattleMessagesModel.HitStatus;
             }
+
+            BattleMessagesModel.AttackStatus = string.Format(" rolls {0} and hits ", d20);
 
             // Hit
             BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
@@ -271,21 +287,7 @@ namespace Game.Engine
                 return false;
             }
 
-            //BattleMessagesModel.TurnMessage = string.Empty;
-            //BattleMessagesModel.TurnMessageSpecial = string.Empty;
-            //BattleMessagesModel.AttackStatus = string.Empty;
 
-            //BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
-
-            //var AttackScore = Attacker.Level + Attacker.GetAttack();
-            //var DefenseScore = Target.GetDefense() + Target.Level;
-
-            //// Choose who to attack
-
-            //BattleMessagesModel.TargetName = Target.Name;
-            //BattleMessagesModel.AttackerName = Attacker.Name;
-
-            /******** TESTING ******************************************/
             // Set Messages to empty
             BattleMessagesModel.ClearMessages();
 
@@ -302,52 +304,6 @@ namespace Game.Engine
                 return true;
             }
 
-            //BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
-
-            //Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
-
-            //// It's a Miss
-            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Miss)
-            //{
-            //    // Hackathon: Hack #18. Did you hear that?
-            //    //var player1 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            //    //Thread.Sleep(500);
-            //    //player1.Load("chimes.wav");
-            //    //player1.Play();
-
-            //    return true;
-            //}
-
-            //// It's a Hit
-            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
-            //{
-            //    // Hackathon: Hack #18. Did you hear that?
-            //    //var player2 = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            //    //Thread.Sleep(500);
-            //    //player2.Load("notify.wav");
-            //    //player2.Play();
-
-            //    //Calculate Damage
-            //    BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
-
-            //    Target.TakeDamage(BattleMessagesModel.DamageAmount);
-            //}
-
-            //BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
-            //BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
-
-            //RemoveIfDead(Target);
-
-            //BattleMessagesModel.TurnMessage = string.Format("\"{0}\" attacks {1} \"{2}\" {3}",
-            //    Attacker.Name,
-            //    BattleMessagesModel.AttackStatus,
-            //    Target.Name,
-            //    BattleMessagesModel.TurnMessageSpecial);
-            //Debug.WriteLine(BattleMessagesModel.TurnMessage);
-
-            //return true;
-
-            /***************Testing******************************/
             // See if the Battle Settings Overrides the Roll
             BattleMessagesModel.HitStatus = BattleSettingsOverride(Attacker);
 
