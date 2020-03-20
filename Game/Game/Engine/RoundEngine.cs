@@ -121,11 +121,7 @@ namespace Game.Engine
         public bool PickupItemsFromPool(PlayerInfoModel character)
         {
 
-            // TODO: Teams, You need to implement your own Logic if not using auto apply
-
-            // I use the same logic for Auto Battle as I do for Manual Battle
-
-            //if (BattleScore.AutoBattle)
+            // The idea is to auto assign items at the end of each round.
             {
                 // Have the character, walk the items in the pool, and decide if any are better than current one.
 
@@ -252,7 +248,6 @@ namespace Game.Engine
         /// <returns></returns>
         public int AddMonstersToRound()
         {
-            // TODO: Teams, You need to implement your own Logic can not use mine.
 
             int TargetLevel = 1;
 
