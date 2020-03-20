@@ -15,7 +15,7 @@ namespace Game.Views
         private bool v;
 
         // The character to create
-        GenericViewModel<MonsterModel> ViewModel { get; set; }
+        public GenericViewModel<MonsterModel> ViewModel { get; set; }
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -53,7 +53,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
@@ -64,7 +64,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void SaveMonster_Clicked(object sender, EventArgs e)
+        public async void SaveMonster_Clicked(object sender, EventArgs e)
         {
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
