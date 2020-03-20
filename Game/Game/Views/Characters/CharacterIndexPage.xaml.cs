@@ -33,6 +33,9 @@ namespace Game.Views
             ItemsListView.SelectedItem = null;
         }
 
+        // Empty Constructor for UTs
+        public CharacterIndexPage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor for  Index Page
         /// 
@@ -50,7 +53,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddCharacter_Clicked(object sender, EventArgs e)
+        public async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
         }
