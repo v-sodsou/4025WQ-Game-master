@@ -14,7 +14,7 @@ namespace Game.Views
     public partial class CharacterCreatePage : ContentPage
     {
         // The character to create
-        GenericViewModel<CharacterModel> ViewModel { get; set; }
+        public GenericViewModel<CharacterModel> ViewModel { get; set; }
 
         // Empty Constructor for Tests
         public CharacterCreatePage(bool UnitTest) { }
@@ -51,7 +51,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void SaveCharacter_Clicked(object sender, EventArgs e)
+        public async void SaveCharacter_Clicked(object sender, EventArgs e)
         {
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
@@ -93,7 +93,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
