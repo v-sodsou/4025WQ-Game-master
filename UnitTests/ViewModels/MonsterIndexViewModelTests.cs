@@ -247,29 +247,6 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(6, countAfter); // Count of 0 for the load was skipped
         }
 
-        [Test]
-        public async Task MonsterIndexViewModel_Update_Valid_Should_Pass()
-        {
-            // Arrange
-            await ViewModel.CreateAsync(new MonsterModel());
-
-            // Find the First ID
-            var first = ViewModel.Dataset.FirstOrDefault();
-
-            // Make a new item
-            first.Name = "New Item";
-            first.Level = 1000;
-
-            // Act
-            var result = await ViewModel.UpdateAsync(first);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(true, result);  // Update returned Pas
-            Assert.AreEqual("New Item", first.Name);  // The Name was updated
-            Assert.AreEqual(1000, first.Level);  // The Value was updated
-        }
 
         [Test]
         public async Task MonsterIndexViewModel_Update_Invalid_Bogus_Should_Fail()
@@ -370,6 +347,142 @@ namespace UnitTests.ViewModels
 
             // Assert
             Assert.AreEqual(true, ViewModel.Dataset.Count() > 0); // Check that there are rows of data
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_ExecuteLoadDataCommand_Valid_IsBusy_Should_Pass()
+        {
+            // Arrange
+
+            // Setting IsBusy will have the Load skip
+            ViewModel.IsBusy = true;
+
+            // Clear the Dataset, so no records
+            ViewModel.Dataset.Clear();
+
+            // Act
+            ViewModel.LoadDatasetCommand.Execute(null);
+            var count = ViewModel.Dataset.Count();  // Remember how many records exist
+
+            // Reset
+            ViewModel.IsBusy = false;
+
+            // Assert
+            Assert.AreEqual(0, count); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_SetDataSource_SQL_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.SetDataSource(1);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_SetDataSource_Mock_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.SetDataSource(0);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_CreateUpdateAsync_Valid_Create_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel
+            {
+                Name = "New Item"
+            };
+
+            // Act
+            var result = await ViewModel.CreateUpdateAsync(data);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_CreateUpdateAsync_Valid_Update_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel
+            {
+                Name = "New Item"
+            };
+
+            await ViewModel.CreateUpdateAsync(data);
+
+            data.Name = "Updated";
+
+            // Act
+            var result = await ViewModel.CreateUpdateAsync(data);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_CreateUpdateAsync_InValid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.CreateUpdateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_Create_Sync_Valid_Update_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel
+            {
+                Name = "New Item"
+            };
+
+            // Act
+            var result = ViewModel.Create_Sync(data);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_Create_Sync_InValid_Null_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel.Create_Sync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);  // Update returned Pass
         }
     }
 }
