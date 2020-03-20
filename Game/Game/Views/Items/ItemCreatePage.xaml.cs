@@ -36,6 +36,10 @@ namespace Game.Views
             AttributePicker.SelectedItem = data.Data.Attribute.ToString();
         }
 
+        public ItemCreatePage()
+        {
+        }
+
         /// <summary>
         /// Save by calling for Create
         /// </summary>
