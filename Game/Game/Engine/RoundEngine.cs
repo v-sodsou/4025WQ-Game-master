@@ -121,14 +121,6 @@ namespace Game.Engine
         public bool PickupItemsFromPool(PlayerInfoModel character)
         {
 
-<<<<<<< HEAD
-
-            // I use the same logic for Auto Battle as I do for Manual Battle
-
-            //if (BattleScore.AutoBattle)
-=======
-            // The idea is to auto assign items at the end of each round.
->>>>>>> fe30bfaae76b09022a74a4ef2ee3487e1bff60f0
             {
                 // Have the character, walk the items in the pool, and decide if any are better than current one.
 
@@ -255,10 +247,6 @@ namespace Game.Engine
         /// <returns></returns>
         public int AddMonstersToRound()
         {
-<<<<<<< HEAD
-
-=======
->>>>>>> fe30bfaae76b09022a74a4ef2ee3487e1bff60f0
 
             int TargetLevel = 1;
 
