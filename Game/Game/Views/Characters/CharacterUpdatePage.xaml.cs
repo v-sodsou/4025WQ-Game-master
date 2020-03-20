@@ -18,7 +18,7 @@ namespace Game.Views.Characters
     public partial class CharacterUpdatePage : ContentPage
     {
         // View Model for data binding
-        readonly GenericViewModel<CharacterModel> ViewModel;
+        public readonly GenericViewModel<CharacterModel> ViewModel;
 
         // Empty Constructor for Tests
         public CharacterUpdatePage(bool UnitTest) { }
@@ -39,7 +39,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Update", ViewModel.Data);
 
@@ -51,7 +51,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             // Pop the modal Update page off the ModalStack
             await Navigation.PopModalAsync();
@@ -71,7 +71,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void ValueStepperAttack(object sender, ValueChangedEventArgs e)
+        public void ValueStepperAttack(object sender, ValueChangedEventArgs e)
         {
             ValueAttack.Text = string.Format("{0}", e.NewValue);
         }
@@ -81,7 +81,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void ValueStepperDefense(object sender, ValueChangedEventArgs e)
+        public void ValueStepperDefense(object sender, ValueChangedEventArgs e)
         {
             ValueDefense.Text = string.Format("{0}", e.NewValue);
         }
@@ -91,7 +91,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void ValueStepperSpeed(object sender, ValueChangedEventArgs e)
+        public void ValueStepperSpeed(object sender, ValueChangedEventArgs e)
         {
             ValueSpeed.Text = string.Format("{0}", e.NewValue);
         }
