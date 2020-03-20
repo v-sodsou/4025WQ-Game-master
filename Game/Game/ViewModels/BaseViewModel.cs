@@ -164,6 +164,22 @@ namespace Game.ViewModels
         }
 
         /// <summary>
+        /// Wipes the current Data from the Data Store
+        /// </summary>
+        public async Task<bool> DataStoreWipeDataListAsync()
+        {
+            Dataset.Clear();
+
+            await DataStore.WipeDataListAsync();
+
+            // Load the Sample Data
+            var result = await LoadDefaultDataAsync();
+
+            return result;
+        }
+
+
+        /// <summary>
         /// Get the Default Data
         /// The ViewModel will Implement
         /// </summary>
