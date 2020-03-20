@@ -1,7 +1,10 @@
-﻿using Game.ViewModels;
+﻿using Game.Models;
+using Game.ViewModels;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms.Mocks;
 
@@ -46,6 +49,61 @@ namespace UnitTests.ViewModels
 
             // Assert
             Assert.IsNotNull(result.Engine);
+        }
+
+        [Test]
+        public void BattleEngineViewModel_Get_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result.DatabaseCharacterList);
+            Assert.IsNotNull(result.PartyCharacterList);
+        }
+
+        [Test]
+        public void BattleEngineViewModel_Add_Default_Should_Pass()
+        {
+            // Arrange
+            var result = ViewModel;
+
+            var countBefore = result.DatabaseCharacterList.Count();
+
+            // Act
+            result.DatabaseCharacterList.Add(new CharacterModel());
+            result.PartyCharacterList.Add(new CharacterModel());
+
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(countBefore + 1, result.DatabaseCharacterList.Count());
+            Assert.AreEqual(1, result.PartyCharacterList.Count());
+        }
+
+        [Test]
+        public void BattleEngineViewModel_Set_Default_Should_Pass()
+        {
+            // Arrange
+            var result = ViewModel;
+
+            var countBefore = result.DatabaseCharacterList.Count();
+
+            // Act
+            result.DatabaseCharacterList = new ObservableCollection<CharacterModel>();
+            result.PartyCharacterList = new ObservableCollection<CharacterModel>();
+
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.DatabaseCharacterList.Count());
+            Assert.AreEqual(0, result.PartyCharacterList.Count());
         }
     }
 }
