@@ -268,5 +268,78 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(6, countAfter); // Count of 0 for the load was skipped
         }
+
+        [Test]
+        public async Task MonsterIndexViewModel_Update_Valid_Should_Pass()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new MonsterModel());
+
+            // Find the First ID
+            var first = ViewModel.Dataset.FirstOrDefault();
+
+            // Make a new item
+            first.Name = "New Item";
+            first.Level = 1000;
+
+            // Act
+            var result = await ViewModel.UpdateAsync(first);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pas
+            Assert.AreEqual("New Item", first.Name);  // The Name was updated
+            Assert.AreEqual(1000, first.Level);  // The Value was updated
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_Update_Invalid_Bogus_Should_Fail()
+        {
+            // Arrange
+
+            // Update only updates what is in the list, so update on something that does not exist will fail
+            var newData = new MonsterModel();
+
+            // Act
+            var result = await ViewModel.UpdateAsync(newData);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);  // Update returned fail
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_Update_Invalid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.UpdateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_Create_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel
+            {
+                Name = "New Item"
+            };
+
+            // Act
+            var result = await ViewModel.CreateAsync(data);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);  // Update returned Pass
+        }
     }
 }
