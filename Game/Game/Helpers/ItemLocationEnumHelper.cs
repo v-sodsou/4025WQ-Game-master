@@ -8,7 +8,7 @@ namespace Game.Helpers
     /// <summary>
     /// ItemLocationEnumHelper class
     /// </summary>
-    class ItemLocationEnumHelper
+    public class ItemLocationEnumHelper
     {
         /// <summary>
         /// Gets the list of locations that an Item can have.
