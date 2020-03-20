@@ -31,14 +31,14 @@ namespace Game.Views.Characters
         }
 
         // Character Delete Button Click Event
-        async void CharacterDelete_Clicked(object sender, EventArgs e)
+        public async void CharacterDelete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", viewModel.Data);
             await Navigation.PopModalAsync();
         }
 
         // Character Cancel button click event
-        async void CharacterCancel_Clicked(object sender, EventArgs e)
+        public async void CharacterCancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
@@ -48,5 +48,6 @@ namespace Game.Views.Characters
         {
             return true;
         }
+
     }
 }
