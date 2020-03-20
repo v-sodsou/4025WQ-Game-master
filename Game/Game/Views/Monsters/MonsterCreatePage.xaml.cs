@@ -12,6 +12,8 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class MonsterCreatePage : ContentPage
     {
+        private bool v;
+
         // The character to create
         GenericViewModel<MonsterModel> ViewModel { get; set; }
 
@@ -28,6 +30,11 @@ namespace Game.Views
 
             this.ViewModel.Title = "Create Monster";
 
+        }
+
+        public MonsterCreatePage(bool v)
+        {
+            this.v = v;
         }
 
 
