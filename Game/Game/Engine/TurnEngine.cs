@@ -493,7 +493,6 @@ namespace Game.Engine
         {
 
             /*
-             * TODO: TEAMS Work out your own move logic if you are implementing move
              * 
              * Mike's Logic
              * The monster or charcter will move to a different square if one is open
