@@ -33,5 +33,19 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BattleEngineViewModel_Constructor_BattleEngine_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ViewModel;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result.Engine);
+        }
     }
 }
