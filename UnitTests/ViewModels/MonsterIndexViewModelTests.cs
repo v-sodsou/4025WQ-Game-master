@@ -202,28 +202,6 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
         }
 
-        [Test]
-        public async Task MonsterIndexViewModel_Message_Update_Valid_Should_Pass()
-        {
-            // Arrange
-            await ViewModel.CreateAsync(new MonsterModel());
-
-            // Get the item to delete
-            var first = ViewModel.Dataset.FirstOrDefault();
-            first.Name = "test";
-
-            // Make a Delete Page
-            var myPage = new Game.Views.MonsterUpdatePage(true);
-
-            // Act
-            MessagingCenter.Send(myPage, "Update", first);
-            var result = await ViewModel.ReadAsync(first.Id);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual("test", result.Name); // Count of 0 for the load was skipped
-        }
 
         [Test]
         public async Task MonsterIndexViewModel_Message_SetDataSource_Valid_Should_Pass()
@@ -340,6 +318,58 @@ namespace UnitTests.ViewModels
 
             // Assert
             Assert.AreEqual(true, result);  // Update returned Pass
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_Create_InValid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ViewModel.CreateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_ExecuteLoadDataCommand_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Clear the Dataset, so no records
+            ViewModel.Dataset.Clear();
+
+            // Act
+            ViewModel.LoadDatasetCommand.Execute(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, ViewModel.Dataset.Count() > 0); // Check that there are rows of data
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_ExecuteLoadDataCommand_InValid_Exception_Should_Fail()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new MonsterModel());
+            var oldDataset = ViewModel.Dataset;
+
+            // Null dataset will throw
+
+            ViewModel.Dataset = null;
+
+            // Act
+            ViewModel.LoadDatasetCommand.Execute(null);
+
+            // Reset
+            ViewModel.Dataset = oldDataset;
+
+            // Assert
+            Assert.AreEqual(true, ViewModel.Dataset.Count() > 0); // Check that there are rows of data
         }
     }
 }
